@@ -12,6 +12,14 @@
 		923D9358226E16610006ED17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923D9356226E16610006ED17 /* LaunchScreen.storyboard */; };
 		923D9363226E16620006ED17 /* Mini_Challenge_IIITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9362226E16620006ED17 /* Mini_Challenge_IIITests.swift */; };
 		923D936E226E16620006ED17 /* Mini_Challenge_IIIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D936D226E16620006ED17 /* Mini_Challenge_IIIUITests.swift */; };
+		923D937F226E19330006ED17 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D937E226E19330006ED17 /* Page.swift */; };
+		923D9381226E19720006ED17 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9380226E19720006ED17 /* PageCell.swift */; };
+		923D9384226E199E0006ED17 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9383226E199E0006ED17 /* Extensions.swift */; };
+		923D9386226E1A200006ED17 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9385226E1A200006ED17 /* LoginController.swift */; };
+		923D9388226E1A390006ED17 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9387226E1A390006ED17 /* LoginCell.swift */; };
+		923D938A226E1A6C0006ED17 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9389226E1A6C0006ED17 /* MainNavigationController.swift */; };
+		923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */; };
+		923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D938E226E1AA70006ED17 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +51,14 @@
 		923D9369226E16620006ED17 /* Mini Challenge IIIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mini Challenge IIIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		923D936D226E16620006ED17 /* Mini_Challenge_IIIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini_Challenge_IIIUITests.swift; sourceTree = "<group>"; };
 		923D936F226E16620006ED17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		923D937E226E19330006ED17 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		923D9380226E19720006ED17 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		923D9383226E199E0006ED17 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		923D9385226E1A200006ED17 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		923D9387226E1A390006ED17 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
+		923D9389226E1A6C0006ED17 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
+		923D938E226E1AA70006ED17 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +109,11 @@
 		923D934C226E16610006ED17 /* Mini Challenge III */ = {
 			isa = PBXGroup;
 			children = (
+				923D938B226E1A7C0006ED17 /* Helpers */,
+				923D9382226E19870006ED17 /* Extension */,
+				923D937D226E182D0006ED17 /* Controller */,
+				923D937C226E18290006ED17 /* View */,
+				923D937B226E17EC0006ED17 /* Model */,
 				923D934D226E16610006ED17 /* AppDelegate.swift */,
 				923D9354226E16610006ED17 /* Assets.xcassets */,
 				923D9356226E16610006ED17 /* LaunchScreen.storyboard */,
@@ -117,6 +138,49 @@
 				923D936F226E16620006ED17 /* Info.plist */,
 			);
 			path = "Mini Challenge IIIUITests";
+			sourceTree = "<group>";
+		};
+		923D937B226E17EC0006ED17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				923D937E226E19330006ED17 /* Page.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		923D937C226E18290006ED17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				923D9380226E19720006ED17 /* PageCell.swift */,
+				923D9387226E1A390006ED17 /* LoginCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		923D937D226E182D0006ED17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				923D9385226E1A200006ED17 /* LoginController.swift */,
+				923D9389226E1A6C0006ED17 /* MainNavigationController.swift */,
+				923D938E226E1AA70006ED17 /* CustomTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		923D9382226E19870006ED17 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				923D9383226E199E0006ED17 /* Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		923D938B226E1A7C0006ED17 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +313,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923D937F226E19330006ED17 /* Page.swift in Sources */,
 				923D934E226E16610006ED17 /* AppDelegate.swift in Sources */,
+				923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */,
+				923D9381226E19720006ED17 /* PageCell.swift in Sources */,
+				923D9384226E199E0006ED17 /* Extensions.swift in Sources */,
+				923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */,
+				923D938A226E1A6C0006ED17 /* MainNavigationController.swift in Sources */,
+				923D9386226E1A200006ED17 /* LoginController.swift in Sources */,
+				923D9388226E1A390006ED17 /* LoginCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
