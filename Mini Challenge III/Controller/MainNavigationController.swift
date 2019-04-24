@@ -12,7 +12,6 @@ class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         if isLoggedIn() {
             //assume user is logged in
             let homeController = CustomTabBarController()
