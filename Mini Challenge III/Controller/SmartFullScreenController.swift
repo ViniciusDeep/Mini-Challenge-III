@@ -10,6 +10,9 @@ import UIKit
 
 
 class SmartFullScreenController: UITableViewController {
+  
+    var dismissHandler: (() ->())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -30,21 +33,29 @@ class SmartFullScreenController: UITableViewController {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.item  == 0 {
-            let cell = UITableViewCell()
-            let smartCell = SmartCell()
-            cell.addSubview(smartCell)
-            smartCell.centerInSuperview(size: .init(width: 250, height: 250))
-            return cell
-        }
-        let cell = SmartFullScreenDescriptionCell()
-        return cell
+    @objc fileprivate func handleDismiss(button: UIButton) {
+        button.isHidden = true
+        dismissHandler?()
     }
     
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.item == 0 {
+            let smartFullScreenHeaderCell = SmartFullScreenHeaderCell()
+            smartFullScreenHeaderCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+            return smartFullScreenHeaderCell
+        }
+        
+        
+        
+        let cell = SmartFullScreenDescriptionCell()
+        return cell
+
+    }
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 450
     }
+    
     
 }
