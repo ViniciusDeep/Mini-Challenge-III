@@ -15,8 +15,9 @@ class CustomTabBarController: UITabBarController{
     }
     fileprivate func setComponentsInTab() {
        viewControllers = [
-                          createNav(viewController: SmartController(), title: "Home", imageNamed: "today"),
-                          createNav(viewController: UIViewController(), title: "Search", imageNamed: "search")
+                          createNav(viewController: UIViewController(), title: "Home", imageNamed: "today"),
+                          createNav(viewController: UIViewController(), title: "Search", imageNamed: "search"),
+                          createNav(viewController: SmartController(), title: "Smart", imageNamed: "smartTab")
                          ]
     }
     
