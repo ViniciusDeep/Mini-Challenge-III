@@ -60,12 +60,3 @@ class LeftPaddedTextField: UITextField {
     }
     
 }
-
-
-
-
-
-
-
-
-

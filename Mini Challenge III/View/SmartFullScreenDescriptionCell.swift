@@ -10,19 +10,15 @@ import UIKit
 
 class SmartFullScreenDescriptionCell: UITableViewCell {
     
-    
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         
         let attributedText = NSMutableAttributedString(string: "Specific", attributes: [.foregroundColor: UIColor.black])
-        
         attributedText.append(NSAttributedString(string: " Your goal should be clear and specific, otherwise you won't be able to focus your efforts or feel truly motivated to achieve it. When drafting your goal, try to answer the five W questions:", attributes: [.foregroundColor: UIColor.gray]))
         
         attributedText.append(NSAttributedString(string: "\n\n\nExample:", attributes: [.foregroundColor: UIColor.black]))
-        
         attributedText.append(NSAttributedString(string: "\nImagine that you are currently a marketing executive, and you'd like to become head of marketing. A specific goal could be, I want to gain the skills and experience necessary to become head of marketing within my organization, so that I can build my career and lead a successful team.", attributes: [.foregroundColor: UIColor.gray]))
         
-       
         label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         label.attributedText = attributedText
         label.numberOfLines = 0
@@ -37,5 +33,4 @@ class SmartFullScreenDescriptionCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

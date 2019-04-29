@@ -100,4 +100,3 @@ fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [Stri
 fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
     return input.rawValue
 }
-

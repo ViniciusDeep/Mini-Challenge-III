@@ -33,4 +33,3 @@ class SmartFullScreenHeaderCell: UITableViewCell {
     }
     
 }
-

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SmartFullScreenController: UITableViewController {
   
     var dismissHandler: (() ->())?
@@ -18,17 +17,6 @@ class SmartFullScreenController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
     }
-    
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = SmartCell()
-//        return header
-//    }
-//
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 450
-//    }
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -37,7 +25,6 @@ class SmartFullScreenController: UITableViewController {
         button.isHidden = true
         dismissHandler?()
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.item == 0 {

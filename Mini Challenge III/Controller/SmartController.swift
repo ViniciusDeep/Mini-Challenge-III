@@ -19,14 +19,11 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
         collectionView.backgroundColor = #colorLiteral(red: 0.948936522, green: 0.9490727782, blue: 0.9489068389, alpha: 1)
         collectionView.register(SmartCell.self, forCellWithReuseIdentifier: cellId)
     }
-    
     var smartFullScreenController: SmartFullScreenController!
-    
     var topConstraint: NSLayoutConstraint?
     var leadingConstraint: NSLayoutConstraint?
     var widthConstraint: NSLayoutConstraint?
     var heightConstraint: NSLayoutConstraint?
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let smartFullScreenController = SmartFullScreenController()
@@ -36,13 +33,10 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
         let redView = smartFullScreenController.view!
         redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView)))
         view.addSubview(redView)
-        
         addChild(smartFullScreenController)
         
         self.smartFullScreenController = smartFullScreenController
-        
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
-        
         // absolute coordindates of cell
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
         
@@ -55,12 +49,9 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
         leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
         widthConstraint = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
         heightConstraint = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
-        
         [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({$0?.isActive = true})
         self.view.layoutIfNeeded()
-        
         redView.layer.cornerRadius = 16
-        
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             
             self.topConstraint?.constant = 0

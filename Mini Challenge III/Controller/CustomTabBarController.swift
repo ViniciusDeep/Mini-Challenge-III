@@ -20,9 +20,10 @@ class CustomTabBarController: UITabBarController{
                           createNav(viewController: SmartController(), title: "Smart", imageNamed: "smartTab")
                          ]
     }
-    
     fileprivate func createNav(viewController: UIViewController, title: String, imageNamed: String) -> UINavigationController {
         let navVc = UINavigationController(rootViewController: viewController)
+        viewController.view.backgroundColor = .white
+        navVc.navigationBar.prefersLargeTitles = true
         viewController.navigationItem.title = title
         navVc.tabBarItem.title = title
         navVc.tabBarItem.image = UIImage(named: imageNamed)
@@ -35,4 +36,3 @@ class CustomTabBarController: UITabBarController{
         present(loginController, animated: true, completion: nil)
     }
 }
-
