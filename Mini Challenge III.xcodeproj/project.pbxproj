@@ -20,6 +20,12 @@
 		923D938A226E1A6C0006ED17 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9389226E1A6C0006ED17 /* MainNavigationController.swift */; };
 		923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */; };
 		923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D938E226E1AA70006ED17 /* CustomTabBarController.swift */; };
+		923D9391226FA0050006ED17 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9390226FA0050006ED17 /* BaseListController.swift */; };
+		9280F190227006600071D341 /* SmartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F18F227006600071D341 /* SmartController.swift */; };
+		9280F192227009AA0071D341 /* SmartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F191227009AA0071D341 /* SmartCell.swift */; };
+		9280F19422701DF60071D341 /* SmartFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F19322701DF60071D341 /* SmartFullScreenController.swift */; };
+		9280F196227020950071D341 /* SmartFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F195227020950071D341 /* SmartFullScreenDescriptionCell.swift */; };
+		9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,12 @@
 		923D9389226E1A6C0006ED17 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
 		923D938E226E1AA70006ED17 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		923D9390226FA0050006ED17 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
+		9280F18F227006600071D341 /* SmartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartController.swift; sourceTree = "<group>"; };
+		9280F191227009AA0071D341 /* SmartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCell.swift; sourceTree = "<group>"; };
+		9280F19322701DF60071D341 /* SmartFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartFullScreenController.swift; sourceTree = "<group>"; };
+		9280F195227020950071D341 /* SmartFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
+		9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmarFullScreenHeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +165,9 @@
 			children = (
 				923D9380226E19720006ED17 /* PageCell.swift */,
 				923D9387226E1A390006ED17 /* LoginCell.swift */,
+				9280F191227009AA0071D341 /* SmartCell.swift */,
+				9280F195227020950071D341 /* SmartFullScreenDescriptionCell.swift */,
+				9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +178,9 @@
 				923D9385226E1A200006ED17 /* LoginController.swift */,
 				923D9389226E1A6C0006ED17 /* MainNavigationController.swift */,
 				923D938E226E1AA70006ED17 /* CustomTabBarController.swift */,
+				923D9390226FA0050006ED17 /* BaseListController.swift */,
+				9280F18F227006600071D341 /* SmartController.swift */,
+				9280F19322701DF60071D341 /* SmartFullScreenController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +211,7 @@
 				923D9346226E16610006ED17 /* Sources */,
 				923D9347226E16610006ED17 /* Frameworks */,
 				923D9348226E16610006ED17 /* Resources */,
+				92DC5FC1227684F900F2BFF0 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -308,20 +327,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		92DC5FC1227684F900F2BFF0 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		923D9346226E16610006ED17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923D9391226FA0050006ED17 /* BaseListController.swift in Sources */,
+				9280F192227009AA0071D341 /* SmartCell.swift in Sources */,
 				923D937F226E19330006ED17 /* Page.swift in Sources */,
 				923D934E226E16610006ED17 /* AppDelegate.swift in Sources */,
+				9280F196227020950071D341 /* SmartFullScreenDescriptionCell.swift in Sources */,
+				9280F190227006600071D341 /* SmartController.swift in Sources */,
 				923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */,
 				923D9381226E19720006ED17 /* PageCell.swift in Sources */,
 				923D9384226E199E0006ED17 /* Extensions.swift in Sources */,
 				923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */,
 				923D938A226E1A6C0006ED17 /* MainNavigationController.swift in Sources */,
+				9280F19422701DF60071D341 /* SmartFullScreenController.swift in Sources */,
 				923D9386226E1A200006ED17 /* LoginController.swift in Sources */,
 				923D9388226E1A390006ED17 /* LoginCell.swift in Sources */,
+				9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

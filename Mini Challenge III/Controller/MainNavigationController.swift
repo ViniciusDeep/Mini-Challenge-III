@@ -12,7 +12,6 @@ class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         if isLoggedIn() {
             //assume user is logged in
             let homeController = CustomTabBarController()
@@ -25,7 +24,6 @@ class MainNavigationController: UINavigationController {
     fileprivate func isLoggedIn() -> Bool {
         return UserDefaults.standard.isLoggedIn()
     }
-    
     @objc func showLoginController() {
         let loginController = LoginController()
         present(loginController, animated: true, completion: {
@@ -33,5 +31,3 @@ class MainNavigationController: UINavigationController {
         })
     }
 }
-
-

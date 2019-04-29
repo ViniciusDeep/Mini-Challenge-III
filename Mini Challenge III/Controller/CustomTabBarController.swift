@@ -5,26 +5,25 @@
 //  Created by Vinicius Mangueira Correia on 22/04/19.
 //  Copyright © 2019 Vinicius Mangueira Correia. All rights reserved.
 //
-
 import UIKit
 
 class CustomTabBarController: UITabBarController{
-    
     override func viewDidLoad() {
         navigationItem.title = "We're logged in"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleSignOut))
         setComponentsInTab()
     }
-    
     fileprivate func setComponentsInTab() {
        viewControllers = [
                           createNav(viewController: UIViewController(), title: "Home", imageNamed: "today"),
-                          createNav(viewController: UIViewController(), title: "Search", imageNamed: "search")
+                          createNav(viewController: UIViewController(), title: "Search", imageNamed: "search"),
+                          createNav(viewController: SmartController(), title: "Smart", imageNamed: "smartTab")
                          ]
     }
-    
     fileprivate func createNav(viewController: UIViewController, title: String, imageNamed: String) -> UINavigationController {
         let navVc = UINavigationController(rootViewController: viewController)
+        viewController.view.backgroundColor = .white
+        navVc.navigationBar.prefersLargeTitles = true
         viewController.navigationItem.title = title
         navVc.tabBarItem.title = title
         navVc.tabBarItem.image = UIImage(named: imageNamed)
@@ -37,4 +36,3 @@ class CustomTabBarController: UITabBarController{
         present(loginController, animated: true, completion: nil)
     }
 }
-
