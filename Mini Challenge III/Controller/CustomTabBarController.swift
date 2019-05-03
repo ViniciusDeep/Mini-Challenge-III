@@ -8,15 +8,17 @@
 import UIKit
 
 class CustomTabBarController: UITabBarController{
-    override func viewDidLoad() {
-        navigationItem.title = "We're logged in"
+    override func viewDidLoad(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleSignOut))
+        if isLoggedIn() {
+        } else {
+            perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
+        }
         setComponentsInTab()
     }
     fileprivate func setComponentsInTab() {
        viewControllers = [
-                          createNav(viewController: UIViewController(), title: "Home", imageNamed: "today"),
-                          createNav(viewController: UIViewController(), title: "Search", imageNamed: "search"),
+                          createNav(viewController: ListGoalsViewController(), title: "Home", imageNamed: "goals"),
                           createNav(viewController: SmartController(), title: "Smart", imageNamed: "smartTab")
                          ]
     }
@@ -29,10 +31,17 @@ class CustomTabBarController: UITabBarController{
         navVc.tabBarItem.image = UIImage(named: imageNamed)
         return navVc
     }
-    
     @objc func handleSignOut() {
         UserDefaults.standard.setIsLoggedIn(value: false)
         let loginController = LoginController()
         present(loginController, animated: true, completion: nil)
+    }
+    fileprivate func isLoggedIn() -> Bool {
+        return UserDefaults.standard.isLoggedIn()
+    }
+    @objc func showLoginController() {
+        let loginController = LoginController()
+        present(loginController, animated: true, completion: {
+        })
     }
 }

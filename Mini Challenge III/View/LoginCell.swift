@@ -16,7 +16,6 @@ class LoginCell: UICollectionViewCell {
         return imageView
     }()
     
-    
     lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .orange

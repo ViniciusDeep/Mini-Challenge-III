@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
     
     fileprivate let cellId = "cellId"
@@ -37,13 +36,10 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
         
         self.smartFullScreenController = smartFullScreenController
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
-        // absolute coordindates of cell
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
         
         self.startingFrame = startingFrame
         
-        // auto layout constraint animations
-        // 4 anchors
         redView.translatesAutoresizingMaskIntoConstraints = false
         topConstraint = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
         leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
@@ -72,7 +68,6 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             
             self.smartFullScreenController.tableView.contentOffset = .zero
-            
             guard let startingFrame = self.startingFrame else { return }
             self.topConstraint?.constant = startingFrame.origin.y
             self.leadingConstraint?.constant = startingFrame.origin.x

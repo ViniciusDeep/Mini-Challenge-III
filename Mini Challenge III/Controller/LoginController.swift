@@ -153,10 +153,7 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
         return cell
     }
     func finishLoggingIn() {
-        var rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        //guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
-        rootViewController = CustomTabBarController()
-        //mainNavigationController.viewControllers = [CustomTabBarController()]
+        UIApplication.shared.keyWindow?.rootViewController = CustomTabBarController()
         UserDefaults.standard.setIsLoggedIn(value: true)
         dismiss(animated: true, completion: nil)
     }
