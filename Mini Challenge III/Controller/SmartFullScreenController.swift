@@ -25,16 +25,12 @@ class SmartFullScreenController: UITableViewController {
         button.isHidden = true
         dismissHandler?()
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.item == 0 {
             let smartFullScreenHeaderCell = SmartFullScreenHeaderCell()
             smartFullScreenHeaderCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
             return smartFullScreenHeaderCell
         }
-        
-        
-        
         let cell = SmartFullScreenDescriptionCell()
         return cell
 
