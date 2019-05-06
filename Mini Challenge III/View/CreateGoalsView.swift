@@ -8,31 +8,39 @@
 
 import UIKit
 
-class CreateGoalsView: UIView {
+class CreateGoalsViewCell: UITableViewCell {
     
-    lazy var textDescription: UILabel = {
-       let label = UILabel()
-       label.translatesAutoresizingMaskIntoConstraints = false
-       label.text = "First specific your goals"
-       label.font = UIFont.boldSystemFont(ofSize: 24)
-       label.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-       return label
-        
+    lazy var contentText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    lazy var contextTf: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setComponents()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     fileprivate func setComponents() {
-        addSubview(textDescription)
-        guard let superView = superview else {return}
+        addSubview(contentText)
+        addSubview(contextTf)
         
-       textDescription.leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
-        textDescription.centerYAnchor.constraint(equalTo: superView.centerYAnchor).isActive = true
+        
+        contentText.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
+        contentText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        
+        contextTf.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        contextTf.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        
     }
 }
