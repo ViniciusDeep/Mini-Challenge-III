@@ -12,7 +12,7 @@ class ListGoalViewCell: UITableViewCell {
     
     lazy var nameGoal: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Travel to Japan"
         return label
@@ -23,9 +23,21 @@ class ListGoalViewCell: UITableViewCell {
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 40, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeEnd = 0
-        trackLayer.strokeColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1).cgColor
+        trackLayer.strokeColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1).cgColor
         trackLayer.lineWidth = 3
-        trackLayer.fillColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1).cgColor
+        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        return trackLayer
+    }()
+    
+    fileprivate lazy var trackLayerGray: CAShapeLayer = {
+        let trackLayer  = CAShapeLayer()
+        let circularPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 40, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        trackLayer.path = circularPath.cgPath
+        trackLayer.strokeEnd = 1
+        trackLayer.strokeColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1).cgColor
+        trackLayer.lineWidth = 3
+        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        trackLayer.opacity = 0.4
         return trackLayer
     }()
     
@@ -33,7 +45,7 @@ class ListGoalViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Start"
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
     
@@ -47,6 +59,7 @@ class ListGoalViewCell: UITableViewCell {
     
     fileprivate func setComponents() {
         layer.addSublayer(trackLayer)
+        layer.addSublayer(trackLayerGray)
         addSubview(nameGoal)
         addSubview(percentageLabel)
         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)

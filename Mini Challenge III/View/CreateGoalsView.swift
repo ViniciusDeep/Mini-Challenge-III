@@ -34,12 +34,9 @@ class CreateGoalsViewCell: UITableViewCell {
         addSubview(contentText)
         addSubview(contextTf)
         
-        
         contentText.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
         contentText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        
         contextTf.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        
         contextTf.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         
     }

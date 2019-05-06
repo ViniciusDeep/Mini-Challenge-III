@@ -20,6 +20,7 @@ class CreateGoalViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         tableView.allowsSelection = false
+        tableView.isScrollEnabled = false
         setNavigationItems()
         tableView.register(CreateGoalsViewCell.self, forCellReuseIdentifier: cellId)
     }
@@ -52,5 +53,5 @@ class CreateGoalViewController: UITableViewController {
     @objc fileprivate func addNewGoal() {
         dismiss(animated: true, completion: nil)
     }
-    
 }
+ 

@@ -25,7 +25,6 @@ class ListGoalsViewController: UIViewController, UITableViewDelegate, UITableVie
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.allowsSelection = false
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
@@ -53,11 +52,17 @@ class ListGoalsViewController: UIViewController, UITableViewDelegate, UITableVie
         present(navController, animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailGoalViewController()
+        detailVC.goal = goals[indexPath.row]
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return goals.count
     }
     
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -70,10 +75,6 @@ class ListGoalsViewController: UIViewController, UITableViewDelegate, UITableVie
             cell?.trackLayer.strokeEnd = percentage
             cell?.percentageLabel.text = "\(percentage * 100)%"
         }
-        
-        
-        
-        
         return cell ?? UITableViewCell()
     }
 }
