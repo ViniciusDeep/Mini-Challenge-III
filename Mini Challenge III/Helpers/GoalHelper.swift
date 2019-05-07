@@ -8,9 +8,8 @@
 
 import UIKit
 
-
 class GoalHelper {
-    func getCurrenceProgress(steps: [Step]) -> CGFloat {
+    class func getCurrenceProgress(steps: [Step]) -> CGFloat {
         let totalSteps = CGFloat(steps.count)
         var currenceProgress: CGFloat = 0.0
         steps.forEach { (step) in
@@ -18,6 +17,6 @@ class GoalHelper {
                 currenceProgress += 1.0
             }
         }
-        return (currenceProgress * totalSteps) / 100
+        return (currenceProgress / totalSteps) * 100
     }
 }

@@ -8,22 +8,23 @@
 
 import UIKit
 
-class DetailGoalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailGoalViewController: UIViewController {
 
     fileprivate let cellId: String = "DetailCellId"
     
     public var goal: Goal?
-
+    
     lazy var headerView: UIView = {
             let view = UIView()
             view.layer.cornerRadius = 12
             view.translatesAutoresizingMaskIntoConstraints = false
-            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0.8261345625, green: 0.8212244511, blue: 0.8299093843, alpha: 1)
             return view
     }()
     
     lazy var addNewStepButton: UIButton = {
        let button = UIButton()
+        button.addTarget(self, action: #selector(addNewStep), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "plus"), for: .normal)
        return button
@@ -81,14 +82,18 @@ class DetailGoalViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
-        setComponents()
+        buidViewHierarchy()
+        setupConstraints()
     }
     
-    fileprivate func setComponents() {
+    fileprivate func buidViewHierarchy() {
         headerView.layer.addSublayer(trackLayer)
         headerView.layer.addSublayer(trackLayerGray)
         headerView.addSubview(percentageLabel)
         headerView.addSubview(addNewStepButton)
+    }
+    
+    fileprivate func setupConstraints() {
         addNewStepButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10).isActive = true
         addNewStepButton.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -35).isActive = true
         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -104,20 +109,6 @@ class DetailGoalViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? DetailGoalViewCell
-        cell?.checkButton.addTarget(self, action: #selector(checkStep), for: .touchUpInside)
-        return cell ?? UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
     
     @objc fileprivate func checkStep(button: UIButton) {
         switch button.isSelected {
@@ -128,5 +119,45 @@ class DetailGoalViewController: UIViewController, UITableViewDelegate, UITableVi
             button.setImage(UIImage(named: "check"), for: .normal)
             button.isSelected = true
         }
+    }
+    
+    
+    fileprivate var textField: UITextField!
+    
+    @objc fileprivate func addNewStep() {
+        let alert = UIAlertController(title: "Add you new step", message: "Here you can add your new step", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: textField)
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
+            self.configureNewStep()
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func configureNewStep() {
+        self.goal?.steps.append(Step(name: textField.text, description: nil, isCompleted: false))
+        tableView.reloadData()
+    }
+    
+    fileprivate func textField(texField: UITextField) {
+        self.textField = texField
+        textField.placeholder = "Add your step"
+    }
+    
+}
+
+extension DetailGoalViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.goal?.steps.count ?? 0
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? DetailGoalViewCell
+        guard let step = self.goal?.steps[indexPath.row] else {return UITableViewCell()}
+        cell?.nameGoal.text = step.name
+        cell?.checkButton.addTarget(self, action: #selector(checkStep), for: .touchUpInside)
+        return cell ?? UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }

@@ -11,6 +11,7 @@ disabled_rules:
  - vertical_whitespace
  - private_over_fileprivate
  - comma
+ - colon 
 excluded:
  - Mini Challenge IIITests
  - Mini Challenge IIIUITests

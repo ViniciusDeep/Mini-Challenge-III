@@ -51,6 +51,12 @@ class CreateGoalViewController: UITableViewController {
     }
     
     @objc fileprivate func addNewGoal() {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CreateGoalsViewCell
+        guard let textField = cell?.contextTf.text else {return}
+        let listGoalsVc = ListGoalsViewController()
+        listGoalsVc.goals.append(Goal(name:  textField, description:  textField, how:  textField, when:  textField, progress: 0.0))
+        listGoalsVc.tableView.reloadData()
+        
         dismiss(animated: true, completion: nil)
     }
 }

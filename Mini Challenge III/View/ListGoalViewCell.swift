@@ -51,17 +51,19 @@ class ListGoalViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setComponents()
+        buidViewHierarchy()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    fileprivate func setComponents() {
+    fileprivate func buidViewHierarchy() {
         layer.addSublayer(trackLayer)
         layer.addSublayer(trackLayerGray)
         addSubview(nameGoal)
         addSubview(percentageLabel)
+        setupConstraints()
+    }
+    fileprivate func setupConstraints() {
         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         percentageLabel.center = CGPoint(x: 50, y: 50)
             

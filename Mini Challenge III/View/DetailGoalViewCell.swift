@@ -10,7 +10,6 @@ import UIKit
 
 class DetailGoalViewCell: UITableViewCell {
    
-    
     lazy var checkButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -28,21 +27,24 @@ class DetailGoalViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setComponents()
+        buidViewHierarchy()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    fileprivate func setComponents() {
+
+    fileprivate func buidViewHierarchy() {
         addSubview(checkButton)
         addSubview(nameGoal)
+        setupConstraints()
+    }
+    
+    fileprivate func setupConstraints() {
         checkButton.topAnchor.constraint(equalTo: topAnchor, constant: self.frame.height/2).isActive = true
          checkButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        
         nameGoal.topAnchor.constraint(equalTo: checkButton.centerYAnchor).isActive = true
-        
         nameGoal.leadingAnchor.constraint(equalTo: checkButton.trailingAnchor, constant: 10).isActive = true
     }
 }
