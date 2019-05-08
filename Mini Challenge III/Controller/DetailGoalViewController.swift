@@ -87,6 +87,8 @@ class DetailGoalViewController: UIViewController {
     }
     
     fileprivate func buidViewHierarchy() {
+        view.addSubview(headerView)
+        view.addSubview(tableView)
         headerView.layer.addSublayer(trackLayer)
         headerView.layer.addSublayer(trackLayerGray)
         headerView.addSubview(percentageLabel)
@@ -94,20 +96,19 @@ class DetailGoalViewController: UIViewController {
     }
     
     fileprivate func setupConstraints() {
-        addNewStepButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10).isActive = true
-        addNewStepButton.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -35).isActive = true
-        percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        percentageLabel.center = CGPoint(x: 200, y: 200)
-        view.addSubview(headerView)
-        view.addSubview(tableView)
-        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        headerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height/2) - 100).isActive = true
-        tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+         percentageLabel.center = CGPoint(x: 200, y: 200)
+        NSLayoutConstraint.activate([ addNewStepButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10),
+            addNewStepButton.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -35),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height/2) - 100),
+            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
     }
     
     @objc fileprivate func checkStep(button: UIButton) {
@@ -120,9 +121,15 @@ class DetailGoalViewController: UIViewController {
             button.isSelected = true
         }
     }
-    
-    
+//    var imageEmptyState: UIImageView!
+//    fileprivate func setEmptyState() {
+//        imageEmptyState = UIImageView()
+//        imageEmptyState.image = #imageLiteral(resourceName: "emptyState.png")
+//        tableView.addSubview(imageEmptyState)
+//        imageEmptyState.centerInSuperview()
+//    }
     fileprivate var textField: UITextField!
+    
     
     @objc fileprivate func addNewStep() {
         let alert = UIAlertController(title: "Add you new step", message: "Here you can add your new step", preferredStyle: .alert)
@@ -148,6 +155,11 @@ class DetailGoalViewController: UIViewController {
 
 extension DetailGoalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if self.goal?.steps.count == 0 {
+//            setEmptyState()
+//        } else {
+//            imageEmptyState.removeFromSuperview()
+//        }
         return self.goal?.steps.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

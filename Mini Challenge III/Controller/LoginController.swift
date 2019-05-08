@@ -153,8 +153,8 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
         return cell
     }
     func finishLoggingIn() {
-        UIApplication.shared.keyWindow?.rootViewController = CustomTabBarController()
         UserDefaults.standard.setIsLoggedIn(value: true)
+        UIApplication.shared.keyWindow?.rootViewController = CustomTabBarController()
         dismiss(animated: true, completion: nil)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

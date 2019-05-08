@@ -8,42 +8,42 @@
 
 import UIKit
 
-class ListGoalsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListGoalsViewController: BaseListController {
     
     fileprivate let cellId = "ListID"
     
-    
-    public var goals = [Goal(name: "Viagem", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã",progress: 0),
+    public var goals = [Goal(name: "Viagem", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã",progress: 0.9),
                         Goal(name: "Namoro", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 1),
-                        Goal(name: "Vida", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0),
+                        Goal(name: "Vida", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.6),
                         Goal(name: "Codar", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.8),
                         Goal(name: "Amor", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.7),
                         Goal(name: "Ter metas", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.5),
                         Goal(name: "Hiate", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 1)
                         ]
     
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        return tableView
-    }()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTableView()
+        setCollectionView()
         setNavigation()
+        collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
     }
     
-    fileprivate func setTableView() {
-        view.addSubview(tableView)
-        tableView.anchorToTop(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
-        tableView.register(ListGoalViewCell.self, forCellReuseIdentifier: cellId)
+    fileprivate func setCollectionView() {
+        collectionView.register(ListGoalViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+           self.collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            self.collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            self.collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
     }
     
     fileprivate func setNavigation() {
         let buttomRight = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewGoals))
-        navigationItem.rightBarButtonItem = buttomRight
+        let buttonMode = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
+        navigationItem.rightBarButtonItems = [buttomRight, buttonMode]
     }
     
     @objc fileprivate func addNewGoals() {
@@ -51,30 +51,32 @@ class ListGoalsViewController: UIViewController, UITableViewDelegate, UITableVie
         let navController = UINavigationController(rootViewController: createVC)
         present(navController, animated: true, completion: nil)
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+}
+
+extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailGoalViewController()
         detailVC.goal = goals[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
-        
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return goals.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ListGoalViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ListGoalViewCell
         cell?.nameGoal.text = goals[indexPath.row].name
+        cell?.descriptionGoal.text = goals[indexPath.row].description
         let percentage = goals[indexPath.row].progress
         if percentage != 0  {
             cell?.trackLayer.strokeEnd = percentage
             cell?.percentageLabel.text = "\(percentage * 100)%"
         }
-        return cell ?? UITableViewCell()
+        return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: view.frame.width - 20, height: 120)
     }
 }

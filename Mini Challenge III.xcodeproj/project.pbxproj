@@ -35,6 +35,7 @@
 		9280F19422701DF60071D341 /* SmartFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F19322701DF60071D341 /* SmartFullScreenController.swift */; };
 		9280F196227020950071D341 /* SmartFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F195227020950071D341 /* SmartFullScreenDescriptionCell.swift */; };
 		9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */; };
+		92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B19ABC228278A200F6649A /* SquareListGoalCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		9280F19322701DF60071D341 /* SmartFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartFullScreenController.swift; sourceTree = "<group>"; };
 		9280F195227020950071D341 /* SmartFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
 		9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmarFullScreenHeaderCell.swift; sourceTree = "<group>"; };
+		92B19ABC228278A200F6649A /* SquareListGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareListGoalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +192,9 @@
 				9280F195227020950071D341 /* SmartFullScreenDescriptionCell.swift */,
 				9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */,
 				924D0F59227CB55500C272E7 /* CreateGoalsView.swift */,
-				92775292227F758100DD06AA /* ListGoalViewCell.swift */,
 				92188CE42280B316001C9310 /* DetailGoalViewCell.swift */,
+				92775292227F758100DD06AA /* ListGoalViewCell.swift */,
+				92B19ABC228278A200F6649A /* SquareListGoalCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				924D0F5A227CB55500C272E7 /* CreateGoalsView.swift in Sources */,
 				923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */,
 				92775295227FB0C200DD06AA /* Goal.swift in Sources */,
+				92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */,
 				923D9381226E19720006ED17 /* PageCell.swift in Sources */,
 				923D9384226E199E0006ED17 /* Extensions.swift in Sources */,
 				924D0F56227CB13300C272E7 /* ListGoalsViewController.swift in Sources */,

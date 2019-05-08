@@ -42,9 +42,11 @@ class DetailGoalViewCell: UITableViewCell {
     }
     
     fileprivate func setupConstraints() {
-        checkButton.topAnchor.constraint(equalTo: topAnchor, constant: self.frame.height/2).isActive = true
-         checkButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        nameGoal.topAnchor.constraint(equalTo: checkButton.centerYAnchor).isActive = true
-        nameGoal.leadingAnchor.constraint(equalTo: checkButton.trailingAnchor, constant: 10).isActive = true
+        NSLayoutConstraint.activate([
+            checkButton.topAnchor.constraint(equalTo: topAnchor, constant: self.frame.height/2),
+            checkButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            nameGoal.topAnchor.constraint(equalTo: checkButton.centerYAnchor),
+            nameGoal.leadingAnchor.constraint(equalTo: checkButton.trailingAnchor, constant: 10)
+            ])
     }
 }

@@ -8,21 +8,27 @@
 
 import UIKit
 
-class CreateGoalViewController: UITableViewController {
+class CreateGoalViewController: UIViewController {
     
     let cellId: String = "cellId"
     
     var goal: Goal?
+    
+    fileprivate lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }()
     
     fileprivate var goalfields = [GoalField(name: "What is the name of your goal?", placeHolder: "Ex: Travel to France"), GoalField(name: "Specific your goal!", placeHolder: "Ex: Plan and execute five customer education webinars this quarter with 15-plus attendees per event and 80% or higher "), GoalField(name: "How you make this?", placeHolder: "Ex: Save money every day"), GoalField(name: "When?", placeHolder: "Ex: May in the next month")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        tableView.allowsSelection = false
-        tableView.isScrollEnabled = false
         setNavigationItems()
-        tableView.register(CreateGoalsViewCell.self, forCellReuseIdentifier: cellId)
+        setupTableView()
     }
     
     fileprivate func setNavigationItems() {
@@ -36,17 +42,28 @@ class CreateGoalViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+}
+
+extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func setupTableView() {
+        view.addSubview(tableView)
+        tableView.register(CreateGoalsViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.allowsSelection = false
+        tableView.isScrollEnabled = false
+        tableView.anchorToTop(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CreateGoalsViewCell
         cell?.contentText.text = goalfields[indexPath.row].name
         cell?.contextTf.placeholder = goalfields[indexPath.row].placeHolder
         return cell ?? UITableViewCell()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return goalfields.count
     }
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
@@ -55,7 +72,7 @@ class CreateGoalViewController: UITableViewController {
         guard let textField = cell?.contextTf.text else {return}
         let listGoalsVc = ListGoalsViewController()
         listGoalsVc.goals.append(Goal(name:  textField, description:  textField, how:  textField, when:  textField, progress: 0.0))
-        listGoalsVc.tableView.reloadData()
+        listGoalsVc.collectionView.reloadData()
         
         dismiss(animated: true, completion: nil)
     }

@@ -10,11 +10,8 @@ import UIKit
 class CustomTabBarController: UITabBarController{
     override func viewDidLoad(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleSignOut))
-        if isLoggedIn() {
-        } else {
-            perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
-        }
         setComponentsInTab()
+        checkLogin()
     }
     fileprivate func setComponentsInTab() {
        viewControllers = [
@@ -43,5 +40,12 @@ class CustomTabBarController: UITabBarController{
         let loginController = LoginController()
         present(loginController, animated: true, completion: {
         })
+    }
+    
+    fileprivate func checkLogin() {
+        if isLoggedIn() {
+        } else {
+            perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
+        }
     }
 }
