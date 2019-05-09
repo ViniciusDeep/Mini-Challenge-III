@@ -16,7 +16,7 @@ struct Goal {
     var progress: CGFloat = 0
     lazy var steps = [Step]()
     var isStarted: Bool = false
-    
+
     init(name: String, description: String, how: String, when: String, progress: CGFloat) {
         self.name = name
         self.description = description

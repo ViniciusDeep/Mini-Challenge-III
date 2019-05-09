@@ -24,6 +24,8 @@
 		923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D938E226E1AA70006ED17 /* CustomTabBarController.swift */; };
 		923D9391226FA0050006ED17 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9390226FA0050006ED17 /* BaseListController.swift */; };
 		923F98CD2280C6140099C000 /* GoalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F98CC2280C6140099C000 /* GoalHelper.swift */; };
+		9249BE2B228322B000178E92 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9249BE2A228322B000178E92 /* UIColor+Helpers.swift */; };
+		9249BE2D228343D600178E92 /* ProgressStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9249BE2C228343D600178E92 /* ProgressStepView.swift */; };
 		924D0F56227CB13300C272E7 /* ListGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F55227CB13300C272E7 /* ListGoalsViewController.swift */; };
 		924D0F58227CB30200C272E7 /* CreateGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */; };
 		924D0F5A227CB55500C272E7 /* CreateGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F59227CB55500C272E7 /* CreateGoalsView.swift */; };
@@ -79,6 +81,8 @@
 		923D938E226E1AA70006ED17 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		923D9390226FA0050006ED17 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		923F98CC2280C6140099C000 /* GoalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHelper.swift; sourceTree = "<group>"; };
+		9249BE2A228322B000178E92 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		9249BE2C228343D600178E92 /* ProgressStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStepView.swift; sourceTree = "<group>"; };
 		924D0F55227CB13300C272E7 /* ListGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGoalsViewController.swift; sourceTree = "<group>"; };
 		924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalViewController.swift; sourceTree = "<group>"; };
 		924D0F59227CB55500C272E7 /* CreateGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalsView.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				92188CE42280B316001C9310 /* DetailGoalViewCell.swift */,
 				92775292227F758100DD06AA /* ListGoalViewCell.swift */,
 				92B19ABC228278A200F6649A /* SquareListGoalCell.swift */,
+				9249BE2C228343D600178E92 /* ProgressStepView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			children = (
 				923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */,
 				923F98CC2280C6140099C000 /* GoalHelper.swift */,
+				9249BE2A228322B000178E92 /* UIColor+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				924D0F56227CB13300C272E7 /* ListGoalsViewController.swift in Sources */,
 				923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */,
 				9280F19422701DF60071D341 /* SmartFullScreenController.swift in Sources */,
+				9249BE2D228343D600178E92 /* ProgressStepView.swift in Sources */,
 				923D9386226E1A200006ED17 /* LoginController.swift in Sources */,
 				923D9388226E1A390006ED17 /* LoginCell.swift in Sources */,
 				9228160D227F5F0600EA9D92 /* GoalField.swift in Sources */,
@@ -408,6 +415,7 @@
 				9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */,
 				923F98CD2280C6140099C000 /* GoalHelper.swift in Sources */,
 				924D0F58227CB30200C272E7 /* CreateGoalViewController.swift in Sources */,
+				9249BE2B228322B000178E92 /* UIColor+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

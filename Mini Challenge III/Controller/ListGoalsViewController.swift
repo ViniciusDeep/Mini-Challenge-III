@@ -26,18 +26,11 @@ class ListGoalsViewController: BaseListController {
         super.viewDidLoad()
         setCollectionView()
         setNavigation()
-        collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
     }
     
     fileprivate func setCollectionView() {
         collectionView.register(ListGoalViewCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-           self.collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            self.collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            self.collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            ])
+         collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
     }
     
     fileprivate func setNavigation() {
@@ -64,6 +57,10 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
         return goals.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 10, left: 0, bottom: 10, right: 0)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ListGoalViewCell
         cell?.nameGoal.text = goals[indexPath.row].name
@@ -79,4 +76,5 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width - 20, height: 120)
     }
+
 }

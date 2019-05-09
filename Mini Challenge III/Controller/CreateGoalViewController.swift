@@ -14,6 +14,8 @@ class CreateGoalViewController: UIViewController {
     
     var goal: Goal?
     
+    fileprivate lazy var progressStepView = ProgressStepView()
+    
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +30,7 @@ class CreateGoalViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setNavigationItems()
+        setupProgressView()
         setupTableView()
     }
     
@@ -37,6 +40,16 @@ class CreateGoalViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backToController))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addNewGoal))
     }
+    
+    fileprivate func setupProgressView() {
+        view.addSubview(progressStepView)
+        NSLayoutConstraint.activate([
+            progressStepView.topAnchor.constraint(equalTo: view.topAnchor, constant: 170),
+            progressStepView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 85),
+            progressStepView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height/2) - 200)
+            ])
+    }
+    
     
     @objc fileprivate func backToController() {
         dismiss(animated: true, completion: nil)
@@ -50,7 +63,13 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.register(CreateGoalsViewCell.self, forCellReuseIdentifier: cellId)
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
-        tableView.anchorToTop(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        
+        tableView.topAnchor.constraint(equalTo: progressStepView.bottomAnchor, constant: 60).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+     //  tableView.anchorToTop(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,7 +92,6 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
         let listGoalsVc = ListGoalsViewController()
         listGoalsVc.goals.append(Goal(name:  textField, description:  textField, how:  textField, when:  textField, progress: 0.0))
         listGoalsVc.collectionView.reloadData()
-        
         dismiss(animated: true, completion: nil)
     }
 }

@@ -15,7 +15,7 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        collectionView.backgroundColor = #colorLiteral(red: 0.948936522, green: 0.9490727782, blue: 0.9489068389, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
         collectionView.register(SmartCell.self, forCellWithReuseIdentifier: cellId)
     }
     var smartFullScreenController: SmartFullScreenController!
