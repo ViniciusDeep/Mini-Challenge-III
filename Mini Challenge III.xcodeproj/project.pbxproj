@@ -17,14 +17,13 @@
 		923D936E226E16620006ED17 /* Mini_Challenge_IIIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D936D226E16620006ED17 /* Mini_Challenge_IIIUITests.swift */; };
 		923D937F226E19330006ED17 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D937E226E19330006ED17 /* Page.swift */; };
 		923D9381226E19720006ED17 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9380226E19720006ED17 /* PageCell.swift */; };
-		923D9384226E199E0006ED17 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9383226E199E0006ED17 /* Extensions.swift */; };
+		923D9384226E199E0006ED17 /* Constraints+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9383226E199E0006ED17 /* Constraints+UIView.swift */; };
 		923D9386226E1A200006ED17 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9385226E1A200006ED17 /* LoginController.swift */; };
 		923D9388226E1A390006ED17 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9387226E1A390006ED17 /* LoginCell.swift */; };
 		923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */; };
 		923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D938E226E1AA70006ED17 /* CustomTabBarController.swift */; };
 		923D9391226FA0050006ED17 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D9390226FA0050006ED17 /* BaseListController.swift */; };
 		923F98CD2280C6140099C000 /* GoalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923F98CC2280C6140099C000 /* GoalHelper.swift */; };
-		9249BE2B228322B000178E92 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9249BE2A228322B000178E92 /* UIColor+Helpers.swift */; };
 		9249BE2D228343D600178E92 /* ProgressStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9249BE2C228343D600178E92 /* ProgressStepView.swift */; };
 		924D0F56227CB13300C272E7 /* ListGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F55227CB13300C272E7 /* ListGoalsViewController.swift */; };
 		924D0F58227CB30200C272E7 /* CreateGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */; };
@@ -37,7 +36,13 @@
 		9280F19422701DF60071D341 /* SmartFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F19322701DF60071D341 /* SmartFullScreenController.swift */; };
 		9280F196227020950071D341 /* SmartFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F195227020950071D341 /* SmartFullScreenDescriptionCell.swift */; };
 		9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */; };
+		92A9921C22863AE700A79932 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9921B22863AE700A79932 /* OptionsController.swift */; };
+		92A9921E22863AF500A79932 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9921D22863AF500A79932 /* OptionsView.swift */; };
 		92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B19ABC228278A200F6649A /* SquareListGoalCell.swift */; };
+		92B3ACDF22848E0600D78CFD /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3ACDE22848E0600D78CFD /* ResumeViewController.swift */; };
+		92B3ACE122848E4200D78CFD /* ResumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3ACE022848E4200D78CFD /* ResumeView.swift */; };
+		92B3ACE32284A5B000D78CFD /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3ACE22284A5B000D78CFD /* UIView+Helpers.swift */; };
+		92CA2B602287425D000493F1 /* OptionsControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,14 +79,13 @@
 		923D936F226E16620006ED17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		923D937E226E19330006ED17 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		923D9380226E19720006ED17 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
-		923D9383226E199E0006ED17 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		923D9383226E199E0006ED17 /* Constraints+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraints+UIView.swift"; sourceTree = "<group>"; };
 		923D9385226E1A200006ED17 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		923D9387226E1A390006ED17 /* LoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
 		923D938E226E1AA70006ED17 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		923D9390226FA0050006ED17 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		923F98CC2280C6140099C000 /* GoalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHelper.swift; sourceTree = "<group>"; };
-		9249BE2A228322B000178E92 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		9249BE2C228343D600178E92 /* ProgressStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStepView.swift; sourceTree = "<group>"; };
 		924D0F55227CB13300C272E7 /* ListGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGoalsViewController.swift; sourceTree = "<group>"; };
 		924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +98,13 @@
 		9280F19322701DF60071D341 /* SmartFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartFullScreenController.swift; sourceTree = "<group>"; };
 		9280F195227020950071D341 /* SmartFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
 		9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmarFullScreenHeaderCell.swift; sourceTree = "<group>"; };
+		92A9921B22863AE700A79932 /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
+		92A9921D22863AF500A79932 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		92B19ABC228278A200F6649A /* SquareListGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareListGoalCell.swift; sourceTree = "<group>"; };
+		92B3ACDE22848E0600D78CFD /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
+		92B3ACE022848E4200D78CFD /* ResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeView.swift; sourceTree = "<group>"; };
+		92B3ACE22284A5B000D78CFD /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +210,8 @@
 				92775292227F758100DD06AA /* ListGoalViewCell.swift */,
 				92B19ABC228278A200F6649A /* SquareListGoalCell.swift */,
 				9249BE2C228343D600178E92 /* ProgressStepView.swift */,
+				92B3ACE022848E4200D78CFD /* ResumeView.swift */,
+				92A9921D22863AF500A79932 /* OptionsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +227,8 @@
 				924D0F55227CB13300C272E7 /* ListGoalsViewController.swift */,
 				924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */,
 				92188CE222809370001C9310 /* DetailGoalViewController.swift */,
+				92B3ACDE22848E0600D78CFD /* ResumeViewController.swift */,
+				92A9921B22863AE700A79932 /* OptionsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,7 +236,8 @@
 		923D9382226E19870006ED17 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				923D9383226E199E0006ED17 /* Extensions.swift */,
+				923D9383226E199E0006ED17 /* Constraints+UIView.swift */,
+				92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -232,7 +247,7 @@
 			children = (
 				923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */,
 				923F98CC2280C6140099C000 /* GoalHelper.swift */,
-				9249BE2A228322B000178E92 /* UIColor+Helpers.swift */,
+				92B3ACE22284A5B000D78CFD /* UIView+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -393,20 +408,26 @@
 				9280F192227009AA0071D341 /* SmartCell.swift in Sources */,
 				92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */,
 				923D937F226E19330006ED17 /* Page.swift in Sources */,
+				92A9921C22863AE700A79932 /* OptionsController.swift in Sources */,
 				923D934E226E16610006ED17 /* AppDelegate.swift in Sources */,
 				9280F196227020950071D341 /* SmartFullScreenDescriptionCell.swift in Sources */,
 				9280F190227006600071D341 /* SmartController.swift in Sources */,
+				92B3ACE122848E4200D78CFD /* ResumeView.swift in Sources */,
 				92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */,
+				92B3ACE32284A5B000D78CFD /* UIView+Helpers.swift in Sources */,
 				924D0F5A227CB55500C272E7 /* CreateGoalsView.swift in Sources */,
+				92A9921E22863AF500A79932 /* OptionsView.swift in Sources */,
 				923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */,
 				92775295227FB0C200DD06AA /* Goal.swift in Sources */,
 				92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */,
+				92CA2B602287425D000493F1 /* OptionsControllerExtension.swift in Sources */,
 				923D9381226E19720006ED17 /* PageCell.swift in Sources */,
-				923D9384226E199E0006ED17 /* Extensions.swift in Sources */,
+				923D9384226E199E0006ED17 /* Constraints+UIView.swift in Sources */,
 				924D0F56227CB13300C272E7 /* ListGoalsViewController.swift in Sources */,
 				923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */,
 				9280F19422701DF60071D341 /* SmartFullScreenController.swift in Sources */,
 				9249BE2D228343D600178E92 /* ProgressStepView.swift in Sources */,
+				92B3ACDF22848E0600D78CFD /* ResumeViewController.swift in Sources */,
 				923D9386226E1A200006ED17 /* LoginController.swift in Sources */,
 				923D9388226E1A390006ED17 /* LoginCell.swift in Sources */,
 				9228160D227F5F0600EA9D92 /* GoalField.swift in Sources */,
@@ -415,7 +436,6 @@
 				9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */,
 				923F98CD2280C6140099C000 /* GoalHelper.swift in Sources */,
 				924D0F58227CB30200C272E7 /* CreateGoalViewController.swift in Sources */,
-				9249BE2B228322B000178E92 /* UIColor+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

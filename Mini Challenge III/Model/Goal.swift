@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Goal {
+struct Goal{
     var name: String?
     var description: String?
     var how: String?

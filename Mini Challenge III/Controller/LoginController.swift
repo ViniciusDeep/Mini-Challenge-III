@@ -80,6 +80,7 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         observeKeyboardNotifications()
+        view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
         view.addSubview(collectionView)
         view.addSubview(pageControl)
         view.addSubview(skipButton)

@@ -12,7 +12,7 @@ class ListGoalsViewController: BaseListController {
     
     fileprivate let cellId = "ListID"
     
-    public var goals = [Goal(name: "Viagem", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã",progress: 0.9),
+    public static var goals = [Goal(name: "Viagem", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã",progress: 0.9),
                         Goal(name: "Namoro", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 1),
                         Goal(name: "Vida", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.6),
                         Goal(name: "Codar", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.8),
@@ -26,6 +26,11 @@ class ListGoalsViewController: BaseListController {
         super.viewDidLoad()
         setCollectionView()
         setNavigation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
     
     fileprivate func setCollectionView() {
@@ -49,12 +54,12 @@ class ListGoalsViewController: BaseListController {
 extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailGoalViewController()
-        detailVC.goal = goals[indexPath.row]
+        detailVC.goal = ListGoalsViewController.goals[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return goals.count
+        return ListGoalsViewController.goals.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -63,9 +68,9 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ListGoalViewCell
-        cell?.nameGoal.text = goals[indexPath.row].name
-        cell?.descriptionGoal.text = goals[indexPath.row].description
-        let percentage = goals[indexPath.row].progress
+        cell?.nameGoal.text = ListGoalsViewController.goals[indexPath.row].name
+        cell?.descriptionGoal.text = ListGoalsViewController.goals[indexPath.row].description
+        let percentage = ListGoalsViewController.goals[indexPath.row].progress
         if percentage != 0  {
             cell?.trackLayer.strokeEnd = percentage
             cell?.percentageLabel.text = "\(percentage * 100)%"
