@@ -23,14 +23,22 @@ class CreateGoalViewController: UIViewController {
         tableView.dataSource = self
         return tableView
     }()
+    fileprivate lazy var nextButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.text = "Next"
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        return button
+    }()
     
     fileprivate var goalfields = [GoalField(name: "What is the name of your goal?", placeHolder: "Ex: Travel to France"), GoalField(name: "Specific your goal!", placeHolder: "Ex: Plan and execute five customer education webinars this quarter with 15-plus attendees per event and 80% or higher "), GoalField(name: "How you make this?", placeHolder: "Ex: Save money every day"), GoalField(name: "When?", placeHolder: "Ex: May in the next month")]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setNavigationItems()
-        setupProgressView()
+        buildViewHierarchy()
         setupTableView()
     }
     
@@ -41,35 +49,37 @@ class CreateGoalViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addNewGoal))
     }
     
-    fileprivate func setupProgressView() {
+    
+    fileprivate func buildViewHierarchy() {
+        view.addSubview(tableView)
         view.addSubview(progressStepView)
+        view.addSubview(nextButton)
+        setConstraints()
+    }
+    fileprivate func setConstraints() {
         NSLayoutConstraint.activate([
-            progressStepView.topAnchor.constraint(equalTo: view.topAnchor, constant: 170),
-            progressStepView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 85),
-            progressStepView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height/2) - 200)
+            tableView.topAnchor.constraint(equalTo: progressStepView.bottomAnchor, constant: 60),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            progressStepView.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+            progressStepView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 65),
+            progressStepView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height/2) - 200),
+            nextButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 10),
+            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            
             ])
     }
-    
     
     @objc fileprivate func backToController() {
         dismiss(animated: true, completion: nil)
     }
-   
 }
-
 extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
     fileprivate func setupTableView() {
-        view.addSubview(tableView)
         tableView.register(CreateGoalsViewCell.self, forCellReuseIdentifier: cellId)
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
-        
-        tableView.topAnchor.constraint(equalTo: progressStepView.bottomAnchor, constant: 60).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-     //  tableView.anchorToTop(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,10 +99,8 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
     @objc fileprivate func addNewGoal() {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CreateGoalsViewCell
         guard let textField = cell?.contextTf.text else {return}
-        let listGoalsVc = ListGoalsViewController()
-        listGoalsVc.goals.append(Goal(name:  textField, description:  textField, how:  textField, when:  textField, progress: 0.0))
-        listGoalsVc.collectionView.reloadData()
+        
+        ListGoalsViewController.goals.append(Goal(name:  "Nova Meta", description: "Teste de nova meta", how: textField, when:  textField, progress: 0.9))
         dismiss(animated: true, completion: nil)
     }
 }
- 

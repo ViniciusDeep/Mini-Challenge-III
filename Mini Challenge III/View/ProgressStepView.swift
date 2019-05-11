@@ -75,8 +75,7 @@ class ProgressStepView: UIView {
               thirdStep.leadingAnchor.constraint(equalTo: secondLineView.trailingAnchor)
             ])
     }
-    
-    
+
     public func verifyCurrentStep(currentStep: Int) {
         switch currentStep {
         case 1:

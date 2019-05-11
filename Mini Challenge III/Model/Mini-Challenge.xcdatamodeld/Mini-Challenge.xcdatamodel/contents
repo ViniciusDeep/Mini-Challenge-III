@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class"/>
+    <entity name="Step" representedClassName="Step" syncable="YES" codeGenerationType="class"/>
+    <elements>
+        <element name="Goal" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="Step" positionX="-54" positionY="-9" width="128" height="45"/>
+    </elements>
+</model>

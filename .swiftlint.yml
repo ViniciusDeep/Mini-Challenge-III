@@ -11,7 +11,9 @@ disabled_rules:
  - vertical_whitespace
  - private_over_fileprivate
  - comma
- - colon 
+ - colon
+ - switch_case_alignment 
+ - trailing_semicolon
 excluded:
  - Mini Challenge IIITests
  - Mini Challenge IIIUITests
