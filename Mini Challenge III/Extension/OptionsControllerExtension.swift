@@ -14,9 +14,7 @@ extension OptionsController {
         tableView.isScrollEnabled = false
         tableView.sectionHeaderHeight = 50
         tableView.tableFooterView = UIView()
-        
     }
-    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: cellHeaderId)
     }
