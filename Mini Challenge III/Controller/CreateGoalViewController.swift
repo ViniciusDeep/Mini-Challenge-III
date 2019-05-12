@@ -67,7 +67,6 @@ class CreateGoalViewController: UIViewController {
             progressStepView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height/2) - 200),
             nextButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 10),
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            
             ])
     }
     
