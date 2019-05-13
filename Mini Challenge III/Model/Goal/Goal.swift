@@ -1,18 +1,14 @@
-//  DAO.swift
+//
+//  Goal.swift
 //  Mini Challenge III
 //
 //  Created by Vinicius Mangueira Correia on 13/05/19.
 //  Copyright © 2019 Vinicius Mangueira Correia. All rights reserved.
+//
 
-
-import UIKit
+import Foundation
 import CoreData
 
-public protocol DAO {
+private class Goal  {
     
-    associatedtype Object
-    
-    func insert(object: Object)
-    func delete(object: Object)
-    func all() -> [Object]
 }

@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-
 public class CoreDataDAO<Element: NSManagedObject>: DAO {
     
     public var context: NSManagedObjectContext
@@ -29,18 +28,11 @@ public class CoreDataDAO<Element: NSManagedObject>: DAO {
     public func all() -> [Element] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: Object.className)
         let result =  try! context.fetch(request) as! [Object]
-     
         return result
     }
-    
     private func save() {
-        do {
-           try context.save()
-        } catch {
-            fatalError("Error in trying save")
-        }
+       try! context.save()
     }
-    
     public func new() -> Element {
         return NSEntityDescription.insertNewObject(forEntityName: Element.className, into: context) as! Element
     }

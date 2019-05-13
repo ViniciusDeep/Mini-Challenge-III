@@ -164,11 +164,11 @@
 			isa = PBXGroup;
 			children = (
 				9240DA68228988EC0094961A /* CoreData */,
+				923D937B226E17EC0006ED17 /* Model */,
 				923D938B226E1A7C0006ED17 /* Helpers */,
 				923D9382226E19870006ED17 /* Extension */,
 				923D937D226E182D0006ED17 /* Controller */,
 				923D937C226E18290006ED17 /* View */,
-				923D937B226E17EC0006ED17 /* Model */,
 				923D934D226E16610006ED17 /* AppDelegate.swift */,
 				923D9354226E16610006ED17 /* Assets.xcassets */,
 				923D9356226E16610006ED17 /* LaunchScreen.storyboard */,
@@ -198,6 +198,8 @@
 		923D937B226E17EC0006ED17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9240DA752289A4DF0094961A /* Step */,
+				9240DA742289A4DA0094961A /* Goal */,
 				923D937E226E19330006ED17 /* Page.swift */,
 				9228160C227F5F0600EA9D92 /* GoalField.swift */,
 				92775294227FB0C200DD06AA /* Goal.swift */,
@@ -278,6 +280,20 @@
 				9240DA7022898A360094961A /* CoreDataDAO.swift */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		9240DA742289A4DA0094961A /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Goal;
+			sourceTree = "<group>";
+		};
+		9240DA752289A4DF0094961A /* Step */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Step;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -45,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
     
-    
     public func saveContext() {
         let context = persisentContainer.viewContext
 
@@ -58,6 +57,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
-    
-    
 }
