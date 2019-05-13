@@ -4,6 +4,7 @@ line_length:
 
 disabled_rules:
  - force_cast
+ - force_try
  - identifier_name
  - opening_brace
  - trailing_whitespace

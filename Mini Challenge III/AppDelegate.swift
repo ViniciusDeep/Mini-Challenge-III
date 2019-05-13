@@ -30,6 +30,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {}
 
-    func applicationWillTerminate(_ application: UIApplication) {}
+    func applicationWillTerminate(_ application: UIApplication) {
+        self.saveContext()
+    }
+ 
+    lazy var persisentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "data-base")
+        
+        container.loadPersistentStores(completionHandler: { (_, error) in
+            if let err = error {
+                fatalError("Error in load store")
+            }
+        })
+        return container
+    }()
+    
+    
+    public func saveContext() {
+        let context = persisentContainer.viewContext
+
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                fatalError()
+            }
+        }
+        
+    }
+    
     
 }
