@@ -16,7 +16,6 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
         super.viewDidLoad()
         collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
         collectionView.register(SmartCell.self, forCellWithReuseIdentifier:
-            
             cellId)
     }
     var smartFullScreenController: SmartFullScreenController!
@@ -92,11 +91,9 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SmartCell
-        
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
-        
         return cell
     }
     

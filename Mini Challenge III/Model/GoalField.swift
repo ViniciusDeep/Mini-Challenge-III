@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct GoalField {
     var name: String?
     var placeHolder: String?
