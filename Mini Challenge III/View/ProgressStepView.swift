@@ -75,15 +75,22 @@ class ProgressStepView: UIView {
               thirdStep.leadingAnchor.constraint(equalTo: secondLineView.trailingAnchor)
             ])
     }
-
     public func verifyCurrentStep(currentStep: Int) {
         switch currentStep {
         case 1:
-            break
+            firstStep.image = UIImage(named: "firststepchecked")
+            firstLineView.image = UIImage(named: "lineCheck")
         case 2:
-            break
+            firstStep.image = UIImage(named: "firststepchecked")
+            secondStep.image = UIImage(named: "secondstepchecked")
+            firstLineView.image = UIImage(named: "lineCheck")
         case 3:
-            break
+                self.firstStep.image = UIImage(named: "firststepchecked")
+                self.firstLineView.image = UIImage(named: "lineCheck")
+                self.secondStep.image = UIImage(named: "secondstepchecked")
+                self.secondLineView.image = UIImage(named: "lineCheck")
+                self.thirdStep.image = UIImage(named: "thirdstepchecked")
+            
         default:
             break
         }
