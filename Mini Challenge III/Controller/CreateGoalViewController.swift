@@ -39,11 +39,15 @@ class CreateGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        view.addGestureRecognizer(tap)
         setNavigationItems()
         buildViewHierarchy()
         setupTableView()
     }
-    
+    @objc fileprivate func dismissKeyBoard() {
+        view.endEditing(true)
+    }
     fileprivate func setNavigationItems() {
         navigationItem.title = "Create Your Goal"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -76,7 +80,7 @@ class CreateGoalViewController: UIViewController {
 }
 extension CreateGoalViewController {
     @objc func changeContent(sender: UIButton) {
-            progressStepView.verifyCurrentStep(currentStep: 1)
+            progressStepView.verifyCurrentStep(currentStep: 2)
     }
 }
 extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
@@ -86,7 +90,7 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.register(CreateGoalsViewCell.self, forCellReuseIdentifier: cellId)
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
-    }
+    } 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CreateGoalsViewCell
@@ -105,9 +109,6 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc fileprivate func addNewGoal() {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CreateGoalsViewCell
-        
-        
-        
         guard let textField = cell?.contextTf.text else {return}
         ListGoalsViewController.goals.append(Goal(name:  "Nova Meta", description: "Teste de nova meta", how: textField, when:  textField, progress: 0.9))
         dismiss(animated: true, completion: nil)
