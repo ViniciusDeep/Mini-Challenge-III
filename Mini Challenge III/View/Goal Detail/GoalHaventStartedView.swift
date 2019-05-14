@@ -26,51 +26,48 @@ class GoalHaventStartedView: UIView {
 	}
 	
 	func setup() {
-		let stackView = UIStackView(frame: .zero)
-		stackView.alignment = .center
-		stackView.distribution = .equalSpacing
-		stackView.spacing = 8.0
-		stackView.axis = .vertical
-		stackView.translatesAutoresizingMaskIntoConstraints = false
-		addSubview(stackView)
+		let view = UIView(frame: .zero)
+		view.translatesAutoresizingMaskIntoConstraints = false
+		addSubview(view)
+		
+		backgroundColor = UIColor.black
+		view.backgroundColor = UIColor.gray
 		
 		imageView = UIImageView(frame: .zero)
 		imageView.image = #imageLiteral(resourceName: "emptyState")
 		imageView.contentMode = .scaleAspectFit
 		imageView.translatesAutoresizingMaskIntoConstraints = false
-		stackView.addArrangedSubview(imageView)
+		view.addSubview(imageView)
 		
 		titleLabel = UILabel(frame: .zero)
 		titleLabel.text = "Title Test"
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
-		stackView.addArrangedSubview(titleLabel)
+		view.addSubview(titleLabel)
 		
 		descriptionLabel = UILabel(frame: .zero)
 		descriptionLabel.text = "Description test"
 		descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-		stackView.addArrangedSubview(descriptionLabel)
+		view.addSubview(descriptionLabel)
 		
 		startButton = RoundedButton()
-		stackView.addArrangedSubview(startButton)
+		view.addSubview(startButton)
 		
 		NSLayoutConstraint.activate([
-			stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-			stackView.topAnchor.constraint(equalTo: topAnchor),
-			stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-			stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//			positioningView.centerYAnchor.constraint(equalTo: centerYAnchor),
+			view.leadingAnchor.constraint(equalTo: leadingAnchor),
+			view.trailingAnchor.constraint(equalTo: trailingAnchor),
+			view.centerYAnchor.constraint(equalTo: centerYAnchor),
 			imageView.widthAnchor.constraint(equalToConstant: 175.0),
-			imageView.heightAnchor.constraint(equalToConstant: 211.0)
-//			imageView.topAnchor.constraint(equalTo: positioningView.topAnchor),
-//			imageView.centerXAnchor.constraint(equalTo: positioningView.centerXAnchor),
-//			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8.0),
-//			titleLabel.centerXAnchor.constraint(equalTo: positioningView.centerXAnchor),
-//			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
-//			descriptionLabel.centerXAnchor.constraint(equalTo: positioningView.centerXAnchor),
-//			startButton.leadingAnchor.constraint(equalTo: positioningView.leadingAnchor, constant: 8.0),
-//			startButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8.0),
-//			startButton.trailingAnchor.constraint(equalTo: positioningView.trailingAnchor, constant: -8.0),
-//			startButton.bottomAnchor.constraint(equalTo: positioningView.bottomAnchor)
+			imageView.heightAnchor.constraint(equalToConstant: 211.0),
+			imageView.topAnchor.constraint(equalTo: view.topAnchor),
+			imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8.0),
+			titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
+			descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8.0),
+			startButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8.0),
+			startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8.0),
+			startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
 	}
 }
