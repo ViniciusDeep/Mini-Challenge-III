@@ -53,8 +53,8 @@ class ListGoalsViewController: BaseListController {
 
 extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = DetailGoalViewController()
-        detailVC.goal = ListGoalsViewController.goals[indexPath.row]
+		let goal = ListGoalsViewController.goals[indexPath.row]
+        let detailVC = DetailGoalViewController(with: goal)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

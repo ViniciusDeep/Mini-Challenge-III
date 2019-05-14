@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum GoalDetailState {
+	case notStarted
+	case haventStep
+	case running
+}
+
 class DetailGoalViewController: UIViewController {
 
     fileprivate let cellId: String = "DetailCellId"
@@ -21,27 +27,18 @@ class DetailGoalViewController: UIViewController {
             view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             return view
     }()
-    
-    lazy var addNewStepButton: UIButton = {
-       let button = UIButton()
-        button.addTarget(self, action: #selector(addNewStep), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "plus"), for: .normal)
-       return button
-    }()
-    
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
-        tableView.tableFooterView = UIView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.allowsSelection = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.isScrollEnabled = false
-        tableView.register(DetailGoalViewCell.self, forCellReuseIdentifier: self.cellId)
-        return tableView
-    }()
+	lazy var calendarView: CalendarView = {
+		let view = CalendarView()
+		return view
+	}()
+	lazy var stepsView: StepsView = {
+		let view = StepsView()
+		return view
+	}()
+	lazy var haventStartedView: GoalHaventStartedView = {
+		let view = GoalHaventStartedView()
+		return view
+	}()
     
     let centerX:Double = 187; let centerY:Double = 130;
     let radius = (UIScreen.main.bounds.width/2) - 130
@@ -98,11 +95,71 @@ class DetailGoalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		
         view.backgroundColor = .white
-        setupNavigation()
-        buidViewHierarchy()
-        setupConstraints()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		setupNavigation()
+	}
+	
+	convenience init(with goal: Goal) {
+		self.init()
+		
+		setupHeaderView()
+		
+		setupNotStartedState()
+		//verifing state
+		if (goal.isStarted) {
+			if (goal.steps.count != 0) {
+				
+			}
+			else {
+				
+			}
+		}
+		else {
+			
+		}
+//			buidViewHierarchy()
+//			setupConstraints()
+	}
+	
+	func setupHeaderView() {
+		view.addSubview(headerView)
+		headerView.layer.addSublayer(trackLayer)
+		headerView.layer.addSublayer(trackLayerGray)
+		headerView.addSubview(percentageLabel)
+		headerView.addSubview(nameOfGoal)
+		headerView.addSubview(descriptionGoal)
+		
+		percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+		percentageLabel.center = CGPoint(x: centerX, y: centerY)
+		NSLayoutConstraint.activate([
+			headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			headerView.topAnchor.constraint(equalTo: view.topAnchor),
+			headerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(UIScreen.main.bounds.width/2) - 240),
+			nameOfGoal.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 200),
+			nameOfGoal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			descriptionGoal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			descriptionGoal.topAnchor.constraint(equalTo: nameOfGoal.bottomAnchor, constant: 10)
+		])
+	}
+	
+	func setupNotStartedState() {
+		view.addSubview(haventStartedView)
+		
+		NSLayoutConstraint.activate([
+			haventStartedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			haventStartedView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+			haventStartedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			haventStartedView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+		])
+	}
+	
     fileprivate func setupNavigation() {
         navigationItem.title = "Goal"
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -110,35 +167,30 @@ class DetailGoalViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
 
-    fileprivate func buidViewHierarchy() {
-        view.addSubview(headerView)
-        view.addSubview(tableView)
-        headerView.layer.addSublayer(trackLayer)
-        headerView.layer.addSublayer(trackLayerGray)
-        headerView.addSubview(percentageLabel)
-        view.addSubview(addNewStepButton)
-        view.addSubview(nameOfGoal)
-        view.addSubview(descriptionGoal)
-    }
-    
+//    fileprivate func buidViewHierarchy() {
+//        view.addSubview(addNewStepButton)
+//        view.addSubview(nameOfGoal)
+//        view.addSubview(descriptionGoal)
+//    }
+	
     fileprivate func setupConstraints() {
-         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-         percentageLabel.center = CGPoint(x: centerX, y: centerY)
-        NSLayoutConstraint.activate([ addNewStepButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-             addNewStepButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.topAnchor.constraint(equalTo: view.topAnchor),
-            headerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(UIScreen.main.bounds.width/2) - 240),
-            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            nameOfGoal.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 200),
-            nameOfGoal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionGoal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionGoal.topAnchor.constraint(equalTo: nameOfGoal.bottomAnchor, constant: 10)
-        ])
+//         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+//         percentageLabel.center = CGPoint(x: centerX, y: centerY)
+//        NSLayoutConstraint.activate([ addNewStepButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//             addNewStepButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+//            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+//            headerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(UIScreen.main.bounds.width/2) - 240),
+//            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
+//            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            nameOfGoal.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 200),
+//            nameOfGoal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            descriptionGoal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            descriptionGoal.topAnchor.constraint(equalTo: nameOfGoal.bottomAnchor, constant: 10)
+//        ])
     }
     
     @objc fileprivate func checkStep(button: UIButton) {
@@ -165,7 +217,7 @@ class DetailGoalViewController: UIViewController {
     
     fileprivate func configureNewStep() {
         self.goal?.steps.append(Step(name: textField.text, description: nil, isCompleted: false))
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     fileprivate func textField(texField: UITextField) {
