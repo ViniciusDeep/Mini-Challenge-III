@@ -12,9 +12,16 @@ class CalendarView: UIView {
 	init() {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
+		backgroundColor = UIColor.gray
+		
+		setup()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	func setup() {
+		heightAnchor.constraint(equalToConstant: 70.0).isActive = true
 	}
 }

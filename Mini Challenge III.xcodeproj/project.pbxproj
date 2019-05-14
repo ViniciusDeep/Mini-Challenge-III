@@ -10,6 +10,9 @@
 		480A0AC32289B98100004783 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A0AC22289B98100004783 /* CalendarView.swift */; };
 		480A0AC52289B9F900004783 /* StepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A0AC42289B9F900004783 /* StepsView.swift */; };
 		480A0AC72289BA3400004783 /* GoalHaventStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A0AC62289BA3400004783 /* GoalHaventStartedView.swift */; };
+		484859E0228B238B001D0B62 /* WithoutStepsStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859DF228B238A001D0B62 /* WithoutStepsStateView.swift */; };
+		484859E2228B426D001D0B62 /* StepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */; };
+		484859E4228B4A88001D0B62 /* GoalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E3228B4A88001D0B62 /* GoalHeaderView.swift */; };
 		4855A7BD2289E3700037BE80 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A7BC2289E3700037BE80 /* RoundedButton.swift */; };
 		92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE222809370001C9310 /* DetailGoalViewController.swift */; };
 		92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE42280B316001C9310 /* DetailGoalViewCell.swift */; };
@@ -70,6 +73,9 @@
 		480A0AC22289B98100004783 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		480A0AC42289B9F900004783 /* StepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsView.swift; sourceTree = "<group>"; };
 		480A0AC62289BA3400004783 /* GoalHaventStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHaventStartedView.swift; sourceTree = "<group>"; };
+		484859DF228B238A001D0B62 /* WithoutStepsStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithoutStepsStateView.swift; sourceTree = "<group>"; };
+		484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCell.swift; sourceTree = "<group>"; };
+		484859E3228B4A88001D0B62 /* GoalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHeaderView.swift; sourceTree = "<group>"; };
 		4855A7BC2289E3700037BE80 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		92188CE222809370001C9310 /* DetailGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewController.swift; sourceTree = "<group>"; };
 		92188CE42280B316001C9310 /* DetailGoalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 				480A0AC22289B98100004783 /* CalendarView.swift */,
 				480A0AC42289B9F900004783 /* StepsView.swift */,
 				480A0AC62289BA3400004783 /* GoalHaventStartedView.swift */,
+				484859DF228B238A001D0B62 /* WithoutStepsStateView.swift */,
+				484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */,
+				484859E3228B4A88001D0B62 /* GoalHeaderView.swift */,
 			);
 			path = "Goal Detail";
 			sourceTree = "<group>";
@@ -442,6 +451,7 @@
 				92775295227FB0C200DD06AA /* Goal.swift in Sources */,
 				92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */,
 				92CA2B602287425D000493F1 /* OptionsControllerExtension.swift in Sources */,
+				484859E2228B426D001D0B62 /* StepCollectionViewCell.swift in Sources */,
 				480A0AC32289B98100004783 /* CalendarView.swift in Sources */,
 				480A0AC72289BA3400004783 /* GoalHaventStartedView.swift in Sources */,
 				923D9381226E19720006ED17 /* PageCell.swift in Sources */,
@@ -449,6 +459,8 @@
 				924D0F56227CB13300C272E7 /* ListGoalsViewController.swift in Sources */,
 				923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */,
 				9280F19422701DF60071D341 /* SmartFullScreenController.swift in Sources */,
+				484859E4228B4A88001D0B62 /* GoalHeaderView.swift in Sources */,
+				484859E0228B238B001D0B62 /* WithoutStepsStateView.swift in Sources */,
 				9249BE2D228343D600178E92 /* ProgressStepView.swift in Sources */,
 				92B3ACDF22848E0600D78CFD /* ResumeViewController.swift in Sources */,
 				923D9386226E1A200006ED17 /* LoginController.swift in Sources */,

@@ -39,6 +39,10 @@ class DetailGoalViewController: UIViewController {
 		let view = GoalHaventStartedView()
 		return view
 	}()
+	lazy var withouStepsView: WithoutStepsStateView = {
+		let view = WithoutStepsStateView()
+		return view
+	}()
     
     let centerX:Double = 187; let centerY:Double = 130;
     let radius = (UIScreen.main.bounds.width/2) - 130
@@ -109,9 +113,11 @@ class DetailGoalViewController: UIViewController {
 		self.init()
 		
 		setupHeaderView()
+		setupCalendar()
+		setupSteps()
 		
-		setupNotStartedState()
 		//verifing state
+		/*
 		if (goal.isStarted) {
 			if (goal.steps.count != 0) {
 				
@@ -121,8 +127,9 @@ class DetailGoalViewController: UIViewController {
 			}
 		}
 		else {
-			
+			setupNotStartedState()
 		}
+*/
 	}
 	
 	func setupHeaderView() {
@@ -158,6 +165,38 @@ class DetailGoalViewController: UIViewController {
 			haventStartedView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
 			haventStartedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			haventStartedView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+		])
+	}
+	
+	func setupCalendar() {
+		view.addSubview(calendarView)
+		
+		NSLayoutConstraint.activate([
+			calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			calendarView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 2.0),
+			calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+		])
+	}
+	
+	func setupWithoutStepsState() {
+		view.addSubview(withouStepsView)
+		
+		NSLayoutConstraint.activate([
+			withouStepsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			withouStepsView.topAnchor.constraint(equalTo: calendarView.bottomAnchor),
+			withouStepsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			withouStepsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+		])
+	}
+	
+	func setupSteps() {
+		view.addSubview(stepsView)
+		
+		NSLayoutConstraint.activate([
+			stepsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			stepsView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 2.0),
+			stepsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			stepsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 		])
 	}
 	
