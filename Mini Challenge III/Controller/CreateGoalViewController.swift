@@ -76,11 +76,13 @@ class CreateGoalViewController: UIViewController {
 }
 extension CreateGoalViewController {
     @objc func changeContent(sender: UIButton) {
-            progressStepView.verifyCurrentStep(currentStep: 2)
+            progressStepView.verifyCurrentStep(currentStep: 1)
     }
 }
 extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
     fileprivate func setupTableView() {
+        view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
         tableView.register(CreateGoalsViewCell.self, forCellReuseIdentifier: cellId)
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
@@ -100,8 +102,12 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
     
+    
     @objc fileprivate func addNewGoal() {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CreateGoalsViewCell
+        
+        
+        
         guard let textField = cell?.contextTf.text else {return}
         ListGoalsViewController.goals.append(Goal(name:  "Nova Meta", description: "Teste de nova meta", how: textField, when:  textField, progress: 0.9))
         dismiss(animated: true, completion: nil)
