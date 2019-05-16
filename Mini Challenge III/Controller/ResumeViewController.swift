@@ -19,9 +19,15 @@ class ResumeViewController: UIViewController {
     
     fileprivate func buildViewHierarchy() {
         view.addSubview(resumeView)
-        setConstraints()
+        setupConstraints()
     }
     
-    fileprivate func setConstraints() {
+    fileprivate func setupConstraints() {
+        NSLayoutConstraint.activate([
+              resumeView.topAnchor.constraint(equalTo: self.view.topAnchor),
+              resumeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+              resumeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+              resumeView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            ])
     }
 }
