@@ -10,18 +10,15 @@ import UIKit
 import CoreData
 
 extension GoalCore {
-    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<GoalCore> {
         return NSFetchRequest<GoalCore>(entityName: "GoalCore")
     }
-    
     @NSManaged public var name: String?
     @NSManaged public var about: Double
     @NSManaged public var when: String?
     @NSManaged public var how: String?
     @NSManaged public var progress: Float
 }
-
 extension GoalCore {
     @objc(addEpisodesObject:)
     @NSManaged public func addGoal(_ value: GoalCore)
