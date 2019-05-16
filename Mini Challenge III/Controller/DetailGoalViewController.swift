@@ -15,16 +15,8 @@ enum GoalDetailState {
 }
 
 class DetailGoalViewController: UIViewController {
-
-    fileprivate let cellId: String = "DetailCellId"
-    
-    public var goal: Goal?
-    
-    lazy var headerView: UIView = {
-		let view = UIView()
-		view.layer.cornerRadius = 12
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+	lazy var headerView: CircularProgressView = {
+		let view = CircularProgressView()
 		return view
     }()
 	lazy var calendarView: CalendarView = {
@@ -43,59 +35,9 @@ class DetailGoalViewController: UIViewController {
 		let view = WithoutStepsStateView()
 		return view
 	}()
-    
-    let centerX:Double = 187; let centerY:Double = 130;
-    let radius = (UIScreen.main.bounds.width/2) - 130
-    lazy var trackLayer: CAShapeLayer = {
-        let trackLayer  = CAShapeLayer()
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: centerX, y: centerY), radius: radius, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        trackLayer.path = circularPath.cgPath
-        guard let progress = self.goal?.progress else {return trackLayer}
-        trackLayer.strokeEnd = progress
-        trackLayer.strokeColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1).cgColor
-        trackLayer.lineWidth = 3
-        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        return trackLayer
-    }()
-    
-    lazy var trackLayerGray: CAShapeLayer = {
-        let trackLayer  = CAShapeLayer()
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: centerX, y: centerY), radius: radius, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        trackLayer.path = circularPath.cgPath
-        trackLayer.strokeEnd = 1
-        trackLayer.strokeColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1).cgColor
-        trackLayer.lineWidth = 3
-        trackLayer.opacity = 0.3
-        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        return trackLayer
-    }()
-    
-    lazy var percentageLabel: UILabel = {
-        let label = UILabel()
-        guard let progress = self.goal?.progress else {return label}
-        if progress == 0.0 {
-            label.text = "Start"
-        } else {
-             label.text = "\(progress * 100)%"
-        }
-        label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 28)
-        return label
-    }()
-    
-    lazy var nameOfGoal: UILabel = {
-        let label = UILabel()
-        label.text = self.goal?.name
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var descriptionGoal: UILabel = {
-        let label = UILabel()
-        label.text = self.goal?.description
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+	
+	public var goal: Goal?
+	fileprivate let cellId: String = "DetailCellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,26 +76,10 @@ class DetailGoalViewController: UIViewController {
 	
 	func setupHeaderView() {
 		view.addSubview(headerView)
-		headerView.layer.addSublayer(trackLayer)
-		headerView.layer.addSublayer(trackLayerGray)
-		headerView.addSubview(percentageLabel)
-		headerView.addSubview(nameOfGoal)
-		headerView.addSubview(descriptionGoal)
 		
-		nameOfGoal.text = "A goal"
-		descriptionGoal.text = "Goal description"
-		
-		percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-		percentageLabel.center = CGPoint(x: centerX, y: centerY)
 		NSLayoutConstraint.activate([
-			headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			headerView.topAnchor.constraint(equalTo: view.topAnchor),
-			headerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(UIScreen.main.bounds.width/2) - 240),
-			nameOfGoal.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 200),
-			nameOfGoal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			descriptionGoal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			descriptionGoal.topAnchor.constraint(equalTo: nameOfGoal.bottomAnchor, constant: 10)
+			headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			headerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		])
 	}
 	

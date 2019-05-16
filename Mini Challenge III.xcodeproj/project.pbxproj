@@ -13,6 +13,7 @@
 		484859E0228B238B001D0B62 /* WithoutStepsStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859DF228B238A001D0B62 /* WithoutStepsStateView.swift */; };
 		484859E2228B426D001D0B62 /* StepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */; };
 		484859E4228B4A88001D0B62 /* GoalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E3228B4A88001D0B62 /* GoalHeaderView.swift */; };
+		484859E6228B4E49001D0B62 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E5228B4E49001D0B62 /* CircularProgressView.swift */; };
 		4855A7BD2289E3700037BE80 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A7BC2289E3700037BE80 /* RoundedButton.swift */; };
 		92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE222809370001C9310 /* DetailGoalViewController.swift */; };
 		92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE42280B316001C9310 /* DetailGoalViewCell.swift */; };
@@ -76,6 +77,7 @@
 		484859DF228B238A001D0B62 /* WithoutStepsStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithoutStepsStateView.swift; sourceTree = "<group>"; };
 		484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCell.swift; sourceTree = "<group>"; };
 		484859E3228B4A88001D0B62 /* GoalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHeaderView.swift; sourceTree = "<group>"; };
+		484859E5228B4E49001D0B62 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		4855A7BC2289E3700037BE80 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		92188CE222809370001C9310 /* DetailGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewController.swift; sourceTree = "<group>"; };
 		92188CE42280B316001C9310 /* DetailGoalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				92B3ACE022848E4200D78CFD /* ResumeView.swift */,
 				92A9921D22863AF500A79932 /* OptionsView.swift */,
 				4855A7BC2289E3700037BE80 /* RoundedButton.swift */,
+				484859E5228B4E49001D0B62 /* CircularProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				92775295227FB0C200DD06AA /* Goal.swift in Sources */,
 				92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */,
 				92CA2B602287425D000493F1 /* OptionsControllerExtension.swift in Sources */,
+				484859E6228B4E49001D0B62 /* CircularProgressView.swift in Sources */,
 				484859E2228B426D001D0B62 /* StepCollectionViewCell.swift in Sources */,
 				480A0AC32289B98100004783 /* CalendarView.swift in Sources */,
 				480A0AC72289BA3400004783 /* GoalHaventStartedView.swift in Sources */,
