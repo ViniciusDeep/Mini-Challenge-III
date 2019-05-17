@@ -9,7 +9,6 @@
 import UIKit
 
 class ResumeView: UIView, ViewsNeed {
-    
     fileprivate let goalLabel = UILabel(text: "A minha meta é:", sizeFont: 20)
     public lazy var goalDescription = UILabel(text: "Tornar meu perfil da rede social Y famoso")
     fileprivate lazy var howLabel = UILabel(text: "Com ela eu vou:", sizeFont: 20)
@@ -18,7 +17,7 @@ class ResumeView: UIView, ViewsNeed {
     public lazy var goalNeeds = UILabel(text: "Postar diariamente conteúdos mais atrativos da atualidade.")
     fileprivate lazy var when = UILabel(text: "E isso levará:", sizeFont: 20)
     public lazy var goalWhen = UILabel(text: "2 Meses.")
-    fileprivate lazy var createButton = UIButton(imageNamed: "create")
+    public lazy var createButton = UIButton(imageNamed: "create")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,7 +40,6 @@ class ResumeView: UIView, ViewsNeed {
         addSubview(createButton)
         setupConstraints()
     }
-    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             goalLabel.topAnchor.constraint(equalTo: self.topAnchor),

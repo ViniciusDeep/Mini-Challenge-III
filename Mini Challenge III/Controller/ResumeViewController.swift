@@ -15,6 +15,7 @@ class ResumeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildViewHierarchy()
+        setupResumeView()
     }
     
     fileprivate func buildViewHierarchy() {
@@ -30,4 +31,10 @@ class ResumeViewController: UIViewController {
               resumeView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ])
     }
+    
+    fileprivate func setupResumeView() {
+        resumeView.createButton.addTarget(nil, action: #selector(createFinishGoal), for: .touchUpInside)
+    }
+    
+    @objc fileprivate func createFinishGoal() {}
 }

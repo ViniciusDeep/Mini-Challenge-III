@@ -18,14 +18,26 @@ extension UILabel {
         self.textAlignment = .center
         self.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.textColor = .gray
-        
     }
     convenience init(text: String, sizeFont: Int) {
         self.init(frame: .zero)
         self.text = text
+        self.numberOfLines = 2
+        self.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.font = UIFont.boldSystemFont(ofSize: 20)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    convenience init(text: String, textColor: UIColor) {
+        self.init(frame: .zero)
+        self.text = text
+        self.font = UIFont.systemFont(ofSize: 14)
+        self.numberOfLines = 2
+        self.lineBreakMode = NSLineBreakMode.byWordWrapping
+        self.textColor = .black
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    
 }
 extension UIButton {
     convenience init(imageNamed: String) {
@@ -33,4 +45,9 @@ extension UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setImage(UIImage(named: imageNamed), for: .normal)
     }
+}
+
+extension CAShapeLayer {
+    
+   
 }
