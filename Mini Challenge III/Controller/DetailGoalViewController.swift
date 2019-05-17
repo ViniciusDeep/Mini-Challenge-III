@@ -15,10 +15,7 @@ enum GoalDetailState {
 }
 
 class DetailGoalViewController: UIViewController {
-	lazy var headerView: CircularProgressView = {
-		let view = CircularProgressView()
-		return view
-    }()
+	var headerView: GoalHeaderView!
 	lazy var calendarView: CalendarView = {
 		let view = CalendarView()
 		return view
@@ -54,8 +51,9 @@ class DetailGoalViewController: UIViewController {
 	convenience init(with goal: Goal) {
 		self.init()
 		
-		setupHeaderView()
+		setupHeaderView(goal)
 		setupCalendar()
+//		setupWithoutStepsState()
 		setupSteps()
 		
 		//verifing state
@@ -74,17 +72,20 @@ class DetailGoalViewController: UIViewController {
 */
 	}
 	
-	func setupHeaderView() {
+	func setupHeaderView(_ goal: Goal) {
+		headerView = GoalHeaderView(with: goal)
 		view.addSubview(headerView)
 		
 		NSLayoutConstraint.activate([
 			headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			headerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+			headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 		])
 	}
 	
 	func setupNotStartedState() {
 		view.addSubview(haventStartedView)
+		haventStartedView.delegate = self
 		
 		NSLayoutConstraint.activate([
 			haventStartedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -106,6 +107,7 @@ class DetailGoalViewController: UIViewController {
 	
 	func setupWithoutStepsState() {
 		view.addSubview(withouStepsView)
+		withouStepsView.delegate = self
 		
 		NSLayoutConstraint.activate([
 			withouStepsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -117,6 +119,7 @@ class DetailGoalViewController: UIViewController {
 	
 	func setupSteps() {
 		view.addSubview(stepsView)
+		stepsView.delegate = self
 		
 		NSLayoutConstraint.activate([
 			stepsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -132,51 +135,22 @@ class DetailGoalViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
-    
-    @objc fileprivate func checkStep(button: UIButton) {
-        switch button.isSelected {
-        case true:
-            button.setImage(UIImage(named: "uncheck"), for: .normal)
-            button.isSelected = false
-        case false:
-            button.setImage(UIImage(named: "check"), for: .normal)
-            button.isSelected = true
-        }
-    }
-    fileprivate var textField: UITextField!
-    
-    @objc fileprivate func addNewStep() {
-        let alert = UIAlertController(title: "Add you new step", message: "Here you can add your new step", preferredStyle: .alert)
-        alert.addTextField(configurationHandler: textField)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
-            self.configureNewStep()
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    fileprivate func configureNewStep() {
-        self.goal?.steps.append(Step(name: textField.text, description: nil, isCompleted: false))
-//        tableView.reloadData()
-    }
-    
-    fileprivate func textField(texField: UITextField) {
-        self.textField = texField
-        textField.placeholder = "Add your step"
-    }
 }
-extension DetailGoalViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return self.goal?.steps.count ?? 0
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? DetailGoalViewCell
-        guard let step = self.goal?.steps[indexPath.row] else {return UITableViewCell()}
-        cell?.nameGoal.text = step.name
-        cell?.checkButton.addTarget(self, action: #selector(checkStep), for: .touchUpInside)
-        return cell ?? UITableViewCell()
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
+
+extension DetailGoalViewController: GoalHaventStartedDelegate {
+	func startGoal() {
+		print("start goal")
+	}
+}
+
+extension DetailGoalViewController: WithoutStepsDelegate {
+	func createStep() {
+		print("create step")
+	}
+}
+
+extension DetailGoalViewController: StepsViewDelegate {
+	func finishMonthProgress() {
+		print("finish month progress")
+	}
 }

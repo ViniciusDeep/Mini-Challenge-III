@@ -14,6 +14,7 @@
 		484859E2228B426D001D0B62 /* StepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */; };
 		484859E4228B4A88001D0B62 /* GoalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E3228B4A88001D0B62 /* GoalHeaderView.swift */; };
 		484859E6228B4E49001D0B62 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E5228B4E49001D0B62 /* CircularProgressView.swift */; };
+		48485A0C228F4BD5001D0B62 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48485A0B228F4BD5001D0B62 /* DateCollectionViewCell.swift */; };
 		4855A7BD2289E3700037BE80 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A7BC2289E3700037BE80 /* RoundedButton.swift */; };
 		92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE222809370001C9310 /* DetailGoalViewController.swift */; };
 		92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE42280B316001C9310 /* DetailGoalViewCell.swift */; };
@@ -78,6 +79,7 @@
 		484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCollectionViewCell.swift; sourceTree = "<group>"; };
 		484859E3228B4A88001D0B62 /* GoalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHeaderView.swift; sourceTree = "<group>"; };
 		484859E5228B4E49001D0B62 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		48485A0B228F4BD5001D0B62 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		4855A7BC2289E3700037BE80 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		92188CE222809370001C9310 /* DetailGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewController.swift; sourceTree = "<group>"; };
 		92188CE42280B316001C9310 /* DetailGoalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewCell.swift; sourceTree = "<group>"; };
@@ -155,8 +157,9 @@
 				480A0AC42289B9F900004783 /* StepsView.swift */,
 				480A0AC62289BA3400004783 /* GoalHaventStartedView.swift */,
 				484859DF228B238A001D0B62 /* WithoutStepsStateView.swift */,
-				484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */,
 				484859E3228B4A88001D0B62 /* GoalHeaderView.swift */,
+				484859E1228B426D001D0B62 /* StepCollectionViewCell.swift */,
+				48485A0B228F4BD5001D0B62 /* DateCollectionViewCell.swift */,
 			);
 			path = "Goal Detail";
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */,
 				923D937F226E19330006ED17 /* Page.swift in Sources */,
 				92A9921C22863AE700A79932 /* OptionsController.swift in Sources */,
+				48485A0C228F4BD5001D0B62 /* DateCollectionViewCell.swift in Sources */,
 				923D934E226E16610006ED17 /* AppDelegate.swift in Sources */,
 				9280F196227020950071D341 /* SmartFullScreenDescriptionCell.swift in Sources */,
 				9280F190227006600071D341 /* SmartController.swift in Sources */,

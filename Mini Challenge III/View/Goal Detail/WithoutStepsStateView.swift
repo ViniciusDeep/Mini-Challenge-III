@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol WithoutStepsDelegate {
+	func createStep()
+}
+
 class WithoutStepsStateView: UIView {
 	var titleLabel: UILabel!
 	var descriptionLabel: UILabel!
 	var createStepButton: RoundedButton!
+	
+	var delegate: WithoutStepsDelegate?
 	
 	init() {
 		super.init(frame: .zero)
@@ -22,6 +28,10 @@ class WithoutStepsStateView: UIView {
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	@objc func createStepAction() {
+		delegate?.createStep()
 	}
 	
 	func setup() {
@@ -43,6 +53,7 @@ class WithoutStepsStateView: UIView {
 		
 		createStepButton = RoundedButton()
 		createStepButton.setTitle("Create a step", for: .normal)
+		createStepButton.addTarget(self, action: #selector(createStepAction), for: .touchUpInside)
 		containerView.addSubview(createStepButton)
 		
 		NSLayoutConstraint.activate([

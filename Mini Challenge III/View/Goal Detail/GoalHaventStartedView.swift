@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol GoalHaventStartedDelegate {
+	func startGoal()
+}
+
 class GoalHaventStartedView: UIView {
 	var imageView: UIImageView!
 	var titleLabel: UILabel!
 	var descriptionLabel: UILabel!
 	var startButton: RoundedButton!
+	
+	var delegate: GoalHaventStartedDelegate?
 	
 	init() {
 		super.init(frame: .zero)
@@ -23,6 +29,10 @@ class GoalHaventStartedView: UIView {
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	@objc func createStepAction() {
+		delegate?.startGoal()
 	}
 	
 	func setup() {
@@ -50,6 +60,8 @@ class GoalHaventStartedView: UIView {
 		view.addSubview(descriptionLabel)
 		
 		startButton = RoundedButton()
+		startButton.setTitle("Start", for: .normal)
+		startButton.addTarget(self, action: #selector(createStepAction), for: .touchUpInside)
 		view.addSubview(startButton)
 		
 		NSLayoutConstraint.activate([
