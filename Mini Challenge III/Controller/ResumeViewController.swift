@@ -9,7 +9,6 @@
 import UIKit
 
 class ResumeViewController: UIViewController {
-    
     lazy var resumeView = ResumeView()
     
     override func viewDidLoad() {
@@ -36,5 +35,24 @@ class ResumeViewController: UIViewController {
         resumeView.createButton.addTarget(nil, action: #selector(createFinishGoal), for: .touchUpInside)
     }
     
-    @objc fileprivate func createFinishGoal() {}
+    @objc fileprivate func createFinishGoal() {
+        let alertController = UIAlertController(title: "Deseja iniciar a meta?", message: "Sua meta ainda não foi iniciada, você deseja iniciá-la?", preferredStyle: .alert)
+        
+        let startGoalAction = UIAlertAction(title: "Sim", style: .default) { (_) in
+            //code over here to create your goal, this settings of core here
+            self.dismiss(animated: true, completion: nil)
+            print("That's ok here")
+        }
+        
+        let createGoalAction = UIAlertAction(title: "Não", style: .cancel)
+        {  (_) in
+            //this code is to create your without start
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(startGoalAction)
+        alertController.addAction(createGoalAction)
+        
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }

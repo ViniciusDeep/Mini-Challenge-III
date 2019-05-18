@@ -36,8 +36,6 @@ extension UILabel {
         self.textColor = .black
         self.translatesAutoresizingMaskIntoConstraints = false
     }
-    
-    
 }
 extension UIButton {
     convenience init(imageNamed: String) {
@@ -45,9 +43,4 @@ extension UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setImage(UIImage(named: imageNamed), for: .normal)
     }
-}
-
-extension CAShapeLayer {
-    
-   
 }
