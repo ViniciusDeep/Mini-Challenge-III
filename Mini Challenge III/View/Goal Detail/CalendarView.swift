@@ -16,6 +16,7 @@ class CalendarView: UIView {
 	init() {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
+		backgroundColor = UIColor.white
 		
 		setup()
 	}
@@ -33,7 +34,7 @@ class CalendarView: UIView {
 		
 		collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
-		collectionView.backgroundColor = UIColor.clear
+		collectionView.backgroundColor = UIColor.white
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		collectionView.register(DateCollectionViewCell.self, forCellWithReuseIdentifier: "DateCollectionViewCell")

@@ -9,6 +9,7 @@
 import UIKit
 
 protocol StepsViewDelegate {
+	func createStep()
 	func finishMonthProgress()
 }
 
@@ -39,7 +40,7 @@ class StepsView: UIView {
 	}
 	
 	@objc func addStepAction() {
-		print("add step action")
+		delegate?.createStep()
 	}
 	
 	@objc func finishMonthProgressAction() {

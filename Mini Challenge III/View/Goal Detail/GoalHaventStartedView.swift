@@ -23,6 +23,7 @@ class GoalHaventStartedView: UIView {
 	init() {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
+		backgroundColor = UIColor.clear
 		
 		setup()
 	}
@@ -38,14 +39,12 @@ class GoalHaventStartedView: UIView {
 	func setup() {
 		let view = UIView(frame: .zero)
 		view.translatesAutoresizingMaskIntoConstraints = false
+		view.backgroundColor = UIColor.clear
 		addSubview(view)
-		
-		backgroundColor = UIColor.black
-		view.backgroundColor = UIColor.gray
 		
 		imageView = UIImageView(frame: .zero)
 		imageView.image = #imageLiteral(resourceName: "emptyState")
-		imageView.contentMode = .scaleAspectFit
+		imageView.contentMode = .scaleAspectFill
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(imageView)
 		

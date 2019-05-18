@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum GoalDetailState {
-	case notStarted
-	case haventStep
-	case running
-}
-
 class DetailGoalViewController: UIViewController {
 	var headerView: GoalHeaderView!
 	lazy var calendarView: CalendarView = {
@@ -39,7 +33,7 @@ class DetailGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-        view.backgroundColor = .white
+        view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -52,9 +46,7 @@ class DetailGoalViewController: UIViewController {
 		self.init()
 		
 		setupHeaderView(goal)
-		setupCalendar()
-//		setupWithoutStepsState()
-		setupSteps()
+		setupNotStartedState()
 		
 		//verifing state
 		/*
@@ -132,24 +124,44 @@ class DetailGoalViewController: UIViewController {
     fileprivate func setupNavigation() {
         navigationItem.title = "Goal"
         navigationController?.navigationBar.prefersLargeTitles = false
+		navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
     }
 }
 
 extension DetailGoalViewController: GoalHaventStartedDelegate {
 	func startGoal() {
-		print("start goal")
+		let alertController = UIAlertController(title: "Congratulations", message: "You just started this goal. Now you have to create your first step.", preferredStyle: .alert)
+		
+		let startGoalAction = UIAlertAction(title: "Let's go", style: .default) { (_) in
+			//code over here to create your goal, this settings of core here
+			self.dismiss(animated: true, completion: nil)
+			self.goal?.isStarted = true
+			self.haventStartedView.removeFromSuperview()
+			self.setupCalendar()
+			self.setupWithoutStepsState()
+			self.headerView.startProgress()
+		}
+		
+		alertController.addAction(startGoalAction)
+		
+		present(alertController, animated: true, completion: nil)
 	}
 }
 
 extension DetailGoalViewController: WithoutStepsDelegate {
-	func createStep() {
-		print("create step")
+	func createFirstStep() {
+		//call create step scene
+		//return from create step scene and change the state for stepsview
+		print("create first step")
 	}
 }
 
 extension DetailGoalViewController: StepsViewDelegate {
+	func createStep() {
+		print("create step")
+	}
 	func finishMonthProgress() {
 		print("finish month progress")
 	}

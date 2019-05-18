@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WithoutStepsDelegate {
-	func createStep()
+	func createFirstStep()
 }
 
 class WithoutStepsStateView: UIView {
@@ -31,7 +31,7 @@ class WithoutStepsStateView: UIView {
 	}
 	
 	@objc func createStepAction() {
-		delegate?.createStep()
+		delegate?.createFirstStep()
 	}
 	
 	func setup() {
