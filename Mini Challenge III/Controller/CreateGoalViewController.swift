@@ -14,7 +14,7 @@ class CreateGoalViewController: UIViewController {
     
     var goal: Goal?
     
-    fileprivate lazy var progressStepView = ProgressStepView()
+    lazy var progressStepView = ProgressStepView()
     fileprivate var count = 0
     
     fileprivate lazy var tableView: UITableView = {

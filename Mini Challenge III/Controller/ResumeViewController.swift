@@ -35,6 +35,13 @@ class ResumeViewController: UIViewController {
         resumeView.createButton.addTarget(nil, action: #selector(createFinishGoal), for: .touchUpInside)
     }
     
+    func setPropertieToGoalInView(goal: Goal) {
+        resumeView.goalDescription.text = goal.name
+        resumeView.goalHow.text = goal.how
+        resumeView.goalNeeds.text = goal.description
+        resumeView.goalWhen.text = goal.when
+    }
+    
     @objc fileprivate func createFinishGoal() {
         let alertController = UIAlertController(title: "Deseja iniciar a meta?", message: "Sua meta ainda não foi iniciada, você deseja iniciá-la?", preferredStyle: .alert)
         
@@ -51,8 +58,6 @@ class ResumeViewController: UIViewController {
         }
         alertController.addAction(startGoalAction)
         alertController.addAction(createGoalAction)
-        
-        
         present(alertController, animated: true, completion: nil)
     }
 }

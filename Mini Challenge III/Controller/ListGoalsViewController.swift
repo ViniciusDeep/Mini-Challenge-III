@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ListGoalsViewController: BaseListController {
     
@@ -40,7 +41,7 @@ class ListGoalsViewController: BaseListController {
     
     fileprivate func setNavigation() {
         let buttomRight = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewGoals))
-        let buttonMode = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
+        let buttonMode = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(changeLayout))
         navigationItem.rightBarButtonItems = [buttomRight, buttonMode]
     }
     
@@ -81,5 +82,9 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width - 20, height: 120)
     }
-
+    
+    @objc fileprivate func changeLayout() {
+        self.collectionView.reloadData()
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
 }
