@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol WithoutStepsDelegate {
+protocol WithoutStepsDelegate: class {
 	func createFirstStep()
 }
 
@@ -17,7 +17,7 @@ class WithoutStepsStateView: UIView {
 	var descriptionLabel: UILabel!
 	var createStepButton: RoundedButton!
 	
-	var delegate: WithoutStepsDelegate?
+	weak var delegate: WithoutStepsDelegate?
 	
 	init() {
 		super.init(frame: .zero)

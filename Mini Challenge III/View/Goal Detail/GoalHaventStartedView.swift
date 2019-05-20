@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol GoalHaventStartedDelegate {
+protocol GoalHaventStartedDelegate: class {
 	func startGoal()
 }
 
@@ -18,7 +18,7 @@ class GoalHaventStartedView: UIView {
 	var descriptionLabel: UILabel!
 	var startButton: RoundedButton!
 	
-	var delegate: GoalHaventStartedDelegate?
+	weak var delegate: GoalHaventStartedDelegate?
 	
 	init() {
 		super.init(frame: .zero)

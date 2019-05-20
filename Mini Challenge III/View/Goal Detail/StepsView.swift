@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol StepsViewDelegate {
+protocol StepsViewDelegate: class {
 	func createStep()
 	func finishMonthProgress()
 }
@@ -18,7 +18,7 @@ class StepsView: UIView {
 	var addStepButton: UIButton!
 	var finishProgressButton: RoundedButton!
 	
-	var delegate: StepsViewDelegate?
+	weak var delegate: StepsViewDelegate?
 	var steps: [Step] = []
 	
 	init() {
