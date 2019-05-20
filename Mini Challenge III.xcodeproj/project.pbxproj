@@ -15,6 +15,9 @@
 		484859E4228B4A88001D0B62 /* GoalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E3228B4A88001D0B62 /* GoalHeaderView.swift */; };
 		484859E6228B4E49001D0B62 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484859E5228B4E49001D0B62 /* CircularProgressView.swift */; };
 		48485A0C228F4BD5001D0B62 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48485A0B228F4BD5001D0B62 /* DateCollectionViewCell.swift */; };
+		48485A0E2292EB54001D0B62 /* CreateStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48485A0D2292EB54001D0B62 /* CreateStepViewController.swift */; };
+		48485A102292ECBC001D0B62 /* DismissView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48485A0F2292ECBC001D0B62 /* DismissView.swift */; };
+		48485A122292EEF6001D0B62 /* CreateStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48485A112292EEF6001D0B62 /* CreateStepView.swift */; };
 		4855A7BD2289E3700037BE80 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A7BC2289E3700037BE80 /* RoundedButton.swift */; };
 		92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE222809370001C9310 /* DetailGoalViewController.swift */; };
 		92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE42280B316001C9310 /* DetailGoalViewCell.swift */; };
@@ -91,6 +94,9 @@
 		484859E3228B4A88001D0B62 /* GoalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHeaderView.swift; sourceTree = "<group>"; };
 		484859E5228B4E49001D0B62 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		48485A0B228F4BD5001D0B62 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		48485A0D2292EB54001D0B62 /* CreateStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStepViewController.swift; sourceTree = "<group>"; };
+		48485A0F2292ECBC001D0B62 /* DismissView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissView.swift; sourceTree = "<group>"; };
+		48485A112292EEF6001D0B62 /* CreateStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStepView.swift; sourceTree = "<group>"; };
 		4855A7BC2289E3700037BE80 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		92188CE222809370001C9310 /* DetailGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewController.swift; sourceTree = "<group>"; };
 		92188CE42280B316001C9310 /* DetailGoalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewCell.swift; sourceTree = "<group>"; };
@@ -281,6 +287,8 @@
 				92A9921D22863AF500A79932 /* OptionsView.swift */,
 				4855A7BC2289E3700037BE80 /* RoundedButton.swift */,
 				484859E5228B4E49001D0B62 /* CircularProgressView.swift */,
+				48485A0F2292ECBC001D0B62 /* DismissView.swift */,
+				48485A112292EEF6001D0B62 /* CreateStepView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -298,6 +306,7 @@
 				92188CE222809370001C9310 /* DetailGoalViewController.swift */,
 				92B3ACDE22848E0600D78CFD /* ResumeViewController.swift */,
 				92A9921B22863AE700A79932 /* OptionsController.swift */,
+				48485A0D2292EB54001D0B62 /* CreateStepViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -517,7 +526,9 @@
 				929295652289DBEC0094C6D7 /* GolCore+CoreDataPropertie.swift in Sources */,
 				9280F192227009AA0071D341 /* SmartCell.swift in Sources */,
 				92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */,
+				48485A102292ECBC001D0B62 /* DismissView.swift in Sources */,
 				9240DA6B2289890A0094961A /* data-base.xcdatamodeld in Sources */,
+				48485A122292EEF6001D0B62 /* CreateStepView.swift in Sources */,
 				9271BC51228A168400321ED5 /* CreateGoals+Extensions.swift in Sources */,
 				923D937F226E19330006ED17 /* Page.swift in Sources */,
 				92A9921C22863AE700A79932 /* OptionsController.swift in Sources */,
@@ -546,6 +557,7 @@
 				480A0AC72289BA3400004783 /* GoalHaventStartedView.swift in Sources */,
 				923D9381226E19720006ED17 /* PageCell.swift in Sources */,
 				923D9384226E199E0006ED17 /* Constraints+UIView.swift in Sources */,
+				48485A0E2292EB54001D0B62 /* CreateStepViewController.swift in Sources */,
 				924D0F56227CB13300C272E7 /* ListGoalsViewController.swift in Sources */,
 				923D938F226E1AA70006ED17 /* CustomTabBarController.swift in Sources */,
 				9280F19422701DF60071D341 /* SmartFullScreenController.swift in Sources */,
