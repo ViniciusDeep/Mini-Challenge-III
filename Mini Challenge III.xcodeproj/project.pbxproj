@@ -34,6 +34,7 @@
 		924D0F56227CB13300C272E7 /* ListGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F55227CB13300C272E7 /* ListGoalsViewController.swift */; };
 		924D0F58227CB30200C272E7 /* CreateGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */; };
 		924D0F5A227CB55500C272E7 /* CreateGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F59227CB55500C272E7 /* CreateGoalsView.swift */; };
+		925935162292EED100D94991 /* Mini_Challenge_CoreData_IIITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925935152292EED100D94991 /* Mini_Challenge_CoreData_IIITests.swift */; };
 		9271BC4D2289DF9100321ED5 /* StepCore+CoreData+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271BC4C2289DF9100321ED5 /* StepCore+CoreData+Class.swift */; };
 		9271BC4F2289E10A00321ED5 /* StepCore+CoreDataProperties].swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271BC4E2289E10A00321ED5 /* StepCore+CoreDataProperties].swift */; };
 		9271BC51228A168400321ED5 /* CreateGoals+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271BC50228A168400321ED5 /* CreateGoals+Extensions.swift */; };
@@ -47,6 +48,7 @@
 		9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */; };
 		929295632289DB620094C6D7 /* GoalCore+ClassCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929295622289DB620094C6D7 /* GoalCore+ClassCoreData.swift */; };
 		929295652289DBEC0094C6D7 /* GolCore+CoreDataPropertie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929295642289DBEC0094C6D7 /* GolCore+CoreDataPropertie.swift */; };
+		92934F0B2292F836009C34C9 /* data-base-test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92934F092292F835009C34C9 /* data-base-test.xcdatamodeld */; };
 		92A9921C22863AE700A79932 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9921B22863AE700A79932 /* OptionsController.swift */; };
 		92A9921E22863AF500A79932 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A9921D22863AF500A79932 /* OptionsView.swift */; };
 		92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B19ABC228278A200F6649A /* SquareListGoalCell.swift */; };
@@ -106,6 +108,7 @@
 		924D0F55227CB13300C272E7 /* ListGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGoalsViewController.swift; sourceTree = "<group>"; };
 		924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalViewController.swift; sourceTree = "<group>"; };
 		924D0F59227CB55500C272E7 /* CreateGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalsView.swift; sourceTree = "<group>"; };
+		925935152292EED100D94991 /* Mini_Challenge_CoreData_IIITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini_Challenge_CoreData_IIITests.swift; sourceTree = "<group>"; };
 		9271BC4C2289DF9100321ED5 /* StepCore+CoreData+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StepCore+CoreData+Class.swift"; sourceTree = "<group>"; };
 		9271BC4E2289E10A00321ED5 /* StepCore+CoreDataProperties].swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StepCore+CoreDataProperties].swift"; sourceTree = "<group>"; };
 		9271BC50228A168400321ED5 /* CreateGoals+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateGoals+Extensions.swift"; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		9280F197227029640071D341 /* SmarFullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmarFullScreenHeaderCell.swift; sourceTree = "<group>"; };
 		929295622289DB620094C6D7 /* GoalCore+ClassCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoalCore+ClassCoreData.swift"; sourceTree = "<group>"; };
 		929295642289DBEC0094C6D7 /* GolCore+CoreDataPropertie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GolCore+CoreDataPropertie.swift"; sourceTree = "<group>"; };
+		92934F0A2292F835009C34C9 /* data-base.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "data-base.xcdatamodel"; sourceTree = "<group>"; };
 		92A9921B22863AE700A79932 /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		92A9921D22863AF500A79932 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		92B19ABC228278A200F6649A /* SquareListGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareListGoalCell.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				923D9362226E16620006ED17 /* Mini_Challenge_IIITests.swift */,
+				925935152292EED100D94991 /* Mini_Challenge_CoreData_IIITests.swift */,
 				923D9364226E16620006ED17 /* Info.plist */,
 			);
 			path = "Mini Challenge IIITests";
@@ -221,7 +226,6 @@
 			children = (
 				9240DA752289A4DF0094961A /* Step */,
 				9240DA742289A4DA0094961A /* Goal */,
-				923D937E226E19330006ED17 /* Page.swift */,
 				9228160C227F5F0600EA9D92 /* GoalField.swift */,
 				92775294227FB0C200DD06AA /* Goal.swift */,
 				927752962280923A00DD06AA /* Step.swift */,
@@ -291,6 +295,8 @@
 			children = (
 				9240DA6C2289894D0094961A /* DAO */,
 				9240DA692289890A0094961A /* data-base.xcdatamodeld */,
+				92934F092292F835009C34C9 /* data-base-test.xcdatamodeld */,
+				923D937E226E19330006ED17 /* Page.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92934F0B2292F836009C34C9 /* data-base-test.xcdatamodeld in Sources */,
 				923D9391226FA0050006ED17 /* BaseListController.swift in Sources */,
 				929295652289DBEC0094C6D7 /* GolCore+CoreDataPropertie.swift in Sources */,
 				9280F192227009AA0071D341 /* SmartCell.swift in Sources */,
@@ -524,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				923D9363226E16620006ED17 /* Mini_Challenge_IIITests.swift in Sources */,
+				925935162292EED100D94991 /* Mini_Challenge_CoreData_IIITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,6 +853,16 @@
 			);
 			currentVersion = 9240DA6A2289890A0094961A /* data-base.xcdatamodel */;
 			path = "data-base.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		92934F092292F835009C34C9 /* data-base-test.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92934F0A2292F835009C34C9 /* data-base.xcdatamodel */,
+			);
+			currentVersion = 92934F0A2292F835009C34C9 /* data-base.xcdatamodel */;
+			path = "data-base-test.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
