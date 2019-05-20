@@ -52,7 +52,6 @@
 		92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B19ABC228278A200F6649A /* SquareListGoalCell.swift */; };
 		92B3ACDF22848E0600D78CFD /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3ACDE22848E0600D78CFD /* ResumeViewController.swift */; };
 		92B3ACE122848E4200D78CFD /* ResumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3ACE022848E4200D78CFD /* ResumeView.swift */; };
-		92B3ACE32284A5B000D78CFD /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3ACE22284A5B000D78CFD /* UIView+Helpers.swift */; };
 		92CA2B602287425D000493F1 /* OptionsControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,7 +124,6 @@
 		92B19ABC228278A200F6649A /* SquareListGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareListGoalCell.swift; sourceTree = "<group>"; };
 		92B3ACDE22848E0600D78CFD /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
 		92B3ACE022848E4200D78CFD /* ResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeView.swift; sourceTree = "<group>"; };
-		92B3ACE22284A5B000D78CFD /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,7 +282,6 @@
 			children = (
 				923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */,
 				923F98CC2280C6140099C000 /* GoalHelper.swift */,
-				92B3ACE22284A5B000D78CFD /* UIView+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -494,7 +491,6 @@
 				92B3ACE122848E4200D78CFD /* ResumeView.swift in Sources */,
 				929295632289DB620094C6D7 /* GoalCore+ClassCoreData.swift in Sources */,
 				92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */,
-				92B3ACE32284A5B000D78CFD /* UIView+Helpers.swift in Sources */,
 				924D0F5A227CB55500C272E7 /* CreateGoalsView.swift in Sources */,
 				92A9921E22863AF500A79932 /* OptionsView.swift in Sources */,
 				923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */,

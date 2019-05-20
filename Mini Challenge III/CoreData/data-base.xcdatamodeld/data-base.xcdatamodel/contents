@@ -7,16 +7,16 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="progress" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="when" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StepCore" inverseName="relationship" inverseEntity="StepCore" syncable="YES"/>
+        <relationship name="steps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StepCore" inverseName="goal" inverseEntity="StepCore" syncable="YES"/>
     </entity>
     <entity name="StepCore" representedClassName=".StepCore" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalCore" inverseName="relationship" inverseEntity="GoalCore" syncable="YES"/>
+        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalCore" inverseName="steps" inverseEntity="GoalCore" syncable="YES"/>
     </entity>
     <elements>
-        <element name="GoalCore" positionX="-54" positionY="-9" width="128" height="150"/>
-        <element name="StepCore" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="GoalCore" positionX="-54" positionY="-9" width="128" height="148"/>
+        <element name="StepCore" positionX="213.99609375" positionY="35.2421875" width="128" height="103"/>
     </elements>
 </model>
