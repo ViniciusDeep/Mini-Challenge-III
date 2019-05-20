@@ -3,7 +3,9 @@ line_length:
  - 800 # error
 
 disabled_rules:
+ - leading_whitespace
  - force_cast
+ - force_try
  - identifier_name
  - opening_brace
  - trailing_whitespace

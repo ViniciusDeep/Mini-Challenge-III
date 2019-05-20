@@ -15,15 +15,12 @@ class SquareListGoalCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     lazy var descriptionGoal: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    
     lazy var trackLayer: CAShapeLayer = {
         let trackLayer  = CAShapeLayer()
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 40, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
@@ -34,7 +31,6 @@ class SquareListGoalCell: UICollectionViewCell {
         trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         return trackLayer
     }()
-    
     fileprivate lazy var trackLayerGray: CAShapeLayer = {
         let trackLayer  = CAShapeLayer()
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 40, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
@@ -46,7 +42,6 @@ class SquareListGoalCell: UICollectionViewCell {
         trackLayer.opacity = 0.4
         return trackLayer
     }()
-    
     lazy var percentageLabel: UILabel = {
         let label = UILabel()
         label.text = "Start"
@@ -54,19 +49,15 @@ class SquareListGoalCell: UICollectionViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         buidViewHierarchy()
         self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.layer.cornerRadius = 8
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     fileprivate func buidViewHierarchy() {
         layer.addSublayer(trackLayer)
         layer.addSublayer(trackLayerGray)

@@ -8,21 +8,10 @@
 
 import UIKit
 
-class ListGoalViewCell: UICollectionViewCell {
+class ListGoalViewCell: UICollectionViewCell, ViewsNeed {
+    lazy var nameGoal = UILabel(text: "Name of Goal", sizeFont: 24) 
     
-    lazy var nameGoal: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var descriptionGoal: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy var descriptionGoal = UILabel(text: "Description", textColor: .black)
     
     
     lazy var trackLayer: CAShapeLayer = {
@@ -59,7 +48,7 @@ class ListGoalViewCell: UICollectionViewCell {
    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        buidViewHierarchy()
+        buildViewHierarchy()
         self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.layer.cornerRadius = 8
     }
@@ -68,7 +57,7 @@ class ListGoalViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func buidViewHierarchy() {
+    func buildViewHierarchy() {
         layer.addSublayer(trackLayer)
         layer.addSublayer(trackLayerGray)
         addSubview(nameGoal)
@@ -76,14 +65,16 @@ class ListGoalViewCell: UICollectionViewCell {
         addSubview(descriptionGoal)
         setupConstraints()
     }
-    fileprivate func setupConstraints() {
+    func setupConstraints() {
         percentageLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         percentageLabel.center = CGPoint(x: 50, y: 50)
          NSLayoutConstraint.activate([
             nameGoal.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
             nameGoal.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            nameGoal.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             descriptionGoal.leadingAnchor.constraint(equalTo: nameGoal.leadingAnchor),
-            descriptionGoal.topAnchor.constraint(equalTo: nameGoal.bottomAnchor, constant: 10)
+            descriptionGoal.topAnchor.constraint(equalTo: nameGoal.bottomAnchor, constant: 10),
+            descriptionGoal.trailingAnchor.constraint(equalTo: self.nameGoal.trailingAnchor)
             ])
     }
 }

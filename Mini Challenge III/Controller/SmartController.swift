@@ -16,7 +16,6 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
         super.viewDidLoad()
         collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
         collectionView.register(SmartCell.self, forCellWithReuseIdentifier:
-            
             cellId)
     }
     var smartFullScreenController: SmartFullScreenController!
@@ -50,13 +49,12 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
         self.view.layoutIfNeeded()
         redView.layer.cornerRadius = 16
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            
             self.topConstraint?.constant = 0
             self.leadingConstraint?.constant = 0
             self.widthConstraint?.constant = self.view.frame.width
             self.heightConstraint?.constant = self.view.frame.height
             
-            self.view.layoutIfNeeded() // starts animation
+            self.view.layoutIfNeeded()
             self.navigationController?.isNavigationBarHidden = true
             
             self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
@@ -92,11 +90,9 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SmartCell
-        
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
-        
         return cell
     }
     
@@ -109,7 +105,7 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 32, left: 32, bottom: 32, right: 0)
+        return .init(top: 32, left: 10, bottom: 32, right: 5)
     }
     
 }

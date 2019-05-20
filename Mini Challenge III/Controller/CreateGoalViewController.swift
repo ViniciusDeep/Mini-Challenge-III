@@ -15,19 +15,21 @@ class CreateGoalViewController: UIViewController {
     var goal: Goal?
     
     fileprivate lazy var progressStepView = ProgressStepView()
+    fileprivate var count = 0
     
     fileprivate lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     fileprivate lazy var nextButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.text = "Next"
+        button.addTarget(self, action: #selector(changeContent), for: .touchUpInside)
+        button.setImage(UIImage(named: "nextstep"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         return button
     }()
     
@@ -37,23 +39,25 @@ class CreateGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        view.addGestureRecognizer(tap)
         setNavigationItems()
         buildViewHierarchy()
         setupTableView()
     }
-    
+    @objc fileprivate func dismissKeyBoard() {
+        view.endEditing(true)
+    }
     fileprivate func setNavigationItems() {
         navigationItem.title = "Create Your Goal"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backToController))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addNewGoal))
     }
-    
-    
     fileprivate func buildViewHierarchy() {
         view.addSubview(tableView)
-        view.addSubview(progressStepView)
         view.addSubview(nextButton)
+        view.addSubview(progressStepView)
         setConstraints()
     }
     fileprivate func setConstraints() {
@@ -61,11 +65,11 @@ class CreateGoalViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: progressStepView.bottomAnchor, constant: 60),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
             progressStepView.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
             progressStepView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 65),
             progressStepView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height/2) - 200),
-            nextButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 10),
+            nextButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 40),
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ])
     }
@@ -74,12 +78,19 @@ class CreateGoalViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
+extension CreateGoalViewController {
+    @objc func changeContent(sender: UIButton) {
+            progressStepView.verifyCurrentStep(currentStep: 2)
+    }
+}
 extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
     fileprivate func setupTableView() {
+        view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
         tableView.register(CreateGoalsViewCell.self, forCellReuseIdentifier: cellId)
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
-    }
+    } 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CreateGoalsViewCell
@@ -89,16 +100,16 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return goalfields.count
+        return 2
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
+    
     @objc fileprivate func addNewGoal() {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CreateGoalsViewCell
         guard let textField = cell?.contextTf.text else {return}
-        
         ListGoalsViewController.goals.append(Goal(name:  "Nova Meta", description: "Teste de nova meta", how: textField, when:  textField, progress: 0.9))
         dismiss(animated: true, completion: nil)
     }
