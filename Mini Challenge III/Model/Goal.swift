@@ -14,7 +14,7 @@ struct Goal{
     var how: String?
     var when: String?
     var progress: CGFloat = 0
-    lazy var steps = [Step]()
+	var steps: [Step] = []
     var isStarted: Bool = false
 
     init(name: String, description: String, how: String, when: String, progress: CGFloat) {
