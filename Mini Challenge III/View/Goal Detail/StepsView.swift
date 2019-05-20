@@ -93,12 +93,12 @@ class StepsView: UIView {
 			collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
 			separateView.heightAnchor.constraint(equalToConstant: 1.0),
 			separateView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
-			separateView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 8.0),
+			separateView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 16.0),
 			separateView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16.0),
 			addStepButton.topAnchor.constraint(equalTo: separateView.bottomAnchor, constant: 2.0),
 			addStepButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
 			finishProgressButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8.0),
-			finishProgressButton.topAnchor.constraint(equalTo: addStepButton.bottomAnchor, constant: 8.0),
+			finishProgressButton.topAnchor.constraint(equalTo: addStepButton.bottomAnchor, constant: 16.0),
 			finishProgressButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0),
 			finishProgressButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
 		])

@@ -46,7 +46,8 @@ class DetailGoalViewController: UIViewController {
 		self.init()
 		
 		setupHeaderView(goal)
-		setupNotStartedState()
+		setupCalendar()
+		setupSteps()
 		
 		//verifing state
 		/*
@@ -92,7 +93,7 @@ class DetailGoalViewController: UIViewController {
 		
 		NSLayoutConstraint.activate([
 			calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			calendarView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 2.0),
+			calendarView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 4.0),
 			calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 		])
 	}
