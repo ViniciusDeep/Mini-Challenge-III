@@ -108,9 +108,6 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     @objc fileprivate func addNewGoal() {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CreateGoalsViewCell
-        guard let textField = cell?.contextTf.text else {return}
-        ListGoalsViewController.goals.append(Goal(name:  "Nova Meta", description: "Teste de nova meta", how: textField, when:  textField, progress: 0.9))
         dismiss(animated: true, completion: nil)
     }
 }
