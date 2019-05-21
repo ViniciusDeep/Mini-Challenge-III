@@ -17,8 +17,9 @@ class ListGoalViewCell: UICollectionViewCell, ViewsNeed {
     lazy var trackLayer: CAShapeLayer = {
         let trackLayer  = CAShapeLayer()
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 40, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        trackLayer.speed = 0.5
+        trackLayer.strokeStart = 0
         trackLayer.path = circularPath.cgPath
-        trackLayer.strokeEnd = 0
         trackLayer.strokeColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1).cgColor
         trackLayer.lineWidth = 3
         trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor

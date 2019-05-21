@@ -14,7 +14,7 @@ extension GoalCore {
         return NSFetchRequest<GoalCore>(entityName: "GoalCore")
     }
     @NSManaged public var name: String?
-    @NSManaged public var about: Double
+    @NSManaged public var about: String?
     @NSManaged public var when: String?
     @NSManaged public var how: String?
     @NSManaged public var progress: Float
