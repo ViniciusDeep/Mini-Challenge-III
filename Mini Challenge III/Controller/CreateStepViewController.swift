@@ -18,7 +18,11 @@ class CreateStepViewController: UIViewController {
 	}
 	
 	func setup() {
+		view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+		modalPresentationStyle = .overCurrentContext
+		
 		createStepView = CreateStepView()
+		createStepView.delegate = self
 		view.addSubview(createStepView)
 		
 		NSLayoutConstraint.activate([
@@ -26,5 +30,11 @@ class CreateStepViewController: UIViewController {
 			createStepView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			createStepView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 		])
+	}
+}
+
+extension CreateStepViewController: CreateStepViewDelegate {
+	func createStep() {
+		dismiss(animated: true, completion: nil)
 	}
 }

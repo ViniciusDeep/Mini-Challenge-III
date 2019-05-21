@@ -26,6 +26,7 @@ class CreateStepView: UIView {
 	init() {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
+		backgroundColor = UIColor.clear
 		
 		setup()
 	}
@@ -44,7 +45,7 @@ class CreateStepView: UIView {
 		
 		let containerView = UIView(frame: .zero)
 		containerView.translatesAutoresizingMaskIntoConstraints = false
-		containerView.backgroundColor = UIColor.clear
+		containerView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
 		addSubview(containerView)
 		
 		newStepLabel = UILabel(frame: .zero)
@@ -91,14 +92,16 @@ class CreateStepView: UIView {
 		containerView.addSubview(createButton)
 		
 		NSLayoutConstraint.activate([
-			heightAnchor.constraint(equalToConstant: 200.0),
+			heightAnchor.constraint(equalToConstant: 570.0),
 			dismissView.leadingAnchor.constraint(equalTo: leadingAnchor),
+			dismissView.topAnchor.constraint(equalTo: topAnchor),
 			dismissView.trailingAnchor.constraint(equalTo: trailingAnchor),
-			dismissView.bottomAnchor.constraint(equalTo: containerView.topAnchor),
 			containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+			containerView.topAnchor.constraint(equalTo: dismissView.bottomAnchor),
 			containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+			containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
 			newStepLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-			newStepLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+			newStepLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16.0),
 			newStepLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
 			stepNameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
 			stepNameLabel.topAnchor.constraint(equalTo: newStepLabel.bottomAnchor, constant: 8.0),
@@ -121,9 +124,8 @@ class CreateStepView: UIView {
 			secondSeparatorView.topAnchor.constraint(equalTo: stepDescriptionTextField.bottomAnchor, constant: 8.0),
 			secondSeparatorView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0),
 			createButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
-			createButton.topAnchor.constraint(equalTo: secondSeparatorView.bottomAnchor, constant: 8.0),
-			createButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0),
-			createButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+			createButton.topAnchor.constraint(equalTo: secondSeparatorView.bottomAnchor, constant: 32.0),
+			createButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0)
 		])
 	}
 }

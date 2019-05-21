@@ -21,6 +21,10 @@ class DismissView: UIView {
 	}
 	
 	func setup() {
+		backgroundColor = UIColor.white
+		layer.cornerRadius = 8.0
+		layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+		
 		let lineView = UIView(frame: .zero)
 		lineView.translatesAutoresizingMaskIntoConstraints = false
 		lineView.backgroundColor = UIColor.gray
@@ -28,7 +32,7 @@ class DismissView: UIView {
 		
 		NSLayoutConstraint.activate([
 			heightAnchor.constraint(equalToConstant: 32.0),
-			lineView.widthAnchor.constraint(equalToConstant: 60.0),
+			lineView.widthAnchor.constraint(equalToConstant: 120.0),
 			lineView.heightAnchor.constraint(equalToConstant: 3.0),
 			lineView.centerXAnchor.constraint(equalTo: centerXAnchor),
 			lineView.centerYAnchor.constraint(equalTo: centerYAnchor)

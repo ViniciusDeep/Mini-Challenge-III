@@ -162,6 +162,9 @@ extension DetailGoalViewController: WithoutStepsDelegate {
 extension DetailGoalViewController: StepsViewDelegate {
 	func createStep() {
 		print("create step")
+		
+		let createStepVC = CreateStepViewController()
+		present(createStepVC, animated: true, completion: nil)
 	}
 	func finishMonthProgress() {
 		print("finish month progress")
