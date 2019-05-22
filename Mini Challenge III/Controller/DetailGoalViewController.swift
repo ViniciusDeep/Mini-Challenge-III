@@ -36,7 +36,6 @@ class DetailGoalViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupNavigation()
     }
     
@@ -44,8 +43,6 @@ class DetailGoalViewController: UIViewController {
         self.init()
         
         setupHeaderView(goal)
-        
-        
         
         
         //        setupCalendar()

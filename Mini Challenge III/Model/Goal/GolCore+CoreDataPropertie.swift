@@ -23,7 +23,7 @@ extension GoalCore {
     @NSManaged public var name: String?
     @NSManaged public var progress: Float
     @NSManaged public var when: String?
-    @NSManaged public var steps: [StepCore]?
+    @NSManaged public var steps: [StepCore]
     
 }
 

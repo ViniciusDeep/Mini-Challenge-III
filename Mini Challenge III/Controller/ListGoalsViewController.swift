@@ -14,7 +14,6 @@ class ListGoalsViewController: BaseListController {
     
     var goals = [GoalCore]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()

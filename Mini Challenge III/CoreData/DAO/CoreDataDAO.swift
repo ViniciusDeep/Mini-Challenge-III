@@ -29,7 +29,12 @@ public class CoreDataDAO<Element: NSManagedObject>: DAO {
         return result
     }
     private func save() {
-       try! context.save()
+        do {
+            try context.save()
+        } catch {
+            fatalError("This is one more error")
+            
+        }
     }
     public func new() -> Element {
         return NSEntityDescription.insertNewObject(forEntityName: Element.className, into: context) as! Element

@@ -11,6 +11,11 @@ import CoreData
 
 class Mini_Challenge_CoreData_IIITests: XCTestCase {
     
+    var context: NSManagedObjectContext!
+    override func setUp() {
+        self.context = persistentContainer.viewContext
+    }
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "data-base-test")
         container.loadPersistentStores(completionHandler: { (_, error) in
@@ -21,7 +26,7 @@ class Mini_Challenge_CoreData_IIITests: XCTestCase {
         return container
     }()
 
-    var context: NSManagedObjectContext!
+   
     
     var goal: Goal?
     var goalCore: GoalCore?
@@ -72,8 +77,21 @@ class Mini_Challenge_CoreData_IIITests: XCTestCase {
         goalDao.delete(object: goal)
         XCTAssertNil(goals.last?.name)
     }
-    override func setUp() {
-        self.context = persistentContainer.viewContext
+    
+    func testCoreDataManager() {
+        let goalDAO = CoreDataDAO<GoalCore>()
+        let coreManager = CoreDataManager()
+        let goal = goalDAO.new()
+        goal.name = "Goal by Goal"
+        goal.about = "Goal by Goal"
+        goalDAO.insert(object: goal)
+        let stepDAO = CoreDataDAO<StepCore>()
+        let step = stepDAO.new()
+        step.name = "Step"
+        step.about = "Step By Step"
+        coreManager.setStep(goal: goal, step: step)
+        let steps = coreManager.fetchSteps(from: goal)
+        XCTAssertNil(steps)
     }
     
     override func tearDown() {}
