@@ -18,6 +18,23 @@ class ListGoalsViewController: BaseListController {
         super.viewDidLoad()
         setCollectionView()
         setNavigation()
+        
+        // TEST WITH MOCK DATES IN CORE DATA EXAMPLE TO CREATE STEP IN GOAL
+        let goalDao = CoreDataDAO<GoalCore>()
+        
+        let goal = goalDao.new()
+        goal.name = "Test Mock"
+        goal.about = "Test Mock About"
+        
+        let stepDao = CoreDataDAO<StepCore>()
+        
+        let step = stepDao.new()
+        step.name = "First Step"
+        step.about = "First About"
+        
+        goalDao.insert(object: goal)
+        
+       goal.addToSteps(step)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +65,15 @@ class ListGoalsViewController: BaseListController {
 extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let goal = goals[indexPath.row]
+        let coreManager = CoreDataManager()
+        
+        let steps = coreManager.fetchSteps(from: goal)
+        
+        steps.forEach { (step) in
+            //EXAMPLE WITH FETCH DATES FROM GOAL
+            print(step.name!)
+        }
+        
         let detailVC = DetailGoalViewController(with: goal)
         navigationController?.pushViewController(detailVC, animated: true)
     }

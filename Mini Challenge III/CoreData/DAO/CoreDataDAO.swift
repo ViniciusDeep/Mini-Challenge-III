@@ -24,8 +24,8 @@ public class CoreDataDAO<Element: NSManagedObject>: DAO {
         save()
     }
     public func all() -> [Element] {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Object.className)
-        let result =  try! context.fetch(request) as! [Object]
+        let request = NSFetchRequest<Element>(entityName: Element.className)
+        let result =  try! context.fetch(request)
         return result
     }
     private func save() {

@@ -15,12 +15,12 @@ class CoreDataManager {
     var stepDAO = CoreDataDAO<StepCore>()
     var goalDAO = CoreDataDAO<GoalCore>()
 
-    func setStep(goal: GoalCore, step: StepCore) {
-        goal.addToSteps(step)
-        stepDAO.insert(object: step)
-    }
+//    func setStep(goal: GoalCore, step: StepCore) {
+//        goal.addToSteps(step)
+//        stepDAO.insert(object: step)
+//    }
     
     func fetchSteps(from goal: GoalCore) -> [StepCore] {
-        return goal.steps
+        return goal.steps.allObjects as! [StepCore]
     }
 }
