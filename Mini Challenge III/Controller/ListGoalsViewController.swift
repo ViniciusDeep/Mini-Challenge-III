@@ -32,9 +32,11 @@ class ListGoalsViewController: BaseListController {
         step.name = "First Step"
         step.about = "First About"
         
+        goal.addToSteps(step)
+        
         goalDao.insert(object: goal)
         
-       goal.addToSteps(step)
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
