@@ -19,6 +19,7 @@
 		48485A102292ECBC001D0B62 /* DismissView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48485A0F2292ECBC001D0B62 /* DismissView.swift */; };
 		48485A122292EEF6001D0B62 /* CreateStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48485A112292EEF6001D0B62 /* CreateStepView.swift */; };
 		4855A7BD2289E3700037BE80 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855A7BC2289E3700037BE80 /* RoundedButton.swift */; };
+		9215EB4322949849005954B2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215EB4222949849005954B2 /* CoreDataManager.swift */; };
 		92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE222809370001C9310 /* DetailGoalViewController.swift */; };
 		92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE42280B316001C9310 /* DetailGoalViewCell.swift */; };
 		9228160D227F5F0600EA9D92 /* GoalField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228160C227F5F0600EA9D92 /* GoalField.swift */; };
@@ -99,6 +100,7 @@
 		48485A0F2292ECBC001D0B62 /* DismissView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissView.swift; sourceTree = "<group>"; };
 		48485A112292EEF6001D0B62 /* CreateStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStepView.swift; sourceTree = "<group>"; };
 		4855A7BC2289E3700037BE80 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		9215EB4222949849005954B2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		92188CE222809370001C9310 /* DetailGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewController.swift; sourceTree = "<group>"; };
 		92188CE42280B316001C9310 /* DetailGoalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewCell.swift; sourceTree = "<group>"; };
 		9228160C227F5F0600EA9D92 /* GoalField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalField.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				9228160C227F5F0600EA9D92 /* GoalField.swift */,
 				92775294227FB0C200DD06AA /* Goal.swift */,
 				927752962280923A00DD06AA /* Step.swift */,
+				923D937E226E19330006ED17 /* Page.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,7 +343,6 @@
 				9240DA6C2289894D0094961A /* DAO */,
 				9240DA692289890A0094961A /* data-base.xcdatamodeld */,
 				92934F092292F835009C34C9 /* data-base-test.xcdatamodeld */,
-				923D937E226E19330006ED17 /* Page.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -350,6 +352,7 @@
 			children = (
 				9240DA6E228989690094961A /* DAO.swift */,
 				9240DA7022898A360094961A /* CoreDataDAO.swift */,
+				9215EB4222949849005954B2 /* CoreDataManager.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */,
 				9271BC4D2289DF9100321ED5 /* StepCore+CoreData+Class.swift in Sources */,
 				923F98CD2280C6140099C000 /* GoalHelper.swift in Sources */,
+				9215EB4322949849005954B2 /* CoreDataManager.swift in Sources */,
 				924D0F58227CB30200C272E7 /* CreateGoalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

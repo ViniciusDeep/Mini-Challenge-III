@@ -5,7 +5,6 @@
 //  Created by Vinicius Mangueira Correia on 03/05/19.
 //  Copyright © 2019 Vinicius Mangueira Correia. All rights reserved.
 //
-
 import UIKit
 import CoreData
 
@@ -13,30 +12,43 @@ class ListGoalsViewController: BaseListController {
     
     fileprivate let cellId = "ListID"
     
-    public static var goals = [Goal(name: "Viagem", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã",progress: 0.9),
-                        Goal(name: "Namoro", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 1),
-                        Goal(name: "Vida", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.6),
-                        Goal(name: "Codar", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.8),
-                        Goal(name: "Amor", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.7),
-                        Goal(name: "Ter metas", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 0.5),
-                        Goal(name: "Hiate", description: "Ir para uma viagem com minha família", how: "Ainda não sei", when: "Amanhã", progress: 1)
-                        ]
+    var goals = [GoalCore]()
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
         setNavigation()
+        
+        // TEST WITH MOCK DATES IN CORE DATA EXAMPLE TO CREATE STEP IN GOAL
+        let goalDao = CoreDataDAO<GoalCore>()
+        
+        let goal = goalDao.new()
+        goal.name = "Test Mock"
+        goal.about = "Test Mock About"
+        
+        let stepDao = CoreDataDAO<StepCore>()
+        
+        let step = stepDao.new()
+        step.name = "First Step"
+        step.about = "First About"
+        
+        goal.addToSteps(step)
+        
+        goalDao.insert(object: goal)
+        
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+        let goalDAO = CoreDataDAO<GoalCore>()
+        goals = goalDAO.all()
     }
     
     fileprivate func setCollectionView() {
         collectionView.register(ListGoalViewCell.self, forCellWithReuseIdentifier: cellId)
-         collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
     }
     
     fileprivate func setNavigation() {
@@ -54,13 +66,22 @@ class ListGoalsViewController: BaseListController {
 
 extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let goal = ListGoalsViewController.goals[indexPath.row]
+        let goal = goals[indexPath.row]
+        let coreManager = CoreDataManager()
+        
+        let steps = coreManager.fetchSteps(from: goal)
+        
+        steps.forEach { (step) in
+            //EXAMPLE WITH FETCH DATES FROM GOAL
+            print(step.name!)
+        }
+        
         let detailVC = DetailGoalViewController(with: goal)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ListGoalsViewController.goals.count
+        return goals.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -69,11 +90,11 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ListGoalViewCell
-        cell?.nameGoal.text = ListGoalsViewController.goals[indexPath.row].name
-        cell?.descriptionGoal.text = ListGoalsViewController.goals[indexPath.row].description
-        let percentage = ListGoalsViewController.goals[indexPath.row].progress
+        cell?.nameGoal.text = goals[indexPath.row].name
+        cell?.descriptionGoal.text = goals[indexPath.row].about
+        let percentage = goals[indexPath.row].progress
         if percentage != 0  {
-            cell?.trackLayer.strokeEnd = percentage
+            cell?.trackLayer.strokeEnd = CGFloat(percentage)
             cell?.percentageLabel.text = "\(percentage * 100)%"
         }
         return cell ?? UICollectionViewCell()

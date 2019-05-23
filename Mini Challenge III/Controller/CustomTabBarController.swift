@@ -15,7 +15,7 @@ class CustomTabBarController: UITabBarController{
     }
     fileprivate func setComponentsInTab() {
        viewControllers = [
-                          createNav(viewController: ListGoalsViewController(), title: "Goals", imageNamed: "goals"),
+                          createNav(viewController: ResumeViewController(), title: "Goals", imageNamed: "goals"),
                           createNav(viewController: OptionsController(), title: "Options", imageNamed: "smartTab")
                          ]
     }
