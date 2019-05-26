@@ -15,7 +15,7 @@ class CreateGoalViewController: UIViewController {
     var stepContentCount : Int = 0
     var numberOfRowsInSection : Int = 2
     var activePreviewButton = false
-    var goalJSON = Goal(name: "", description: "", how: "", when: "", progress: 0)
+    var goal = Goal(name: "", description: "", how: "", when: "", progress: 0)
     
     fileprivate lazy var progressStepView: ProgressStepView  = {
         let progress = ProgressStepView()
@@ -126,25 +126,33 @@ extension CreateGoalViewController {
         if self.currentStep == 1 {
             let currentCell1 = tableView.visibleCells[0] as! CreateGoalsViewCell
             let currentCell2 = tableView.visibleCells[1] as! CreateGoalsViewCell
-            self.goalJSON.name = currentCell1.contextTf.text!
-            self.goalJSON.description = currentCell2.contextTf.text!
-            currentCell1.contextTf.text =  self.goalJSON.how
+            self.goal.name = currentCell1.contextTf.text!
+            self.goal.description = currentCell2.contextTf.text!
+            currentCell1.contextTf.text =  self.goal.how
         } else if currentStep == 2{
             let currentCell1 = tableView.visibleCells[0] as! CreateGoalsViewCell
-            self.goalJSON.how = currentCell1.contextTf.text!
-            currentCell1.contextTf.text = self.goalJSON.when
+            self.goal.how = currentCell1.contextTf.text!
+            currentCell1.contextTf.text = self.goal.when
         } else if currentStep == 3{
             let currentCell1 = tableView.visibleCells[0] as! CreateGoalsViewCell
-            self.goalJSON.when = currentCell1.contextTf.text!
-            currentCell1.contextTf.text = self.goalJSON.when
+            self.goal.when = currentCell1.contextTf.text!
+            currentCell1.contextTf.text = self.goal.when
         }
         
         let currentCell = self.tableView.visibleCells[0] as! CreateGoalsViewCell
         
         if currentCell.contentText.text == "When?" {
         let resumeVC = ResumeViewController()
-            resumeVC.goal = self.goalJSON
-            resumeVC.setPropertieToGoalInView(goal: goalJSON)
+            if self.goal.name != "" && self.goal.description != "" && self.goal.how != "" && self.goal.when != "" {
+                resumeVC.goal = self.goal
+                resumeVC.setPropertieToGoalInView(goal: self.goal)
+            } else {
+                let alert = UIAlertController(title: "You dont set the right dates.", message: "Back to the form to achive your goal", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+                return
+            }
          self.navigationController?.pushViewController(resumeVC, animated: true)
         }
         
@@ -162,7 +170,6 @@ extension CreateGoalViewController {
     @objc func previewContent(sender: UIButton){
         if self.currentStep > 0 {
             self.currentStep -= 1
-            progressStepView.verifyCurrentStep(currentStep: self.currentStep)
         }
         
         if self.stepContentCount == 2 {
@@ -174,16 +181,12 @@ extension CreateGoalViewController {
             self.numberOfRowsInSection = 2
         }
         
-        if self.currentStep == 1{
-            progressStepView.verifyCurrentStep(currentStep: 1)
-        }
-        
         if self.currentStep == 2{
             let currentCell1 = tableView.visibleCells[0] as! CreateGoalsViewCell
-            currentCell1.contextTf.text = self.goalJSON.how
+            currentCell1.contextTf.text = self.goal.how
         } else if self.currentStep == 3{
             let currentCell1 = tableView.visibleCells[0] as! CreateGoalsViewCell
-            currentCell1.contextTf.text = self.goalJSON.when
+            currentCell1.contextTf.text = self.goal.when
         }
         tableView.reloadData()
     }
@@ -210,18 +213,23 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
         } else if self.stepContentCount == 0 {
             self.prevButton.removeFromSuperview()
         }
-        print("current step indo",self.currentStep)
         let _index = indexPath.row+self.stepContentCount
-        //        if(_index >= 0 ){
         cell?.contentText.text = goalfields[_index].name
         cell?.contextTf.placeholder = goalfields[_index].placeHolder
-        if self.currentStep == 1{
-            print("TA NO UM \n")
+        switch self.currentStep {
+        case 1:
+            progressStepView.verifyCurrentStep(currentStep: self.currentStep)
             if _index == 0{
-                cell?.contextTf.text = self.goalJSON.name
+                cell?.contextTf.text = self.goal.name
             } else if _index == 1{
-                cell?.contextTf.text = self.goalJSON.description
+                cell?.contextTf.text = self.goal.description
             }
+        case 2:
+            progressStepView.verifyCurrentStep(currentStep: self.currentStep)
+        case 3:
+            progressStepView.verifyCurrentStep(currentStep: self.currentStep)
+        default:
+            break
         }
         
         return cell ?? UITableViewCell()

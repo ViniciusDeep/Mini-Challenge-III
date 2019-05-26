@@ -62,6 +62,11 @@ extension UIImageView {
         self.image = UIImage(named: imagedNamed)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    convenience init(imagedNamed: String, highlightedImageNamed: String){
+        self.init(imagedNamed: imagedNamed)
+        self.highlightedImage = UIImage(named: highlightedImageNamed)
+    }
 }
 
 extension UIView {

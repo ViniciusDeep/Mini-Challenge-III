@@ -16,22 +16,22 @@ class ListGoalsViewController: BaseListController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionView()
+        setupCollectionView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
-        setNavigation()
+        setupNavigation()
         self.collectionView.reloadData()
         let goalDAO = CoreDataDAO<GoalCore>()
         goals = goalDAO.all()
     }
-    fileprivate func setCollectionView() {
+    fileprivate func setupCollectionView() {
         collectionView.register(ListGoalViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
     }
     
-    fileprivate func setNavigation() {
+    fileprivate func setupNavigation() {
         let buttomRight = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewGoals))
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
         navigationController?.navigationBar.prefersLargeTitles = true
