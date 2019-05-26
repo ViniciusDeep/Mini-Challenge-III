@@ -40,7 +40,7 @@ class LoginCell: UICollectionViewCell {
         _ = logoImageView.anchor(centerYAnchor, left: nil, bottom: nil, right: nil, topConstant: -230, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 160, heightConstant: 160)
         logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        _ = loginButton.anchor(logoImageView.bottomAnchor, left: leftAnchor, bottom: self.bottomAnchor, right: rightAnchor, topConstant: 16, leftConstant: 32, bottomConstant: 10, rightConstant: 32, widthConstant: 0, heightConstant: 50)
+        _ = loginButton.anchor(logoImageView.bottomAnchor, left: leftAnchor, bottom: self.safeAreaLayoutGuide.bottomAnchor, right: rightAnchor, topConstant: 16, leftConstant: 32, bottomConstant: 10, rightConstant: 32, widthConstant: 0, heightConstant: 50)
     }
     
     required init?(coder aDecoder: NSCoder) {

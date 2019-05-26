@@ -18,12 +18,12 @@ extension UILabel {
         self.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.textColor = .gray
     }
-    convenience init(text: String, sizeFont: Int) {
+    convenience init(text: String, sizeFont: CGFloat) {
         self.init(frame: .zero)
         self.text = text
         self.numberOfLines = 2
         self.lineBreakMode = NSLineBreakMode.byWordWrapping
-        self.font = UIFont.boldSystemFont(ofSize: 20)
+        self.font = UIFont.boldSystemFont(ofSize: sizeFont)
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     convenience init(text: String, textColor: UIColor) {
@@ -53,5 +53,20 @@ extension UIButton {
         self.layer.cornerRadius = 10
         self.backgroundColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
         self.layer.borderColor = UIColor.white.cgColor
+    }
+}
+
+extension UIImageView {
+    convenience init(imagedNamed: String) {
+        self.init()
+        self.image = UIImage(named: imagedNamed)
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
+
+extension UIView {
+    convenience init(indentifier: String) {
+        self.init()
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

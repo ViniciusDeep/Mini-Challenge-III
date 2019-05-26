@@ -9,13 +9,7 @@
 import XCTest
 
 class Mini_Challenge_IIIUITests: XCTestCase {
-    
-    func testUI() {
-        
-        
-        
-    }
-    
+  
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 

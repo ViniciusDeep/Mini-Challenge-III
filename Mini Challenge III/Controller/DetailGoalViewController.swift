@@ -45,28 +45,15 @@ class DetailGoalViewController: UIViewController {
         setupHeaderView(goal)
         
         
-        //        setupCalendar()
-        //        setupSteps()
-        
-        //verifing state
-        //        if (goal.isStarted) {
-        //            let stepDAO = CoreDataDAO<StepCore>()
-        //            let steps = stepDAO.all()
-        //
-        //            steps.forEach { (step) in
-        //                print(step)
-        //            }
-        //
-        //            if (goal.steps.count != 0) {
-        //
-        //            }
-        //            else {
-        //
-        //            }
-        //        }
-        //        else {
-        //            setupNotStartedState()
-        //        }
+        setupCalendar()
+        setupSteps()
+                if goal.isStarted {
+                    if goal.steps.count != 0 {
+                    } else {
+                    }
+                } else {
+                    setupNotStartedState()
+                }
     }
     
     func setupHeaderView(_ goal: GoalCore) {
@@ -140,7 +127,6 @@ extension DetailGoalViewController: GoalHaventStartedDelegate {
         let alertController = UIAlertController(title: "Congratulations", message: "You just started this goal. Now you have to create your first step.", preferredStyle: .alert)
         
         let startGoalAction = UIAlertAction(title: "Let's go", style: .default) { (_) in
-            //code over here to create your goal, this settings of core here
             self.dismiss(animated: true, completion: nil)
             self.goal?.isStarted = true
             self.haventStartedView.removeFromSuperview()

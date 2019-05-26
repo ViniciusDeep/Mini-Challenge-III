@@ -26,7 +26,6 @@ class ListGoalsViewController: BaseListController {
         let goalDAO = CoreDataDAO<GoalCore>()
         goals = goalDAO.all()
     }
-    
     fileprivate func setCollectionView() {
         collectionView.register(ListGoalViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
@@ -69,7 +68,7 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
         cell?.nameGoal.text = goals[indexPath.row].name
         cell?.descriptionGoal.text = goals[indexPath.row].about
         let percentage = goals[indexPath.row].progress
-        if percentage != 0  {
+        if  goals[indexPath.row].isStarted {
             cell?.trackLayer.strokeEnd = CGFloat(percentage)
             cell?.percentageLabel.text = "\(percentage * 100)%"
         }

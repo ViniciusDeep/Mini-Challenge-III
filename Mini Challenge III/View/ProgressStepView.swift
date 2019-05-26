@@ -8,38 +8,17 @@
 
 import UIKit
 
-
 class ProgressStepView: UIView {
     
-    lazy var firstStep: UIImageView = {
-       let imageView = UIImageView(image: UIImage(named: "firststep"))
-       imageView.translatesAutoresizingMaskIntoConstraints = false
-       return imageView
-    }()
+    lazy var firstStep = UIImageView(imagedNamed: "firststep")
     
-    lazy var secondStep: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "secondstep"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    lazy var firstLineView = UIImageView(imagedNamed: "line")
     
-    lazy var thirdStep: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "thirdstep"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    lazy var secondStep = UIImageView(imagedNamed: "secondstep")
     
-    lazy var firstLineView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "line"))
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    lazy var secondLineView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "line"))
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    lazy var thirdStep = UIImageView(imagedNamed: "thirdstep")
+
+    lazy var secondLineView = UIImageView(imagedNamed: "line")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,10 +58,17 @@ class ProgressStepView: UIView {
         case 1:
             firstStep.image = UIImage(named: "firststepchecked")
             firstLineView.image = UIImage(named: "lineCheck")
+            self.firstStep.image = UIImage(named: "firststep")
+            self.firstLineView.image = UIImage(named: "line")
+            self.secondStep.image = UIImage(named: "secondstep")
+            self.secondLineView.image = UIImage(named: "lineCheck")
+            self.thirdStep.image = UIImage(named: "thirdstep")
         case 2:
             firstStep.image = UIImage(named: "firststepchecked")
-            secondStep.image = UIImage(named: "secondstepchecked")
             firstLineView.image = UIImage(named: "lineCheck")
+            secondStep.image = UIImage(named: "secondstepchecked")
+            self.secondLineView.image = UIImage(named: "line")
+            self.thirdStep.image = UIImage(named: "thirdstep")
         case 3:
                 self.firstStep.image = UIImage(named: "firststepchecked")
                 self.firstLineView.image = UIImage(named: "lineCheck")

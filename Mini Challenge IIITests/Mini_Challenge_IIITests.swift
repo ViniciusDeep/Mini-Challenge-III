@@ -35,15 +35,6 @@ class Mini_Challenge_IIITests: XCTestCase {
         XCTAssertNotNil(resumeVC.resumeView.createButton)
     }
     
-    func testProgressStepsInCreateGoal() {
-        let createGoalVC = CreateGoalViewController()
-        createGoalVC.goal = self.goal
-        createGoalVC.progressStepView.verifyCurrentStep(currentStep: 1)
-        XCTAssertNotNil(createGoalVC)
-        guard let imageCheked = createGoalVC.progressStepView.firstStep.image else {return}
-        XCTAssertEqual(imageCheked, UIImage(named: "firststepchecked"))
-    }
-    
     func testIfUserIsLogged() {
         UserDefaults.standard.setIsLoggedIn(value: true)
         let userDefaultResponse = UserDefaults.standard.isLoggedIn()

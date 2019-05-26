@@ -56,27 +56,28 @@ class ResumeViewController: UIViewController {
         let alertController = UIAlertController(title: "Deseja iniciar a meta?", message: "Sua meta ainda não foi iniciada, você deseja iniciá-la?", preferredStyle: .alert)
         
         let startGoalAction = UIAlertAction(title: "Sim", style: .default) { (_) in
-            let goalDao = CoreDataDAO<GoalCore>()
-            
-            let goal = goalDao.new()
-            goal.name = self.goal?.name
-            goal.about = self.goal?.description
-            goal.isStarted = true
-            goal.progress = 0.0
-            
-            goalDao.insert(object: goal)
-            
             self.dismiss(animated: true, completion: nil)
+            self.createGoal(isStarted: true)
             print("That's ok here")
         }
         
         let createGoalAction = UIAlertAction(title: "Não", style: .cancel)
         {  (_) in
-            //this code is to create your without start
+            self.createGoal(isStarted: false)
             self.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(startGoalAction)
         alertController.addAction(createGoalAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    fileprivate func createGoal(isStarted: Bool){
+        let goalDao = CoreDataDAO<GoalCore>()
+        let goal = goalDao.new()
+        goal.name = self.goal?.name
+        goal.about = self.goal?.description
+        goal.isStarted = isStarted
+        goal.progress = 0.0
+        goalDao.insert(object: goal)
     }
 }

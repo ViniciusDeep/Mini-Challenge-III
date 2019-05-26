@@ -23,7 +23,7 @@
 		92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE222809370001C9310 /* DetailGoalViewController.swift */; };
 		92188CE52280B316001C9310 /* DetailGoalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92188CE42280B316001C9310 /* DetailGoalViewCell.swift */; };
 		9228160D227F5F0600EA9D92 /* GoalField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228160C227F5F0600EA9D92 /* GoalField.swift */; };
-		9230DC85228DDAA700BF06B3 /* ViewsNeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230DC84228DDAA700BF06B3 /* ViewsNeed.swift */; };
+		9230DC85228DDAA700BF06B3 /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230DC84228DDAA700BF06B3 /* ConfigurableView.swift */; };
 		9230DC87228E25BC00BF06B3 /* UIComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230DC86228E25BC00BF06B3 /* UIComponents+Extension.swift */; };
 		923D934E226E16610006ED17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923D934D226E16610006ED17 /* AppDelegate.swift */; };
 		923D9355226E16610006ED17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923D9354226E16610006ED17 /* Assets.xcassets */; };
@@ -104,7 +104,7 @@
 		92188CE222809370001C9310 /* DetailGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewController.swift; sourceTree = "<group>"; };
 		92188CE42280B316001C9310 /* DetailGoalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGoalViewCell.swift; sourceTree = "<group>"; };
 		9228160C227F5F0600EA9D92 /* GoalField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalField.swift; sourceTree = "<group>"; };
-		9230DC84228DDAA700BF06B3 /* ViewsNeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsNeed.swift; sourceTree = "<group>"; };
+		9230DC84228DDAA700BF06B3 /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
 		9230DC86228E25BC00BF06B3 /* UIComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIComponents+Extension.swift"; sourceTree = "<group>"; };
 		923D934A226E16610006ED17 /* Mini Challenge III.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini Challenge III.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		923D934D226E16610006ED17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 		9230DC83228DDA4B00BF06B3 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				9230DC84228DDAA700BF06B3 /* ViewsNeed.swift */,
+				9230DC84228DDAA700BF06B3 /* ConfigurableView.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -554,7 +554,7 @@
 				923D938D226E1A8C0006ED17 /* UserDefaults+helpers.swift in Sources */,
 				92775295227FB0C200DD06AA /* Goal.swift in Sources */,
 				92B19ABD228278A200F6649A /* SquareListGoalCell.swift in Sources */,
-				9230DC85228DDAA700BF06B3 /* ViewsNeed.swift in Sources */,
+				9230DC85228DDAA700BF06B3 /* ConfigurableView.swift in Sources */,
 				9240DA7122898A360094961A /* CoreDataDAO.swift in Sources */,
 				92CA2B602287425D000493F1 /* OptionsControllerExtension.swift in Sources */,
 				484859E6228B4E49001D0B62 /* CircularProgressView.swift in Sources */,

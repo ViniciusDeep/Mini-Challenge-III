@@ -7,12 +7,7 @@
 //
 
 import UIKit
-struct GoalJSON{
-    var name: String = ""
-    var description: String = ""
-    var how: String  = ""
-    var when: String = ""
-}
+
 class CreateGoalViewController: UIViewController {
     
     let cellId: String = "cellId"
@@ -96,11 +91,11 @@ class CreateGoalViewController: UIViewController {
         stackview.addArrangedSubview(nextButton)
         view.addSubview(stackview)
         view.addSubview(progressStepView)
-        setConstraints()
+        setupConstraints()
     }
-    fileprivate func setConstraints() {
+    fileprivate func setupConstraints() {
         NSLayoutConstraint.activate([
-            progressStepView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            progressStepView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             progressStepView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 65),
             progressStepView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 65),
             progressStepView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
@@ -167,13 +162,12 @@ extension CreateGoalViewController {
     @objc func previewContent(sender: UIButton){
         if self.currentStep > 0 {
             self.currentStep -= 1
+            progressStepView.verifyCurrentStep(currentStep: self.currentStep)
         }
-        progressStepView.verifyCurrentStep(currentStep: self.currentStep)
+        
         if self.stepContentCount == 2 {
-            progressStepView.verifyCurrentStep(currentStep: 2)
             self.stepContentCount -= 2
         } else if self.stepContentCount == 3{
-            
             self.stepContentCount -= 1
         }
         if self.stepContentCount < 2 {
@@ -181,15 +175,13 @@ extension CreateGoalViewController {
         }
         
         if self.currentStep == 1{
-            progressStepView.verifyCurrentStep(currentStep: self.currentStep)
+            progressStepView.verifyCurrentStep(currentStep: 1)
         }
         
         if self.currentStep == 2{
             let currentCell1 = tableView.visibleCells[0] as! CreateGoalsViewCell
-            progressStepView.verifyCurrentStep(currentStep: self.currentStep)
             currentCell1.contextTf.text = self.goalJSON.how
         } else if self.currentStep == 3{
-            progressStepView.verifyCurrentStep(currentStep: self.currentStep)
             let currentCell1 = tableView.visibleCells[0] as! CreateGoalsViewCell
             currentCell1.contextTf.text = self.goalJSON.when
         }
@@ -208,14 +200,14 @@ extension CreateGoalViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CreateGoalsViewCell
-        if(self.stepContentCount == 4){
+        if self.stepContentCount == 4{
             self.stepContentCount -= 1
         }
-        if(self.stepContentCount == 2){
+        if self.stepContentCount == 2 {
             self.stackview.removeArrangedSubview(nextButton)
             self.stackview.addArrangedSubview(prevButton)
             self.stackview.addArrangedSubview(nextButton)
-        } else if(self.stepContentCount == 0){
+        } else if self.stepContentCount == 0 {
             self.prevButton.removeFromSuperview()
         }
         print("current step indo",self.currentStep)

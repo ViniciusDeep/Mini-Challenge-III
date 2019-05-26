@@ -8,35 +8,29 @@
 
 import UIKit
 
-class CreateGoalsViewCell: UITableViewCell {
+protocol CreateGoalsDelegate: class{
+    func getInputsByCell() -> UITableViewCell
+}
+
+class CreateGoalsViewCell: UITableViewCell, ConfigurableView {
     
-    lazy var contentText: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 24)
-        return label
-    }()
-    
-    lazy var contextTf: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
+    lazy var contentText = UILabel(text: "", sizeFont: 24)
+    lazy var contextTf = UITextField(indentifier: "contextTf")
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        buidViewHierarchy()
+        buildViewHierarchy()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    fileprivate func buidViewHierarchy() {
+    func buildViewHierarchy() {
         addSubview(contentText)
         addSubview(contextTf)
         self.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
         setupConstraints()
     }
-    fileprivate func setupConstraints(){
+     func setupConstraints(){
         NSLayoutConstraint.activate([
             contentText.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             contentText.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -44,7 +38,4 @@ class CreateGoalsViewCell: UITableViewCell {
             contextTf.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
             ])
     }
-}
-protocol CreateGoalsDelegate: class{
-    func getInputsByCell() -> UITableViewCell
 }

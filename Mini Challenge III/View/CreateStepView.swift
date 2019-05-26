@@ -12,7 +12,7 @@ protocol CreateStepViewDelegate: class {
 	func createStep()
 }
 
-class CreateStepView: UIView {
+class CreateStepView: UIView{
 	var dismissView: DismissView!
 	var newStepLabel: UILabel!
 	var stepNameLabel: UILabel!

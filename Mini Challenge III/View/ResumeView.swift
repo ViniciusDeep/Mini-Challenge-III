@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ResumeView: UIView, ViewsNeed {
+class ResumeView: UIView, ConfigurableView {
     fileprivate let goalLabel = UILabel(text: "A minha meta é:", sizeFont: 20)
     public lazy var goalDescription = UILabel(text: "Tornar meu perfil da rede social Y famoso")
     fileprivate lazy var howLabel = UILabel(text: "Com ela eu vou:", sizeFont: 20)

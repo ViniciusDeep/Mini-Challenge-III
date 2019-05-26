@@ -78,21 +78,6 @@ class Mini_Challenge_CoreData_IIITests: XCTestCase {
         XCTAssertNil(goals.last?.name)
     }
     
-    func testCoreDataManager() {
-        let goalDAO = CoreDataDAO<GoalCore>()
-        let coreManager = CoreDataManager()
-        let goal = goalDAO.new()
-        goal.name = "Goal by Goal"
-        goal.about = "Goal by Goal"
-        goalDAO.insert(object: goal)
-        let stepDAO = CoreDataDAO<StepCore>()
-        let step = stepDAO.new()
-        step.name = "Step"
-        step.about = "Step By Step"
-        coreManager.setStep(goal: goal, step: step)
-        let steps = coreManager.fetchSteps(from: goal)
-        XCTAssertNil(steps)
-    }
     
     override func tearDown() {}
     
