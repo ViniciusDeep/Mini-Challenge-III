@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SquareListGoalCell: UICollectionViewCell {
+class SquareListGoalCell: UICollectionViewCell, Reusable {
     lazy var nameGoal: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)

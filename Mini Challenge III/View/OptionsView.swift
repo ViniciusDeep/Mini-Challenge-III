@@ -24,7 +24,7 @@ class Header: UITableViewHeaderFooterView {
     
     lazy var headerName: UILabel = {
         let label = UILabel()
-        label.text = "SECTION HEADING"
+        label.text = "Helper"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = .lightGray

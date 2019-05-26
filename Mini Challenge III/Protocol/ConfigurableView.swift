@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ViewsNeed: class {
+protocol ConfigurableView: class {
     func buildViewHierarchy()
     func setupConstraints()
 }

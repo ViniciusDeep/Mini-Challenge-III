@@ -8,41 +8,29 @@
 
 import UIKit
 
-class DetailGoalViewCell: UITableViewCell {
+class DetailGoalViewCell: UITableViewCell, ConfigurableView {
    
-    lazy var checkButton: UIButton = {
-       let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-       button.setImage(UIImage(named: "uncheck"), for: .normal)
-       return button
-    }()
-    
-    lazy var nameGoal: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.text = "Esse é meu primeiro passo"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy var checkButton = UIButton(imageNamed: "uncheck")
+  
+    let nameGoal = UILabel(text: "Esse é meu primeiro passo", sizeFont: 14)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        buidViewHierarchy()
+        buildViewHierarchy()
         self.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    fileprivate func buidViewHierarchy() {
+    func buildViewHierarchy() {
         addSubview(checkButton)
         addSubview(nameGoal)
         setupConstraints()
     }
     
-    fileprivate func setupConstraints() {
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             checkButton.topAnchor.constraint(equalTo: topAnchor, constant: self.frame.height/2),
             checkButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -52,23 +40,11 @@ class DetailGoalViewCell: UITableViewCell {
     }
 }
 
-
 class DetailGoalCollectionViewCell: UICollectionViewCell {
     
-    lazy var checkButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "uncheck"), for: .normal)
-        return button
-    }()
+    lazy var checkButton = UIButton(imageNamed: "uncheck")
     
-    lazy var nameGoal: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.text = "Esse é meu primeiro passo"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let nameGoal = UILabel(text: "Esse é meu primeiro passo", sizeFont: 14)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

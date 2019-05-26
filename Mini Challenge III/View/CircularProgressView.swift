@@ -16,12 +16,11 @@ class CircularProgressView: UIView {
 	init(goalProgress: CGFloat?) {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
-		
 		setup()
 		
 		if let progress = goalProgress {
 			isCenterLabelStarted(true)
-			centerLabel.text = String(format: "%.0f%", progress)
+			centerLabel.text = "\(String(format: "%.0f%", progress))%"
 		} else {
 			isCenterLabelStarted(false)
 		}
@@ -56,6 +55,7 @@ class CircularProgressView: UIView {
 		centerLabel.translatesAutoresizingMaskIntoConstraints = false
 		centerLabel.textAlignment = .center
 		centerLabel.numberOfLines = 2
+        centerLabel.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
 		addSubview(centerLabel)
 		
 		NSLayoutConstraint.activate([

@@ -8,39 +8,21 @@
 
 import UIKit
 
+protocol ProgressStepViewDelegate: class {
+    func tappedStep(step: [UIView])
+}
 
 class ProgressStepView: UIView {
     
-    lazy var firstStep: UIImageView = {
-       let imageView = UIImageView(image: UIImage(named: "firststep"))
-       imageView.translatesAutoresizingMaskIntoConstraints = false
-       return imageView
-    }()
+    lazy var firstStep = UIImageView(imagedNamed: "firststep", highlightedImageNamed: "firststepchecked")
     
-    lazy var secondStep: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "secondstep"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    lazy var firstLineView = UIImageView(imagedNamed: "line", highlightedImageNamed: "linecheck")
     
-    lazy var thirdStep: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "thirdstep"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    lazy var secondStep = UIImageView(imagedNamed: "secondstep", highlightedImageNamed: "secondstepchecked")
     
-    lazy var firstLineView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "line"))
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    lazy var secondLineView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "line"))
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
+    lazy var thirdStep = UIImageView(imagedNamed: "thirdstep", highlightedImageNamed: "thirdstepchecked")
+
+    lazy var secondLineView = UIImageView(imagedNamed: "line", highlightedImageNamed: "linecheck")
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -65,33 +47,36 @@ class ProgressStepView: UIView {
               firstStep.leadingAnchor.constraint(equalTo: self.leadingAnchor),
               firstStep.topAnchor.constraint(equalTo: self.topAnchor),
               firstLineView.leadingAnchor.constraint(equalTo: firstStep.trailingAnchor,constant: -5),
-              firstLineView.topAnchor.constraint(equalTo: firstStep.topAnchor, constant: 10),
+              firstLineView.topAnchor.constraint(equalTo: firstStep.topAnchor, constant: 15),
               secondStep.topAnchor.constraint(equalTo: firstStep.topAnchor),
               secondStep.leadingAnchor.constraint(equalTo: firstLineView.trailingAnchor, constant: -5),
               secondLineView.leadingAnchor.constraint(equalTo: secondStep.trailingAnchor, constant: -5),
-              secondLineView.topAnchor.constraint(equalTo: firstStep.topAnchor, constant: 10),
+              secondLineView.topAnchor.constraint(equalTo: firstStep.topAnchor, constant: 15),
               thirdStep.topAnchor.constraint(equalTo: self.topAnchor),
               thirdStep.leadingAnchor.constraint(equalTo: secondLineView.trailingAnchor)
             ])
     }
+    
+    
     public func verifyCurrentStep(currentStep: Int) {
         switch currentStep {
         case 1:
-            firstStep.image = UIImage(named: "firststepchecked")
-            firstLineView.image = UIImage(named: "lineCheck")
+            setHighlightedSteps(false, false, false, false, false)
         case 2:
-            firstStep.image = UIImage(named: "firststepchecked")
-            secondStep.image = UIImage(named: "secondstepchecked")
-            firstLineView.image = UIImage(named: "lineCheck")
-        case 3:
-                self.firstStep.image = UIImage(named: "firststepchecked")
-                self.firstLineView.image = UIImage(named: "lineCheck")
-                self.secondStep.image = UIImage(named: "secondstepchecked")
-                self.secondLineView.image = UIImage(named: "lineCheck")
-                self.thirdStep.image = UIImage(named: "thirdstepchecked")
+            setHighlightedSteps(true, true, false, false, false)
             
+        case 3:
+            setHighlightedSteps(true, true, true, true, false)
         default:
-            break
+            setHighlightedSteps(false, false, false, false, false)
         }
+    }
+    
+    fileprivate func setHighlightedSteps(_ firstStep: Bool, _ firstLine: Bool, _ secondStep: Bool, _ secondLine: Bool,_ thirdStep: Bool) {
+        self.firstStep.isHighlighted = firstStep
+        self.firstLineView.isHighlighted = firstLine
+        self.secondStep.isHighlighted = secondStep
+        self.secondLineView.isHighlighted = secondLine
+        self.thirdStep.isHighlighted = thirdStep
     }
 }

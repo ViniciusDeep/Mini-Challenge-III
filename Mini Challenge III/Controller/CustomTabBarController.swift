@@ -15,13 +15,14 @@ class CustomTabBarController: UITabBarController{
     }
     fileprivate func setComponentsInTab() {
        viewControllers = [
-                          createNav(viewController: ResumeViewController(), title: "Goals", imageNamed: "goals"),
-                          createNav(viewController: OptionsController(), title: "Options", imageNamed: "smartTab")
+                          createNav(viewController: ListGoalsViewController(), title: "Goals", imageNamed: "goalstab"),
+                          createNav(viewController: OptionsController(), title: "Options", imageNamed: "options")
                          ]
     }
     fileprivate func createNav(viewController: UIViewController, title: String, imageNamed: String) -> UINavigationController {
         let navVc = UINavigationController(rootViewController: viewController)
         viewController.view.backgroundColor =  #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        navVc.navigationBar.barTintColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
         navVc.navigationBar.prefersLargeTitles = true
         setNavigationTextColor(navVc)
         viewController.navigationItem.title = title
@@ -31,8 +32,8 @@ class CustomTabBarController: UITabBarController{
     }
     
     fileprivate func setNavigationTextColor(_ navigation: UINavigationController){
-        navigation.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1), NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 40)!]
-        navigation.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1), NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 16)!]
+        navigation.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 40)!]
+        navigation.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 16)!]
     }
     
     @objc func handleSignOut() {

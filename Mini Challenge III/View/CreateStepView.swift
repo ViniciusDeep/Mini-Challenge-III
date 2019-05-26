@@ -12,7 +12,7 @@ protocol CreateStepViewDelegate: class {
 	func createStep()
 }
 
-class CreateStepView: UIView {
+class CreateStepView: UIView{
 	var dismissView: DismissView!
 	var newStepLabel: UILabel!
 	var stepNameLabel: UILabel!
@@ -51,6 +51,7 @@ class CreateStepView: UIView {
 		newStepLabel = UILabel(frame: .zero)
 		newStepLabel.translatesAutoresizingMaskIntoConstraints = false
 		newStepLabel.text = "New step"
+        newStepLabel.font = UIFont.boldSystemFont(ofSize: 20)
 		newStepLabel.textAlignment = .center
 		containerView.addSubview(newStepLabel)
 		

@@ -12,7 +12,6 @@ class DismissView: UIView {
 	init() {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
-		
 		setup()
 	}
 	
@@ -20,14 +19,14 @@ class DismissView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+    var lineView: UIView!
 	func setup() {
-		backgroundColor = UIColor.white
+		backgroundColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
 		layer.cornerRadius = 8.0
 		layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-		
-		let lineView = UIView(frame: .zero)
+		lineView = UIView(frame: .zero)
 		lineView.translatesAutoresizingMaskIntoConstraints = false
-		lineView.backgroundColor = UIColor.gray
+		lineView.backgroundColor = UIColor.white
 		addSubview(lineView)
 		
 		NSLayoutConstraint.activate([

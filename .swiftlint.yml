@@ -2,6 +2,10 @@ line_length:
  - 500 # warning
  - 800 # error
 
+function_body_length:
+ - 200 # error
+ - 150 # warning
+
 disabled_rules:
  - leading_whitespace
  - force_cast
@@ -19,4 +23,4 @@ disabled_rules:
 excluded:
  - Mini Challenge IIITests
  - Mini Challenge IIIUITests
-
+ - Pods
