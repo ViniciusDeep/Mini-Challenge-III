@@ -43,5 +43,8 @@ class CreateGoalsViewCell: UITableViewCell {
             contextTf.bottomAnchor.constraint(equalTo: bottomAnchor),
             contextTf.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
             ])
-        }
+    }
+}
+protocol CreateGoalsDelegate: class{
+    func getInputsByCell() -> UITableViewCell
 }

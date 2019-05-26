@@ -5,7 +5,6 @@
 //  Created by Vinicius Mangueira Correia on 09/05/19.
 //  Copyright © 2019 Vinicius Mangueira Correia. All rights reserved.
 //
-
 import UIKit
 
 class ResumeView: UIView, ViewsNeed {
@@ -17,11 +16,12 @@ class ResumeView: UIView, ViewsNeed {
     public lazy var goalNeeds = UILabel(text: "Postar diariamente conteúdos mais atrativos da atualidade.")
     fileprivate lazy var when = UILabel(text: "E isso levará:", sizeFont: 20)
     public lazy var goalWhen = UILabel(text: "2 Meses.")
-    public lazy var createButton = UIButton(imageNamed: "create")
+    public lazy var createButton = UIButton(title: "Create")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = .white
         buildViewHierarchy()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -64,7 +64,10 @@ class ResumeView: UIView, ViewsNeed {
             goalWhen.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             goalWhen.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             createButton.centerXAnchor.constraint(equalTo: self.goalLabel.centerXAnchor),
-            createButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50)
+            createButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50),
+            createButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),
+            createButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50),
+            createButton.heightAnchor.constraint(equalToConstant: 50)
             ])
     }
 }

@@ -17,31 +17,12 @@ class ListGoalsViewController: BaseListController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
-        setNavigation()
-        
-        // TEST WITH MOCK DATES IN CORE DATA EXAMPLE TO CREATE STEP IN GOAL
-        let goalDao = CoreDataDAO<GoalCore>()
-        
-        let goal = goalDao.new()
-        goal.name = "Test Mock"
-        goal.about = "Test Mock About"
-        
-        let stepDao = CoreDataDAO<StepCore>()
-        
-        let step = stepDao.new()
-        step.name = "First Step"
-        step.about = "First About"
-        
-        goal.addToSteps(step)
-        
-        goalDao.insert(object: goal)
-        
-      
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+        setNavigation()
+        self.collectionView.reloadData()
         let goalDAO = CoreDataDAO<GoalCore>()
         goals = goalDAO.all()
     }
@@ -53,8 +34,12 @@ class ListGoalsViewController: BaseListController {
     
     fileprivate func setNavigation() {
         let buttomRight = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewGoals))
-        let buttonMode = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(changeLayout))
-        navigationItem.rightBarButtonItems = [buttomRight, buttonMode]
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Goals"
+        navigationController?.tabBarItem.title = "Goals"
+        buttomRight.tintColor = .white
+        navigationItem.rightBarButtonItems = [buttomRight]
     }
     
     @objc fileprivate func addNewGoals() {
@@ -67,15 +52,6 @@ class ListGoalsViewController: BaseListController {
 extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let goal = goals[indexPath.row]
-        let coreManager = CoreDataManager()
-        
-        let steps = coreManager.fetchSteps(from: goal)
-        
-        steps.forEach { (step) in
-            //EXAMPLE WITH FETCH DATES FROM GOAL
-            print(step.name!)
-        }
-        
         let detailVC = DetailGoalViewController(with: goal)
         navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -102,10 +78,5 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width - 20, height: 120)
-    }
-    
-    @objc fileprivate func changeLayout() {
-        self.collectionView.reloadData()
-        self.collectionView.collectionViewLayout.invalidateLayout()
     }
 }

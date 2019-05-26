@@ -11,7 +11,7 @@ import UIKit
 class ListGoalViewCell: UICollectionViewCell, ViewsNeed {
     lazy var nameGoal = UILabel(text: "Name of Goal", sizeFont: 24) 
     
-    lazy var descriptionGoal = UILabel(text: "Description", textColor: .black)
+    lazy var descriptionGoal = UILabel(text: "Description", textColor: #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1))
     
     
     lazy var trackLayer: CAShapeLayer = {
@@ -41,6 +41,7 @@ class ListGoalViewCell: UICollectionViewCell, ViewsNeed {
     lazy var percentageLabel: UILabel = {
         let label = UILabel()
         label.text = "Start"
+        label.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
@@ -50,6 +51,7 @@ class ListGoalViewCell: UICollectionViewCell, ViewsNeed {
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildViewHierarchy()
+        nameGoal.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.layer.cornerRadius = 8
     }

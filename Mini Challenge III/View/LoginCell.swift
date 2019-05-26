@@ -13,12 +13,13 @@ class LoginCell: UICollectionViewCell {
     let logoImageView: UIImageView = {
         let image = UIImage(named: "logo")
         let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .orange
+        button.backgroundColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
         button.setTitle("Lets gets started", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
@@ -39,7 +40,7 @@ class LoginCell: UICollectionViewCell {
         _ = logoImageView.anchor(centerYAnchor, left: nil, bottom: nil, right: nil, topConstant: -230, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 160, heightConstant: 160)
         logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        _ = loginButton.anchor(logoImageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, topConstant: 16, leftConstant: 32, bottomConstant: 0, rightConstant: 32, widthConstant: 0, heightConstant: 50)
+        _ = loginButton.anchor(logoImageView.bottomAnchor, left: leftAnchor, bottom: self.bottomAnchor, right: rightAnchor, topConstant: 16, leftConstant: 32, bottomConstant: 10, rightConstant: 32, widthConstant: 0, heightConstant: 50)
     }
     
     required init?(coder aDecoder: NSCoder) {

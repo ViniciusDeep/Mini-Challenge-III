@@ -5,7 +5,6 @@
 //  Created by Vinicius Mangueira Correia on 16/05/19.
 //  Copyright © 2019 Vinicius Mangueira Correia. All rights reserved.
 //
-
 import UIKit
 
 extension UILabel {
@@ -42,5 +41,17 @@ extension UIButton {
         self.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setImage(UIImage(named: imageNamed), for: .normal)
+    }
+    
+    convenience init(title: String) {
+        self.init(frame: .zero)
+        self.setTitle(title, for: .normal)
+        self.titleLabel?.font =  UIFont(name: "Helvetica", size: 20)
+        self.setTitleColor(.white, for: .normal)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 10
+        self.backgroundColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
+        self.layer.borderColor = UIColor.white.cgColor
     }
 }

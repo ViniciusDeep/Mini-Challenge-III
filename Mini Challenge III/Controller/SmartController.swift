@@ -15,6 +15,7 @@ class SmartController: BaseListController, UICollectionViewDelegateFlowLayout{
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        navigationController?.navigationBar.tintColor = .white
         collectionView.register(SmartCell.self, forCellWithReuseIdentifier:
             cellId)
     }
