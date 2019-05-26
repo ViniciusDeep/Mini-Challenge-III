@@ -12,6 +12,7 @@ protocol CreateGoalsDelegate: class{
     func getInputsByCell() -> UITableViewCell
 }
 
+
 class CreateGoalsViewCell: UITableViewCell, ConfigurableView {
     
     lazy var contentText = UILabel(text: "", sizeFont: 24)

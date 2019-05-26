@@ -48,6 +48,8 @@
 		924D0F58227CB30200C272E7 /* CreateGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */; };
 		924D0F5A227CB55500C272E7 /* CreateGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D0F59227CB55500C272E7 /* CreateGoalsView.swift */; };
 		925935162292EED100D94991 /* Mini_Challenge_CoreData_IIITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925935152292EED100D94991 /* Mini_Challenge_CoreData_IIITests.swift */; };
+		925F5E03229B0C12002275EE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F5E02229B0C12002275EE /* Reusable.swift */; };
+		925F5E05229B0F0B002275EE /* Reusable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F5E04229B0F0B002275EE /* Reusable+Extension.swift */; };
 		9271BC4D2289DF9100321ED5 /* StepCore+CoreData+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271BC4C2289DF9100321ED5 /* StepCore+CoreData+Class.swift */; };
 		9271BC4F2289E10A00321ED5 /* StepCore+CoreDataProperties].swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271BC4E2289E10A00321ED5 /* StepCore+CoreDataProperties].swift */; };
 		92775293227F758100DD06AA /* ListGoalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92775292227F758100DD06AA /* ListGoalViewCell.swift */; };
@@ -134,6 +136,8 @@
 		924D0F57227CB30200C272E7 /* CreateGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalViewController.swift; sourceTree = "<group>"; };
 		924D0F59227CB55500C272E7 /* CreateGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalsView.swift; sourceTree = "<group>"; };
 		925935152292EED100D94991 /* Mini_Challenge_CoreData_IIITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini_Challenge_CoreData_IIITests.swift; sourceTree = "<group>"; };
+		925F5E02229B0C12002275EE /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		925F5E04229B0F0B002275EE /* Reusable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reusable+Extension.swift"; sourceTree = "<group>"; };
 		9271BC4C2289DF9100321ED5 /* StepCore+CoreData+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StepCore+CoreData+Class.swift"; sourceTree = "<group>"; };
 		9271BC4E2289E10A00321ED5 /* StepCore+CoreDataProperties].swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StepCore+CoreDataProperties].swift"; sourceTree = "<group>"; };
 		92775292227F758100DD06AA /* ListGoalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGoalViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 		9230DC83228DDA4B00BF06B3 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				925F5E07229B1183002275EE /* Reusable */,
 				9230DC84228DDAA700BF06B3 /* ConfigurableView.swift */,
 			);
 			path = Protocol;
@@ -317,6 +322,7 @@
 		923D9382226E19870006ED17 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				925F5E06229B112C002275EE /* Reusable */,
 				923D9383226E199E0006ED17 /* Constraints+UIView.swift */,
 				92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */,
 				9240DA72228991E50094961A /* NSManagedObject+Extension.swift */,
@@ -370,6 +376,22 @@
 				9271BC4E2289E10A00321ED5 /* StepCore+CoreDataProperties].swift */,
 			);
 			path = Step;
+			sourceTree = "<group>";
+		};
+		925F5E06229B112C002275EE /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				925F5E04229B0F0B002275EE /* Reusable+Extension.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		925F5E07229B1183002275EE /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				925F5E02229B0C12002275EE /* Reusable.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -544,6 +566,7 @@
 				9280F190227006600071D341 /* SmartController.swift in Sources */,
 				92B3ACE122848E4200D78CFD /* ResumeView.swift in Sources */,
 				929295632289DB620094C6D7 /* GoalCore+ClassCoreData.swift in Sources */,
+				925F5E03229B0C12002275EE /* Reusable.swift in Sources */,
 				92188CE322809370001C9310 /* DetailGoalViewController.swift in Sources */,
 				924D0F5A227CB55500C272E7 /* CreateGoalsView.swift in Sources */,
 				92A9921E22863AF500A79932 /* OptionsView.swift in Sources */,
@@ -572,6 +595,7 @@
 				923D9388226E1A390006ED17 /* LoginCell.swift in Sources */,
 				9228160D227F5F0600EA9D92 /* GoalField.swift in Sources */,
 				92775293227F758100DD06AA /* ListGoalViewCell.swift in Sources */,
+				925F5E05229B0F0B002275EE /* Reusable+Extension.swift in Sources */,
 				4855A7BD2289E3700037BE80 /* RoundedButton.swift in Sources */,
 				927752972280923A00DD06AA /* Step.swift in Sources */,
 				9280F198227029640071D341 /* SmarFullScreenHeaderCell.swift in Sources */,

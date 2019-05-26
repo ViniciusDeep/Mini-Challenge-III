@@ -51,6 +51,7 @@ class CreateStepView: UIView{
 		newStepLabel = UILabel(frame: .zero)
 		newStepLabel.translatesAutoresizingMaskIntoConstraints = false
 		newStepLabel.text = "New step"
+        newStepLabel.font = UIFont.boldSystemFont(ofSize: 20)
 		newStepLabel.textAlignment = .center
 		containerView.addSubview(newStepLabel)
 		

@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ListGoalViewCell: UICollectionViewCell, ConfigurableView {
-    lazy var nameGoal = UILabel(text: "Name of Goal", sizeFont: 24) 
+class ListGoalViewCell: UICollectionViewCell, ConfigurableView, Reusable {
+    lazy var nameGoal = UILabel(text: "Name of Goal", sizeFont: 18)
     
     lazy var descriptionGoal = UILabel(text: "Description", textColor: #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1))
-    
     
     lazy var trackLayer: CAShapeLayer = {
         let trackLayer  = CAShapeLayer()

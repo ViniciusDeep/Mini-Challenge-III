@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProgressStepViewDelegate: class {
+    func tappedStep(step: [UIView])
+}
+
 class ProgressStepView: UIView {
     
     lazy var firstStep = UIImageView(imagedNamed: "firststep", highlightedImageNamed: "firststepchecked")
@@ -19,7 +23,6 @@ class ProgressStepView: UIView {
     lazy var thirdStep = UIImageView(imagedNamed: "thirdstep", highlightedImageNamed: "thirdstepchecked")
 
     lazy var secondLineView = UIImageView(imagedNamed: "line", highlightedImageNamed: "linecheck")
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +56,8 @@ class ProgressStepView: UIView {
               thirdStep.leadingAnchor.constraint(equalTo: secondLineView.trailingAnchor)
             ])
     }
+    
+    
     public func verifyCurrentStep(currentStep: Int) {
         switch currentStep {
         case 1:

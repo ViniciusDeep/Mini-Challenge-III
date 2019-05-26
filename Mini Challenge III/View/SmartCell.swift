@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SmartCell: UICollectionViewCell {
+class SmartCell: UICollectionViewCell, Reusable {
     
     let imageView = UIImageView(image: #imageLiteral(resourceName: "smart"))
     

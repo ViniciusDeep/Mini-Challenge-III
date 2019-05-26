@@ -9,14 +9,12 @@ import UIKit
 import CoreData
 
 class ListGoalsViewController: BaseListController {
-    
-    fileprivate let cellId = "ListID"
-    
     var goals = [GoalCore]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,7 +25,7 @@ class ListGoalsViewController: BaseListController {
         goals = goalDAO.all()
     }
     fileprivate func setupCollectionView() {
-        collectionView.register(ListGoalViewCell.self, forCellWithReuseIdentifier: cellId)
+        self.collectionView.register(cellType: ListGoalViewCell.self)
         collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
     }
     
@@ -36,7 +34,6 @@ class ListGoalsViewController: BaseListController {
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Goals"
-        navigationController?.tabBarItem.title = "Goals"
         buttomRight.tintColor = .white
         navigationItem.rightBarButtonItems = [buttomRight]
     }
@@ -64,15 +61,15 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ListGoalViewCell
-        cell?.nameGoal.text = goals[indexPath.row].name
-        cell?.descriptionGoal.text = goals[indexPath.row].about
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ListGoalViewCell.self)
+        cell.nameGoal.text = goals[indexPath.row].name
+        cell.descriptionGoal.text = goals[indexPath.row].about
         let percentage = goals[indexPath.row].progress
         if  goals[indexPath.row].isStarted {
-            cell?.trackLayer.strokeEnd = CGFloat(percentage)
-            cell?.percentageLabel.text = "\(percentage * 100)%"
+            cell.trackLayer.strokeEnd = CGFloat(percentage)
+            cell.percentageLabel.text = "\(percentage * 100)%"
         }
-        return cell ?? UICollectionViewCell()
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
