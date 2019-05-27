@@ -12,7 +12,9 @@ class StepCollectionViewCell: UICollectionViewCell {
 	var checkButton: UIButton!
 	var titleLabel: UILabel!
 	var descriptionLabel: UILabel!
-    
+	
+	var step: StepCore?
+  
 	override init(frame: CGRect) {
 		super.init(frame: .zero)
 		
@@ -28,9 +30,15 @@ class StepCollectionViewCell: UICollectionViewCell {
 		case true:
 			button.setImage(UIImage(named: "uncheck"), for: .normal)
 			button.isSelected = false
+			step?.isCompleted = false
+            let dao = CoreDataDAO<StepCore>()
+            dao.save()
 		case false:
 			button.setImage(UIImage(named: "check"), for: .normal)
 			button.isSelected = true
+			step?.isCompleted = true
+            let dao = CoreDataDAO<StepCore>()
+            dao.save()
 		}
 	}
 	
@@ -72,7 +80,14 @@ class StepCollectionViewCell: UICollectionViewCell {
 		])
 	}
 	
-	func setContent() {
+	func setContent(_ step: StepCore) {
+		self.step = step
+		titleLabel.text = step.name
+		descriptionLabel.text = step.about
 		
+		if step.isCompleted {
+			checkButton.setImage(UIImage(named: "check"), for: .normal)
+			checkButton.isSelected = true
+		}
 	}
 }

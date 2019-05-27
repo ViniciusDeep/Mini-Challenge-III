@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol CreateStepDelegate: class {
+	func stepCreated(_ name: String?, _ description: String?)
+}
+
 class CreateStepViewController: UIViewController {
 	var createStepView: CreateStepView!
+	
+	weak var delegate: CreateStepDelegate?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -34,7 +40,13 @@ class CreateStepViewController: UIViewController {
 }
 
 extension CreateStepViewController: CreateStepViewDelegate {
-	func createStep() {
+	func createStep(_ name: String?, _ description: String?) {
+		delegate?.stepCreated(name, description)
+		
+		dismiss(animated: true, completion: nil)
+	}
+	
+	func dismissController() {
 		dismiss(animated: true, completion: nil)
 	}
 }

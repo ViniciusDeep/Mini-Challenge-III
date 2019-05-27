@@ -65,10 +65,15 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ListGoalViewCell.self) 
         cell.nameGoal.text = goals[indexPath.row].name
         cell.descriptionGoal.text = goals[indexPath.row].about
-        let percentage = goals[indexPath.row].progress
-        if  goals[indexPath.row].isStarted {
+        
+        guard let steps = goals[indexPath.row].steps.allObjects as? [StepCore] else {return UICollectionViewCell()}
+       let percentage = GoalHelper.getCurrenceProgress(steps: steps)
+        if steps.isEmpty {
             cell.trackLayer.strokeEnd = CGFloat(percentage)
-            cell.percentageLabel.text = "\(percentage * 100)%"
+            cell.percentageLabel.text = "\(0.0)%"
+        } else if  goals[indexPath.row].isStarted {
+            cell.trackLayer.strokeEnd = CGFloat(percentage/100)
+            cell.percentageLabel.text = "\(String(format: "%.0f%", percentage))%"
         }
         return cell
     }

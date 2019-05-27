@@ -71,14 +71,19 @@ class GoalHaventStartedView: UIView {
 			imageView.heightAnchor.constraint(equalToConstant: 211.0),
 			imageView.topAnchor.constraint(equalTo: view.topAnchor),
 			imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8.0),
+			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16.0),
 			titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
 			descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8.0),
-			startButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8.0),
-			startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8.0),
+			startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 64.0),
+			startButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 32.0),
+			startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -64.0),
 			startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
+	}
+	
+	func setContent(_ title: String?, _ description: String?) {
+		titleLabel.text = title
+		descriptionLabel.text = description
 	}
 }

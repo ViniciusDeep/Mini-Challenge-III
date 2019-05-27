@@ -28,7 +28,7 @@ public class CoreDataDAO<Element: NSManagedObject>: DAO {
         let result =  try! context.fetch(request)
         return result
     }
-    private func save() {
+    public func save() {
         do {
             try context.save()
         } catch {

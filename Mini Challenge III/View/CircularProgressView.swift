@@ -18,13 +18,18 @@ class CircularProgressView: UIView {
 		translatesAutoresizingMaskIntoConstraints = false
 		setup()
 		
-		if let progress = goalProgress {
-			isCenterLabelStarted(true)
-			centerLabel.text = "\(String(format: "%.0f%", progress))%"
-		} else {
-			isCenterLabelStarted(false)
-		}
-	}
+        if goalProgress == CGFloat.nan {
+            centerLabel.text = "0%"
+        } else {
+            if let progress = goalProgress {
+                isCenterLabelStarted(true)
+                centerLabel.text = "\(String(format: "%.0f%", progress))%"
+            } else {
+                isCenterLabelStarted(false)
+            }
+        }
+        
+    }
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("fatal error CircularProgressView")
@@ -81,8 +86,8 @@ class CircularProgressView: UIView {
 			centerLabel.font = UIFont.appFont(with: 28, and: .extraBold)
 			centerLabel.text = "0%"
 		} else {
-			centerLabel.font = UIFont.appFont(with: 14, and: .regular)
-			centerLabel.text = "Aguardando inicio"
+			centerLabel.font = UIFont.systemFont(ofSize: 14.0)
+			centerLabel.text = "Standing by for the start"
 		}
 	}
 }

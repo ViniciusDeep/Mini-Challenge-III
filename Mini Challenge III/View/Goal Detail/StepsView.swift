@@ -15,24 +15,18 @@ protocol StepsViewDelegate: class {
 
 class StepsView: UIView {
 	var collectionView: UICollectionView!
-	var addStepButton: UIButton!
-	var finishProgressButton: RoundedButton!
+	var addStepButton: RoundedButton!
+	var finishProgressButton: UIButton!
 	
 	weak var delegate: StepsViewDelegate?
-	var steps: [Step] = []
+	var goal: GoalCore?
+	var steps: [StepCore] = []
 	
 	init() {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
 		
 		setup()
-		
-		let step = Step(name: nil, description: nil, isCompleted: false)
-		steps.append(step)
-		steps.append(step)
-		steps.append(step)
-		steps.append(step)
-		collectionView.reloadData()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -71,15 +65,15 @@ class StepsView: UIView {
 		separateView.backgroundColor = UIColor.gray
 		containerView.addSubview(separateView)
 		
-		addStepButton = UIButton(frame: .zero)
-		addStepButton.translatesAutoresizingMaskIntoConstraints = false
-		addStepButton.setTitle("Add new step", for: .normal)
-		addStepButton.setTitleColor(UIColor.blue, for: .normal)
+		addStepButton = RoundedButton()
+		addStepButton.setTitle("Create Step", for: .normal)
 		addStepButton.addTarget(self, action: #selector(addStepAction), for: .touchUpInside)
 		containerView.addSubview(addStepButton)
 		
-		finishProgressButton = RoundedButton()
+		finishProgressButton = UIButton(frame: .zero)
+		finishProgressButton.translatesAutoresizingMaskIntoConstraints = false
 		finishProgressButton.setTitle("Finish month progress", for: .normal)
+		finishProgressButton.setTitleColor(.buttonColor, for: .normal)
 		finishProgressButton.addTarget(self, action: #selector(finishMonthProgressAction), for: .touchUpInside)
 		containerView.addSubview(finishProgressButton)
 		
@@ -95,13 +89,24 @@ class StepsView: UIView {
 			separateView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
 			separateView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 16.0),
 			separateView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16.0),
-			addStepButton.topAnchor.constraint(equalTo: separateView.bottomAnchor, constant: 2.0),
+			addStepButton.widthAnchor.constraint(equalToConstant: 150.0),
+			addStepButton.topAnchor.constraint(equalTo: separateView.bottomAnchor, constant: 16.0),
 			addStepButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
 			finishProgressButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8.0),
 			finishProgressButton.topAnchor.constraint(equalTo: addStepButton.bottomAnchor, constant: 16.0),
 			finishProgressButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0),
 			finishProgressButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
 		])
+	}
+	
+	func reloadData() {
+		if let goal = self.goal {
+			guard let steps = goal.steps.allObjects as? [StepCore] else { return }
+			
+			self.steps = steps
+		}
+		
+		collectionView.reloadData()
 	}
 }
 
@@ -113,7 +118,9 @@ extension StepsView: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StepCollectionViewCell", for: indexPath) as? StepCollectionViewCell else { return UICollectionViewCell() }
 		
-		cell.setContent()
+		let step = steps[indexPath.item]
+		cell.setContent(step)
+		
 		return cell
 	}
 }

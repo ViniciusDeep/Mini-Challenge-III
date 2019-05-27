@@ -9,7 +9,8 @@
 import UIKit
 
 protocol CreateStepViewDelegate: class {
-	func createStep()
+	func createStep(_ name: String?, _ description: String?)
+	func dismissController()
 }
 
 class CreateStepView: UIView{
@@ -36,11 +37,17 @@ class CreateStepView: UIView{
 	}
 	
 	@objc func createStepAction() {
-		delegate?.createStep()
+		delegate?.createStep(stepNameTextField.text, stepDescriptionTextField.text)
+	}
+	
+	@objc func dismissAction() {
+		delegate?.dismissController()
 	}
 	
 	func setup() {
 		dismissView = DismissView()
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction))
+		dismissView.addGestureRecognizer(tapGesture)
 		addSubview(dismissView)
 		
 		let containerView = UIView(frame: .zero)
@@ -128,9 +135,9 @@ class CreateStepView: UIView{
 			secondSeparatorView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
 			secondSeparatorView.topAnchor.constraint(equalTo: stepDescriptionTextField.bottomAnchor, constant: 8.0),
 			secondSeparatorView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0),
-			createButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16.0),
+			createButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 64.0),
 			createButton.topAnchor.constraint(equalTo: secondSeparatorView.bottomAnchor, constant: 32.0),
-			createButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0)
+			createButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -64.0)
 		])
 	}
 }

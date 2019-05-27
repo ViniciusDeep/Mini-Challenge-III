@@ -21,4 +21,3 @@ extension UIFont {
         return UIFont(name: "Muli\(variation.rawValue)", size: size)
     }
 }
-
