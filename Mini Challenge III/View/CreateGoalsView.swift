@@ -28,7 +28,7 @@ class CreateGoalsViewCell: UITableViewCell, ConfigurableView {
     func buildViewHierarchy() {
         addSubview(contentText)
         addSubview(contextTf)
-        self.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        self.backgroundColor = .tableViewColor
         setupConstraints()
     }
      func setupConstraints(){

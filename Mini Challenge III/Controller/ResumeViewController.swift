@@ -22,8 +22,8 @@ class ResumeViewController: UIViewController {
     
     fileprivate func setupNavigation() {
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 40)!]
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.tableViewColor, NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 40)!]
+        navigationController?.navigationBar.barTintColor = Color.navTintBarColor
         navigationItem.title = "Resume"
     }
     

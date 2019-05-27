@@ -45,7 +45,7 @@ class CreateStepView: UIView{
 		
 		let containerView = UIView(frame: .zero)
 		containerView.translatesAutoresizingMaskIntoConstraints = false
-		containerView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+		containerView.backgroundColor = .tableViewColor
 		addSubview(containerView)
 		
 		newStepLabel = UILabel(frame: .zero)

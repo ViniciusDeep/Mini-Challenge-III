@@ -31,7 +31,7 @@ class DetailGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        view.backgroundColor = .tableViewColor
     }
     
     override func viewWillAppear(_ animated: Bool) {

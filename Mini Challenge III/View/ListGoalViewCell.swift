@@ -11,7 +11,7 @@ import UIKit
 class ListGoalViewCell: UICollectionViewCell, ConfigurableView, Reusable {
     lazy var nameGoal = UILabel(text: "Name of Goal", sizeFont: 18)
     
-    lazy var descriptionGoal = UILabel(text: "Description", textColor: #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1))
+    lazy var descriptionGoal = UILabel(text: "Description", textColor: .textsColor)
     
     lazy var trackLayer: CAShapeLayer = {
         let trackLayer  = CAShapeLayer()
@@ -19,9 +19,9 @@ class ListGoalViewCell: UICollectionViewCell, ConfigurableView, Reusable {
         trackLayer.speed = 0.5
         trackLayer.strokeStart = 0
         trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1).cgColor
+        trackLayer.strokeColor = UIColor.trackLayerColor.cgColor
         trackLayer.lineWidth = 3
-        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        trackLayer.fillColor = UIColor.tableViewColor.cgColor
         return trackLayer
     }()
     
@@ -30,9 +30,9 @@ class ListGoalViewCell: UICollectionViewCell, ConfigurableView, Reusable {
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 40, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeEnd = 1
-        trackLayer.strokeColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1).cgColor
+        trackLayer.strokeColor = UIColor.textsColor.cgColor
         trackLayer.lineWidth = 3
-        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        trackLayer.fillColor = UIColor.tableViewColor.cgColor
         trackLayer.opacity = 0.4
         return trackLayer
     }()
@@ -40,7 +40,7 @@ class ListGoalViewCell: UICollectionViewCell, ConfigurableView, Reusable {
     lazy var percentageLabel: UILabel = {
         let label = UILabel()
         label.text = "Start"
-        label.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
+        label.textColor = Color.textsColor
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
@@ -50,9 +50,9 @@ class ListGoalViewCell: UICollectionViewCell, ConfigurableView, Reusable {
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildViewHierarchy()
-        nameGoal.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-        descriptionGoal.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
-        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        nameGoal.textColor = .textsColor
+        descriptionGoal.textColor = .textsColor
+        self.backgroundColor = .tableViewColor
         self.layer.cornerRadius = 8
     }
     
