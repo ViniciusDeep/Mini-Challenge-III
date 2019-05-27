@@ -51,19 +51,21 @@ class CreateStepView: UIView{
 		newStepLabel = UILabel(frame: .zero)
 		newStepLabel.translatesAutoresizingMaskIntoConstraints = false
 		newStepLabel.text = "New step"
-        newStepLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        newStepLabel.font = UIFont.appFont(with: 20, and: .extraBold)
 		newStepLabel.textAlignment = .center
 		containerView.addSubview(newStepLabel)
 		
 		stepNameLabel = UILabel(frame: .zero)
 		stepNameLabel.translatesAutoresizingMaskIntoConstraints = false
 		stepNameLabel.text = "Step name"
+        stepNameLabel.font = UIFont.appFont(with: 14, and: .extraBold)
 		stepNameLabel.textAlignment = .left
 		containerView.addSubview(stepNameLabel)
 		
 		stepNameTextField = UITextField(frame: .zero)
 		stepNameTextField.translatesAutoresizingMaskIntoConstraints = false
 		stepNameTextField.placeholder = "Write a name for the step"
+        stepNameTextField.font = UIFont.appFont(with: 14, and: .regular)
 		containerView.addSubview(stepNameTextField)
 		
 		let firsSeparatorView = UIView(frame: .zero)
@@ -75,11 +77,13 @@ class CreateStepView: UIView{
 		stepDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 		stepDescriptionLabel.text = "Step description"
 		stepDescriptionLabel.textAlignment = .left
+        stepDescriptionLabel.font = UIFont.appFont(with: 14, and: .extraBold)
 		containerView.addSubview(stepDescriptionLabel)
 		
 		stepDescriptionTextField = UITextField(frame: .zero)
 		stepDescriptionTextField.translatesAutoresizingMaskIntoConstraints = false
 		stepDescriptionTextField.placeholder = "Write a description for the step"
+        stepDescriptionTextField.font = UIFont.appFont(with: 14, and: .regular)
 		containerView.addSubview(stepDescriptionTextField)
 		
 		let secondSeparatorView = UIView(frame: .zero)

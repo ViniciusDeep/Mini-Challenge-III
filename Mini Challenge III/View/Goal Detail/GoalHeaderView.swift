@@ -11,7 +11,7 @@ class GoalHeaderView: UIView {
     var progressView: CircularProgressView!
     var titleLabel: UILabel!
     var descriptionLabel: UILabel!
-    
+
     init(with goal: GoalCore) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -37,6 +37,7 @@ class GoalHeaderView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .center
         titleLabel.text = "A title"
+        titleLabel.font = UIFont.appFont(with: 18, and: .extraBold)
         titleLabel.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         addSubview(titleLabel)
         
@@ -44,6 +45,7 @@ class GoalHeaderView: UIView {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.textAlignment = .center
         descriptionLabel.text = "A bigger description"
+        descriptionLabel.font = UIFont.appFont(with: 14, and: .regular)
         descriptionLabel.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         addSubview(descriptionLabel)
         

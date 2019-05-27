@@ -37,13 +37,14 @@ class CreateGoalViewController: UIViewController {
     fileprivate lazy var nextButton: UIButton = {
         let button = UIButton(title: "Next")
         button.addTarget(self, action: #selector(changeContent), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.appFont(with: 22, and: .semiBold)
         return button
     }()
     fileprivate lazy var prevButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(previewContent), for: .touchUpInside)
         button.setTitle("Preview", for: .normal)
-        button.titleLabel?.font =  UIFont(name: "Helvetica", size: 20)
+        button.titleLabel?.font = UIFont.appFont(with: 22, and: .semiBold)
         button.setTitleColor(#colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -76,8 +77,8 @@ class CreateGoalViewController: UIViewController {
     }
     
     fileprivate func setNavigationItems() {
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 40)!]
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.appFont(with: 34, and: .extraBold)!]
+        navigationController?.navigationBar.barTintColor = .navBarBackground
         navigationItem.title = "Create Your Goal"
         navigationController?.navigationBar.prefersLargeTitles = true
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backToController))
