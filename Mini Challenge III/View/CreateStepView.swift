@@ -47,6 +47,7 @@ class CreateStepView: UIView{
 	func setup() {
 		dismissView = DismissView()
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissAction))
+		dismissView.addGestureRecognizer(tapGesture)
 		addSubview(dismissView)
 		
 		let containerView = UIView(frame: .zero)

@@ -58,6 +58,7 @@ class DetailGoalViewController: UIViewController {
 			case .haventStarted:
 				haventStartedView.removeFromSuperview()
 				
+				headerView.startProgress()
 				setupCalendar()
 				setupWithoutStepsState()
 				
@@ -143,6 +144,8 @@ class DetailGoalViewController: UIViewController {
     
     func setupSteps() {
         view.addSubview(stepsView)
+		stepsView.goal = goal
+		stepsView.reloadData()
         stepsView.delegate = self
         
         NSLayoutConstraint.activate([
@@ -202,16 +205,18 @@ extension DetailGoalViewController: StepsViewDelegate {
 
 extension DetailGoalViewController: CreateStepDelegate {
 	func stepCreated(_ name: String?, _ description: String?) {
-//		let stepDao = CoreDataDAO<StepCore>()
-//		let step = stepDao.new()
-//		step.name = name
-//		step.about = description
-//		step.isCompleted = false
-//
-//		self.goal?.addToSteps(step)
+		let stepDao = CoreDataDAO<StepCore>()
+		let step = stepDao.new()
+		step.name = name
+		step.about = description
+		step.isCompleted = false
+
+		goal?.addToSteps(step)
+		stepDao.insert(object: step)
 		
 		if let state = currentState {
 			if state == .withoutSteps {
+				goal?.isStarted = true
 				buildViewHierarchy()
 			} else {
 				stepsView.reloadData()

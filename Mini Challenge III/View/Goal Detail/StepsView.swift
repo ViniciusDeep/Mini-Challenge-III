@@ -19,20 +19,14 @@ class StepsView: UIView {
 	var finishProgressButton: UIButton!
 	
 	weak var delegate: StepsViewDelegate?
-	var steps: [Step] = []
+	var goal: GoalCore?
+	var steps: [StepCore] = []
 	
 	init() {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
 		
 		setup()
-		
-		let step = Step(name: nil, description: nil, isCompleted: false)
-		steps.append(step)
-		steps.append(step)
-		steps.append(step)
-		steps.append(step)
-		collectionView.reloadData()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -106,6 +100,12 @@ class StepsView: UIView {
 	}
 	
 	func reloadData() {
+		if let goal = self.goal {
+			guard let steps = goal.steps.allObjects as? [StepCore] else { return }
+			
+			self.steps = steps
+		}
+		
 		collectionView.reloadData()
 	}
 }
@@ -118,7 +118,9 @@ extension StepsView: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StepCollectionViewCell", for: indexPath) as? StepCollectionViewCell else { return UICollectionViewCell() }
 		
-		cell.setContent()
+		let step = steps[indexPath.item]
+		cell.setContent(step)
+		
 		return cell
 	}
 }
