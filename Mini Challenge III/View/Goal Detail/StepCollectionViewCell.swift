@@ -14,7 +14,7 @@ class StepCollectionViewCell: UICollectionViewCell {
 	var descriptionLabel: UILabel!
 	
 	var step: StepCore?
-	
+  
 	override init(frame: CGRect) {
 		super.init(frame: .zero)
 		
@@ -57,12 +57,14 @@ class StepCollectionViewCell: UICollectionViewCell {
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		titleLabel.text = "O passo"
 		titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.appFont(with: 18, and: .extraBold)
 		addSubview(titleLabel)
 		
 		descriptionLabel = UILabel(frame: .zero)
 		descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
 		descriptionLabel.text = "Esse é meu primeiro passo"
 		descriptionLabel.textAlignment = .center
+        descriptionLabel.font = UIFont.appFont(with: 14, and: .regular)
 		addSubview(descriptionLabel)
 		
 		NSLayoutConstraint.activate([

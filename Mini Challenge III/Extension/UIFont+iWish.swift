@@ -9,14 +9,15 @@
 import UIKit
 
 enum AppFontVariantions: String {
-    case bold = "-Bold"
-    case light = "-Light"
+    case semiBold = "-SemiBold"
+    case black = "-Black"
     case regular = "-Regular"
+    case extraBold = "-ExtraBold"
 }
 
 extension UIFont {
     
     static func appFont(with size : CGFloat, and variation : AppFontVariantions ) -> UIFont? {
-        return UIFont(name: "Nunito\(variation.rawValue)", size: size)
+        return UIFont(name: "Muli\(variation.rawValue)", size: size)
     }
 }

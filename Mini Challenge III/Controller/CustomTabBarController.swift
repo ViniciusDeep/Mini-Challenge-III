@@ -21,8 +21,8 @@ class CustomTabBarController: UITabBarController{
     }
     fileprivate func createNav(viewController: UIViewController, title: String, imageNamed: String) -> UINavigationController {
         let navVc = UINavigationController(rootViewController: viewController)
-        viewController.view.backgroundColor =  .tableViewColor
-        navVc.navigationBar.barTintColor = Color.navTintBarColor
+        viewController.view.backgroundColor =  .white
+        navVc.navigationBar.barTintColor = .navBarBackground
         navVc.navigationBar.prefersLargeTitles = true
         setNavigationTextColor(navVc)
         viewController.navigationItem.title = title
@@ -32,8 +32,9 @@ class CustomTabBarController: UITabBarController{
     }
     
     fileprivate func setNavigationTextColor(_ navigation: UINavigationController){
-        navigation.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.tableViewColor, NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 40)!]
-        navigation.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.tableViewColor, NSAttributedString.Key.font: UIFont(name: "AlNile-Bold", size: 16)!]
+        navigation.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.appFont(with: 34, and: .extraBold)!]
+        navigation.navigationBar.titleTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.appFont(with: 34, and: .extraBold)!]
+
     }
     
     @objc func handleSignOut() {

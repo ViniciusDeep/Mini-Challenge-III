@@ -83,7 +83,7 @@ class CircularProgressView: UIView {
 	
 	func isCenterLabelStarted(_ bool: Bool) {
 		if bool {
-			centerLabel.font = UIFont.boldSystemFont(ofSize: 28)
+			centerLabel.font = UIFont.appFont(with: 28, and: .extraBold)
 			centerLabel.text = "0%"
 		} else {
 			centerLabel.font = UIFont.systemFont(ofSize: 14.0)

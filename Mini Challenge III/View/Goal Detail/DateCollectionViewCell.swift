@@ -24,6 +24,7 @@ class DateCollectionViewCell: UICollectionViewCell {
 	func setup() {
 		dateLabel = UILabel(frame: .zero)
 		dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.font = UIFont.appFont(with: 22, and: .regular)
 		dateLabel.text = "TES"
 		addSubview(dateLabel)
 		

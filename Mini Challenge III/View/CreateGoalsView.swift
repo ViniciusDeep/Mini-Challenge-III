@@ -15,8 +15,17 @@ protocol CreateGoalsDelegate: class{
 
 class CreateGoalsViewCell: UITableViewCell, ConfigurableView {
     
-    lazy var contentText = UILabel(text: "", sizeFont: 24)
-    lazy var contextTf = UITextField(indentifier: "contextTf")
+    lazy var contentText: UILabel = {
+        let label = UILabel(text: "", sizeFont: 24)
+        label.font = UIFont.appFont(with: 20, and: .extraBold)
+        return label
+    }()
+    
+    lazy var contextTf: UITextField = {
+        let textView = UITextField(indentifier: "contextTf")
+        textView.font = UIFont.appFont(with: 14, and: .regular)
+        return textView
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,7 +37,7 @@ class CreateGoalsViewCell: UITableViewCell, ConfigurableView {
     func buildViewHierarchy() {
         addSubview(contentText)
         addSubview(contextTf)
-        self.backgroundColor = .tableViewColor
+        self.backgroundColor =  #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
         setupConstraints()
     }
      func setupConstraints(){
