@@ -171,15 +171,15 @@ extension DetailGoalViewController: GoalHaventStartedDelegate {
         
         let startGoalAction = UIAlertAction(title: "Let's go", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
-			
+            self.goal?.isStarted = true
+            let dao = CoreDataDAO<GoalCore>()
+            dao.save()
 			self.buildViewHierarchy()
         }
         
         alertController.addAction(startGoalAction)
         
         present(alertController, animated: true, completion: nil)
-		
-		goal?.isStarted = true
     }
 }
 
