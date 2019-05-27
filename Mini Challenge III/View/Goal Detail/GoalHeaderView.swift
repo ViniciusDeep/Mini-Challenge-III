@@ -25,7 +25,6 @@ class GoalHeaderView: UIView {
     }
     
     func setup(_ goal: GoalCore) {
-        
         if goal.isStarted {
                         progressView = CircularProgressView(goalProgress: CGFloat(goal.progress) * 100)
         } else {
@@ -36,14 +35,14 @@ class GoalHeaderView: UIView {
         titleLabel = UILabel(frame: .zero)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .center
-        titleLabel.text = "A title"
+        titleLabel.text = goal.name
         titleLabel.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         addSubview(titleLabel)
         
         descriptionLabel = UILabel(frame: .zero)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.textAlignment = .center
-        descriptionLabel.text = "A bigger description"
+        descriptionLabel.text = goal.about
         descriptionLabel.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
         addSubview(descriptionLabel)
         

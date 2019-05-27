@@ -82,7 +82,7 @@ class CircularProgressView: UIView {
 			centerLabel.text = "0%"
 		} else {
 			centerLabel.font = UIFont.systemFont(ofSize: 14.0)
-			centerLabel.text = "Aguardando inicio"
+			centerLabel.text = "Standing by for the start"
 		}
 	}
 }

@@ -21,7 +21,7 @@ class DismissView: UIView {
 	
     var lineView: UIView!
 	func setup() {
-		backgroundColor = .backgroundColor
+		backgroundColor = .buttonColor
 		layer.cornerRadius = 8.0
 		layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 		lineView = UIView(frame: .zero)

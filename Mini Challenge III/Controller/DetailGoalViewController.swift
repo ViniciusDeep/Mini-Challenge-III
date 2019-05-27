@@ -7,6 +7,10 @@
 //
 import UIKit
 
+enum DetailGoalState {
+	case haventStarted, withoutSteps, withSteps
+}
+
 class DetailGoalViewController: UIViewController {
     var headerView: GoalHeaderView!
     lazy var calendarView: CalendarView = {
@@ -26,12 +30,14 @@ class DetailGoalViewController: UIViewController {
         return view
     }()
     
-    public var goal: Goal?
+    public var goal: GoalCore?
+	var currentState: DetailGoalState?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .tableViewColor
+        view.backgroundColor = .backgroundColor
+		title = "Goal"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,36 +47,69 @@ class DetailGoalViewController: UIViewController {
     
     convenience init(with goal: GoalCore) {
         self.init()
-        
-        setupHeaderView(goal)
-        
-        
-        setupCalendar()
-        setupSteps()
-                if goal.isStarted {
-                    if goal.steps.count != 0 {
-                    } else {
-                    }
-                } else {
-                    setupNotStartedState()
-                }
+		
+		self.goal = goal
+		buildViewHierarchy()
     }
-    
+	
+	func buildViewHierarchy() {
+		if let state = currentState {
+			switch state {
+			case .haventStarted:
+				haventStartedView.removeFromSuperview()
+				
+				setupCalendar()
+				setupWithoutStepsState()
+				
+				currentState = .withoutSteps
+			case .withoutSteps:
+				withouStepsView.removeFromSuperview()
+				
+				headerView.startProgress()
+				setupSteps()
+				
+				currentState = .withSteps
+			case .withSteps:
+				break
+			}
+		} else {
+			if let goal = self.goal {
+				setupHeaderView(goal)
+				
+				if goal.isStarted {
+					setupCalendar()
+					
+					if goal.steps.count != 0 {
+						setupSteps()
+						currentState = .withSteps
+					} else {
+						setupWithoutStepsState()
+						currentState = .withoutSteps
+					}
+				} else {
+					setupNotStartedState()
+					currentState = .haventStarted
+				}
+			}
+		}
+	}
+	
     func setupHeaderView(_ goal: GoalCore) {
         headerView = GoalHeaderView(with: goal)
         view.addSubview(headerView)
-        
+		
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-            ])
+		])
     }
-    
+	
     func setupNotStartedState() {
         view.addSubview(haventStartedView)
+		haventStartedView.setContent(goal?.name, goal?.about)
         haventStartedView.delegate = self
-        
+		
         NSLayoutConstraint.activate([
             haventStartedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             haventStartedView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
@@ -78,19 +117,20 @@ class DetailGoalViewController: UIViewController {
             haventStartedView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
     }
-    
+	
     func setupCalendar() {
         view.addSubview(calendarView)
-        
+		
         NSLayoutConstraint.activate([
             calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             calendarView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 4.0),
             calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             ])
     }
-    
+	
     func setupWithoutStepsState() {
         view.addSubview(withouStepsView)
+		withouStepsView.setContent(goal?.name, goal?.about)
         withouStepsView.delegate = self
         
         NSLayoutConstraint.activate([
@@ -129,10 +169,8 @@ extension DetailGoalViewController: GoalHaventStartedDelegate {
         let startGoalAction = UIAlertAction(title: "Let's go", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
             self.goal?.isStarted = true
-            self.haventStartedView.removeFromSuperview()
-            self.setupCalendar()
-            self.setupWithoutStepsState()
-            self.headerView.startProgress()
+			
+			self.buildViewHierarchy()
         }
         
         alertController.addAction(startGoalAction)
@@ -143,17 +181,41 @@ extension DetailGoalViewController: GoalHaventStartedDelegate {
 
 extension DetailGoalViewController: WithoutStepsDelegate {
     func createFirstStep() {
-        //call create step scene
-        //return from create step scene and change the state for stepsview
-        print("create first step")
+        let createStepVC = CreateStepViewController()
+		createStepVC.delegate = self
+		
+		present(createStepVC, animated: true, completion: nil)
     }
 }
 
 extension DetailGoalViewController: StepsViewDelegate {
     func createStep() {
-        present(CreateStepViewController(), animated: true, completion: nil)
+		let createStepVC = CreateStepViewController()
+		createStepVC.delegate = self
+		
+		present(createStepVC, animated: true, completion: nil)
     }
     func finishMonthProgress() {
         print("finish month progress")
     }
+}
+
+extension DetailGoalViewController: CreateStepDelegate {
+	func stepCreated(_ name: String?, _ description: String?) {
+//		let stepDao = CoreDataDAO<StepCore>()
+//		let step = stepDao.new()
+//		step.name = name
+//		step.about = description
+//		step.isCompleted = false
+//
+//		self.goal?.addToSteps(step)
+		
+		if let state = currentState {
+			if state == .withoutSteps {
+				buildViewHierarchy()
+			} else {
+				stepsView.reloadData()
+			}
+		}
+	}
 }

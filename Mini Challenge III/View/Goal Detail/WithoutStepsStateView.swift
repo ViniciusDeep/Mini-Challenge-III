@@ -66,10 +66,15 @@ class WithoutStepsStateView: UIView {
 			descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8.0),
 			descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
 			descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0),
-			createStepButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8.0),
-			createStepButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8.0),
-			createStepButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8.0),
+			createStepButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 64.0),
+			createStepButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 32.0),
+			createStepButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -64.0),
 			createStepButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
 		])
+	}
+	
+	func setContent(_ title: String?, _ description: String?) {
+		titleLabel.text = title
+		descriptionLabel.text = description
 	}
 }
