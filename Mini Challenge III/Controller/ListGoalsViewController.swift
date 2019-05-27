@@ -72,8 +72,8 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
             cell.trackLayer.strokeEnd = CGFloat(percentage)
             cell.percentageLabel.text = "\(0.0)%"
         } else if  goals[indexPath.row].isStarted {
-            cell.trackLayer.strokeEnd = CGFloat(percentage)
-            cell.percentageLabel.text = "\(percentage)%"
+            cell.trackLayer.strokeEnd = CGFloat(percentage/100)
+            cell.percentageLabel.text = "\(String(format: "%.0f%", percentage))%"
         }
         return cell
     }
