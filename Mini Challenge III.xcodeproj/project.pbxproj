@@ -69,6 +69,8 @@
 		92B3ACDF22848E0600D78CFD /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3ACDE22848E0600D78CFD /* ResumeViewController.swift */; };
 		92B3ACE122848E4200D78CFD /* ResumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3ACE022848E4200D78CFD /* ResumeView.swift */; };
 		92CA2B602287425D000493F1 /* OptionsControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */; };
+		D7DFD468229C01A20070C33C /* UIFont+iWish.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD467229C01A20070C33C /* UIFont+iWish.swift */; };
+		D7DFD46A229C02D60070C33C /* UIColor+iWish.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD469229C02D60070C33C /* UIColor+iWish.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +159,8 @@
 		92B3ACDE22848E0600D78CFD /* ResumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
 		92B3ACE022848E4200D78CFD /* ResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeView.swift; sourceTree = "<group>"; };
 		92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsControllerExtension.swift; sourceTree = "<group>"; };
+		D7DFD467229C01A20070C33C /* UIFont+iWish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+iWish.swift"; sourceTree = "<group>"; };
+		D7DFD469229C02D60070C33C /* UIColor+iWish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+iWish.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +340,8 @@
 			children = (
 				923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */,
 				923F98CC2280C6140099C000 /* GoalHelper.swift */,
+				D7DFD467229C01A20070C33C /* UIFont+iWish.swift */,
+				D7DFD469229C02D60070C33C /* UIColor+iWish.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				9230DC87228E25BC00BF06B3 /* UIComponents+Extension.swift in Sources */,
 				9271BC4F2289E10A00321ED5 /* StepCore+CoreDataProperties].swift in Sources */,
 				9280F190227006600071D341 /* SmartController.swift in Sources */,
+				D7DFD46A229C02D60070C33C /* UIColor+iWish.swift in Sources */,
 				92B3ACE122848E4200D78CFD /* ResumeView.swift in Sources */,
 				929295632289DB620094C6D7 /* GoalCore+ClassCoreData.swift in Sources */,
 				925F5E03229B0C12002275EE /* Reusable.swift in Sources */,
@@ -589,6 +596,7 @@
 				484859E4228B4A88001D0B62 /* GoalHeaderView.swift in Sources */,
 				484859E0228B238B001D0B62 /* WithoutStepsStateView.swift in Sources */,
 				9249BE2D228343D600178E92 /* ProgressStepView.swift in Sources */,
+				D7DFD468229C01A20070C33C /* UIFont+iWish.swift in Sources */,
 				92B3ACDF22848E0600D78CFD /* ResumeViewController.swift in Sources */,
 				9240DA73228991E50094961A /* NSManagedObject+Extension.swift in Sources */,
 				923D9386226E1A200006ED17 /* LoginController.swift in Sources */,

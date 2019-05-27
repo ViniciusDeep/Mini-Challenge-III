@@ -18,6 +18,7 @@ class ListGoalsViewController: BaseListController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        view.backgroundColor = .backgroundColor
         collectionView.reloadData()
         setupNavigation()
         self.collectionView.reloadData()
@@ -26,12 +27,12 @@ class ListGoalsViewController: BaseListController {
     }
     fileprivate func setupCollectionView() {
         self.collectionView.register(cellType: ListGoalViewCell.self)
-        collectionView.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        collectionView.backgroundColor = .clear
     }
     
     fileprivate func setupNavigation() {
         let buttomRight = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewGoals))
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
+        navigationController?.navigationBar.barTintColor = .navBarBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Goals"
         buttomRight.tintColor = .white
