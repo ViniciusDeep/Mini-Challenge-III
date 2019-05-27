@@ -20,4 +20,3 @@ extension UIFont {
         return UIFont(name: "Nunito\(variation.rawValue)", size: size)
     }
 }
-

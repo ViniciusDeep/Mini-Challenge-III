@@ -26,7 +26,11 @@ class GoalHeaderView: UIView {
     
     func setup(_ goal: GoalCore) {
         if goal.isStarted {
-                        progressView = CircularProgressView(goalProgress: CGFloat(goal.progress) * 100)
+            guard let steps = goal.steps.allObjects as? [StepCore] else {return}
+            
+            let progress = GoalHelper.getCurrenceProgress(steps: steps)
+            
+            progressView = CircularProgressView(goalProgress: CGFloat(progress) )
         } else {
             progressView = CircularProgressView(goalProgress: nil)
         }

@@ -31,10 +31,14 @@ class StepCollectionViewCell: UICollectionViewCell {
 			button.setImage(UIImage(named: "uncheck"), for: .normal)
 			button.isSelected = false
 			step?.isCompleted = false
+            let dao = CoreDataDAO<StepCore>()
+            dao.save()
 		case false:
 			button.setImage(UIImage(named: "check"), for: .normal)
 			button.isSelected = true
 			step?.isCompleted = true
+            let dao = CoreDataDAO<StepCore>()
+            dao.save()
 		}
 	}
 	

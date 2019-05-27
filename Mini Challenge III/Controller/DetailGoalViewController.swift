@@ -176,7 +176,6 @@ extension DetailGoalViewController: GoalHaventStartedDelegate {
             dao.save()
 			self.buildViewHierarchy()
         }
-        
         alertController.addAction(startGoalAction)
         
         present(alertController, animated: true, completion: nil)
@@ -187,7 +186,6 @@ extension DetailGoalViewController: WithoutStepsDelegate {
     func createFirstStep() {
         let createStepVC = CreateStepViewController()
 		createStepVC.delegate = self
-		
 		present(createStepVC, animated: true, completion: nil)
     }
 }

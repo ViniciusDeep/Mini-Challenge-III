@@ -9,7 +9,7 @@
 import UIKit
 
 class GoalHelper {
-    class func getCurrenceProgress(steps: [Step]) -> CGFloat {
+    class func getCurrenceProgress(steps: [StepCore]) -> CGFloat {
         let totalSteps = CGFloat(steps.count)
         var currenceProgress: CGFloat = 0.0
         steps.forEach { (step) in
