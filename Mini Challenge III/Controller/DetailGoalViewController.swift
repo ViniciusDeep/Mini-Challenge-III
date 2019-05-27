@@ -171,7 +171,6 @@ extension DetailGoalViewController: GoalHaventStartedDelegate {
         
         let startGoalAction = UIAlertAction(title: "Let's go", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
-            self.goal?.isStarted = true
 			
 			self.buildViewHierarchy()
         }
@@ -179,6 +178,8 @@ extension DetailGoalViewController: GoalHaventStartedDelegate {
         alertController.addAction(startGoalAction)
         
         present(alertController, animated: true, completion: nil)
+		
+		goal?.isStarted = true
     }
 }
 

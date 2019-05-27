@@ -30,9 +30,11 @@ class StepCollectionViewCell: UICollectionViewCell {
 		case true:
 			button.setImage(UIImage(named: "uncheck"), for: .normal)
 			button.isSelected = false
+			step?.isCompleted = false
 		case false:
 			button.setImage(UIImage(named: "check"), for: .normal)
 			button.isSelected = true
+			step?.isCompleted = true
 		}
 	}
 	
