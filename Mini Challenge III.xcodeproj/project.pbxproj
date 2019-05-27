@@ -71,6 +71,10 @@
 		92CA2B602287425D000493F1 /* OptionsControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */; };
 		D7DFD468229C01A20070C33C /* UIFont+iWish.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD467229C01A20070C33C /* UIFont+iWish.swift */; };
 		D7DFD46A229C02D60070C33C /* UIColor+iWish.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD469229C02D60070C33C /* UIColor+iWish.swift */; };
+		D7DFD46D229C07660070C33C /* Muli-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7DFD46C229C07660070C33C /* Muli-Black.ttf */; };
+		D7DFD46F229C07900070C33C /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7DFD46E229C07900070C33C /* Muli-ExtraBold.ttf */; };
+		D7DFD471229C07C70070C33C /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7DFD470229C07C70070C33C /* Muli-Regular.ttf */; };
+		D7DFD473229C08140070C33C /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7DFD472229C08140070C33C /* Muli-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +165,10 @@
 		92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsControllerExtension.swift; sourceTree = "<group>"; };
 		D7DFD467229C01A20070C33C /* UIFont+iWish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+iWish.swift"; sourceTree = "<group>"; };
 		D7DFD469229C02D60070C33C /* UIColor+iWish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+iWish.swift"; sourceTree = "<group>"; };
+		D7DFD46C229C07660070C33C /* Muli-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Black.ttf"; sourceTree = "<group>"; };
+		D7DFD46E229C07900070C33C /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
+		D7DFD470229C07C70070C33C /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
+		D7DFD472229C08140070C33C /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +242,7 @@
 		923D934C226E16610006ED17 /* Mini Challenge III */ = {
 			isa = PBXGroup;
 			children = (
+				D7DFD46B229C07000070C33C /* Fonts */,
 				9230DC83228DDA4B00BF06B3 /* Protocol */,
 				9240DA68228988EC0094961A /* CoreData */,
 				923D937B226E17EC0006ED17 /* Model */,
@@ -400,6 +409,17 @@
 			path = Reusable;
 			sourceTree = "<group>";
 		};
+		D7DFD46B229C07000070C33C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D7DFD472229C08140070C33C /* Muli-SemiBold.ttf */,
+				D7DFD470229C07C70070C33C /* Muli-Regular.ttf */,
+				D7DFD46E229C07900070C33C /* Muli-ExtraBold.ttf */,
+				D7DFD46C229C07660070C33C /* Muli-Black.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -505,8 +525,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7DFD473229C08140070C33C /* Muli-SemiBold.ttf in Resources */,
 				923D9358226E16610006ED17 /* LaunchScreen.storyboard in Resources */,
 				923D9355226E16610006ED17 /* Assets.xcassets in Resources */,
+				D7DFD46D229C07660070C33C /* Muli-Black.ttf in Resources */,
+				D7DFD471229C07C70070C33C /* Muli-Regular.ttf in Resources */,
+				D7DFD46F229C07900070C33C /* Muli-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

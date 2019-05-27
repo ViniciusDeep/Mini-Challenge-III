@@ -62,7 +62,7 @@ extension ListGoalsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ListGoalViewCell.self)
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ListGoalViewCell.self) 
         cell.nameGoal.text = goals[indexPath.row].name
         cell.descriptionGoal.text = goals[indexPath.row].about
         let percentage = goals[indexPath.row].progress
