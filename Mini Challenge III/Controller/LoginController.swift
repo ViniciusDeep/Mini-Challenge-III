@@ -35,14 +35,14 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.pageIndicatorTintColor = .lightGray
-        pc.currentPageIndicatorTintColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
+        pc.currentPageIndicatorTintColor = .indicatorColor
         pc.numberOfPages = self.pages.count + 1
         return pc
     }()
     lazy var skipButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Skip", for: .normal)
-        button.setTitleColor(#colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1), for: .normal)
+        button.setTitleColor(Color.navTintBarColor, for: .normal)
         button.addTarget(self, action: #selector(skip), for: .touchUpInside)
         return button
     }()
@@ -54,7 +54,7 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
     lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Next", for: .normal)
-        button.setTitleColor(#colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1), for: .normal)
+        button.setTitleColor(Color.navTintBarColor, for: .normal)
         button.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
         return button
     }()
@@ -80,7 +80,7 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         observeKeyboardNotifications()
-        view.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        view.backgroundColor = .createGoalViewColor
         view.addSubview(collectionView)
         view.addSubview(pageControl)
         view.addSubview(skipButton)

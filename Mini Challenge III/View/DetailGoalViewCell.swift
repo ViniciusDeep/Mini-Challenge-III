@@ -17,7 +17,7 @@ class DetailGoalViewCell: UITableViewCell, ConfigurableView {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildViewHierarchy()
-        self.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        self.backgroundColor = .tableViewColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,7 +48,7 @@ class DetailGoalCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        self.backgroundColor = .tableViewColor
     }
     
     required init?(coder aDecoder: NSCoder) {

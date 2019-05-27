@@ -15,7 +15,7 @@ class RoundedButton: UIButton {
 		layer.borderWidth = 1.0
 		layer.borderColor = UIColor.white.cgColor
 		setTitleColor(UIColor.white, for: .normal)
-		self.backgroundColor = #colorLiteral(red: 0.2823529412, green: 0.4745098039, blue: 0.8431372549, alpha: 1)
+		self.backgroundColor = .buttonColor
 		translatesAutoresizingMaskIntoConstraints = false
 		heightAnchor.constraint(equalToConstant: 47.0).isActive = true
 	}
