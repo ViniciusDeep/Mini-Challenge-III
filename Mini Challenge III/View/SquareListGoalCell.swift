@@ -26,9 +26,9 @@ class SquareListGoalCell: UICollectionViewCell, Reusable {
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 40, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeEnd = 0
-        trackLayer.strokeColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1).cgColor
+        trackLayer.strokeColor = UIColor.trackLayerColor.cgColor
         trackLayer.lineWidth = 3
-        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        trackLayer.fillColor = UIColor.tableViewColor.cgColor
         return trackLayer
     }()
     fileprivate lazy var trackLayerGray: CAShapeLayer = {
@@ -36,9 +36,9 @@ class SquareListGoalCell: UICollectionViewCell, Reusable {
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: 50, y: 50), radius: 40, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeEnd = 1
-        trackLayer.strokeColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1).cgColor
+        trackLayer.strokeColor = UIColor.textsColor.cgColor
         trackLayer.lineWidth = 3
-        trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        trackLayer.fillColor = UIColor.tableViewColor.cgColor
         trackLayer.opacity = 0.4
         return trackLayer
     }()
@@ -52,7 +52,7 @@ class SquareListGoalCell: UICollectionViewCell, Reusable {
     override init(frame: CGRect) {
         super.init(frame: frame)
         buidViewHierarchy()
-        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.backgroundColor = .tableViewColor
         self.layer.cornerRadius = 8
     }
     required init?(coder aDecoder: NSCoder) {

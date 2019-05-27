@@ -38,24 +38,24 @@ class CircularProgressView: UIView {
 	
 	func setup() {
 		trackLayer = CAShapeLayer()
-		trackLayer.strokeColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1).cgColor
+		trackLayer.strokeColor = UIColor.trackLayerColor.cgColor
 		trackLayer.lineWidth = 3
-		trackLayer.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+		trackLayer.fillColor = UIColor.tableViewColor.cgColor
 		layer.addSublayer(trackLayer)
 		
 		trackLayerGray = CAShapeLayer()
 		trackLayerGray.strokeEnd = 1
-		trackLayerGray.strokeColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1).cgColor
+		trackLayerGray.strokeColor = UIColor.textsColor.cgColor
 		trackLayerGray.lineWidth = 3
 		trackLayerGray.opacity = 0.3
-		trackLayerGray.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+		trackLayerGray.fillColor = UIColor.tableViewColor.cgColor
 		layer.addSublayer(trackLayerGray)
 		
 		centerLabel = UILabel(frame: .zero)
 		centerLabel.translatesAutoresizingMaskIntoConstraints = false
 		centerLabel.textAlignment = .center
 		centerLabel.numberOfLines = 2
-        centerLabel.textColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 1)
+        centerLabel.textColor = .textsColor
 		addSubview(centerLabel)
 		
 		NSLayoutConstraint.activate([

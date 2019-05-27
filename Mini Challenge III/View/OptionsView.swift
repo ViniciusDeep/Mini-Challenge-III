@@ -34,7 +34,7 @@ class Header: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setupViews()
-        self.backgroundColor =  #colorLiteral(red: 0.9333333333, green: 0.9450980392, blue: 0.9607843137, alpha: 1)
+        self.backgroundColor =  .tableViewColor
     }
     
     required init?(coder aDecoder: NSCoder) {
