@@ -328,6 +328,8 @@
 			children = (
 				925F5E06229B112C002275EE /* Reusable */,
 				923D9383226E199E0006ED17 /* Constraints+UIView.swift */,
+				D7DFD467229C01A20070C33C /* UIFont+iWish.swift */,
+				D7DFD469229C02D60070C33C /* UIColor+iWish.swift */,
 				92CA2B5F2287425D000493F1 /* OptionsControllerExtension.swift */,
 				9240DA72228991E50094961A /* NSManagedObject+Extension.swift */,
 				9230DC86228E25BC00BF06B3 /* UIComponents+Extension.swift */,
@@ -340,8 +342,6 @@
 			children = (
 				923D938C226E1A8C0006ED17 /* UserDefaults+helpers.swift */,
 				923F98CC2280C6140099C000 /* GoalHelper.swift */,
-				D7DFD467229C01A20070C33C /* UIFont+iWish.swift */,
-				D7DFD469229C02D60070C33C /* UIColor+iWish.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
