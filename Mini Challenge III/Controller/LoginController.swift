@@ -27,10 +27,11 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
     let cellId = "cellId"
     let loginCellId = "loginCellId"
     let pages: [Page] = {
-        let firstPage = Page(title: "Planejamento", message: "Você poderá planejar sua vida de maneira geral, para uma vida mais feliz", imageName: "page1")
-        let secondPage = Page(title: "Controle", message: "Tap the More menu next to any book. Choose \"Send this Book\"", imageName: "page2")
-        let thirdPage = Page(title: "Aproveite", message: "Tap the More menu in the upper corner. Choose \"Send this Book\"", imageName: "page3")
-        return [firstPage, secondPage, thirdPage]
+        let firstPage = Page(title: "Smart", message: "This tutorial is meant to be Smart, so let's go", imageName: "page1")
+        let secondPage = Page(title: "Be Specific", message: "This tutorial was about Smart", imageName: "page2")
+        let thirdPage = Page(title: "Measurable", message: "I wrote this tutorial because i wanna to help your", imageName: "page3")
+        let quarterPage = Page(title: "Time Bound", message: "Exaclty ends now, so swipe right", imageName: "page3")
+        return [firstPage, secondPage, thirdPage,quarterPage]
     }()
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()

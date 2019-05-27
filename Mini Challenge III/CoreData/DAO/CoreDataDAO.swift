@@ -33,7 +33,6 @@ public class CoreDataDAO<Element: NSManagedObject>: DAO {
             try context.save()
         } catch {
             fatalError("This is one more error")
-            
         }
     }
     public func new() -> Element {
