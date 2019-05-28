@@ -33,7 +33,7 @@ class CustomTabBarController: UITabBarController{
     
     fileprivate func setNavigationTextColor(_ navigation: UINavigationController){
         navigation.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.appFont(with: 34, and: .extraBold)!]
-        navigation.navigationBar.titleTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.appFont(with: 34, and: .extraBold)!]
+        navigation.navigationBar.titleTextAttributes =  [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.appFont(with: 24, and: .extraBold)!]
 
     }
     
