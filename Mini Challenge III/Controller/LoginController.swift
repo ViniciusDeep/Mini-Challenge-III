@@ -27,50 +27,56 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
     let cellId = "cellId"
     let loginCellId = "loginCellId"
     let pages: [Page] = {
-        let firstPage = Page(title: "Planejamento", message: "Você poderá planejar sua vida de maneira geral, para uma vida mais feliz", imageName: "page1")
-        let secondPage = Page(title: "Controle", message: "Tap the More menu next to any book. Choose \"Send this Book\"", imageName: "page2")
-        let thirdPage = Page(title: "Aproveite", message: "Tap the More menu in the upper corner. Choose \"Send this Book\"", imageName: "page3")
-        return [firstPage, secondPage, thirdPage]
+        let firstPage = Page(title: "Smart", message: "This tutorial is to teach you a little about the smart and the application, so do not jump, only if it is your wish of course", imageName: "page1")
+        let secondPage = Page(title: "Be Specific", message: "Tutorial explaining how smart works showing an example and its application", imageName: "page2")
+        let thirdPage = Page(title: "Measurable", message: "Creating a tutorial with interactive screens of how smart really works and showing an example", imageName: "page3")
+        let quarterPage = Page(title: "Time Bound", message: "Exaclty ends now, so tap in finish to use the iWISH", imageName: "page4")
+        return [firstPage, secondPage, thirdPage,quarterPage]
     }()
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.pageIndicatorTintColor = .lightGray
         pc.currentPageIndicatorTintColor = .indicatorColor
-        pc.numberOfPages = self.pages.count + 1
+        pc.numberOfPages = self.pages.count
         return pc
     }()
     lazy var skipButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Skip", for: .normal)
+        button.titleLabel?.font = UIFont.appFont(with: 20, and: .extraBold)
         button.setTitleColor(Color.navTintBarColor, for: .normal)
         button.addTarget(self, action: #selector(skip), for: .touchUpInside)
         return button
     }()
     @objc func skip() {
         // we only need to lines to do this
-        pageControl.currentPage = pages.count - 1
+        pageControl.currentPage = pages.count
         nextPage()
     }
     lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Next", for: .normal)
         button.setTitleColor(Color.navTintBarColor, for: .normal)
+        button.titleLabel?.font = UIFont.appFont(with: 20, and: .extraBold)
         button.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
         return button
     }()
     @objc func nextPage() {
         //we are on the last page
-        if pageControl.currentPage == pages.count {
-            return
+        
+        if pageControl.currentPage == 3{
+            finishLoggingIn()
         }
         //second last page
-        if pageControl.currentPage == pages.count - 1 {
+        if pageControl.currentPage == pages.count {
             moveControlConstraintsOffScreen()
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.view.layoutIfNeeded()
             }, completion: nil)
         }
-        let indexPath = IndexPath(item: pageControl.currentPage + 1, section: 0)
+        
+        
+        let indexPath = IndexPath(item: pageControl.currentPage, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         pageControl.currentPage += 1
     }
@@ -112,8 +118,16 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
+        if self.pageControl.currentPage == 3 {
+            nextButton.setTitle("Finish", for: .normal)
+        } else {
+            nextButton.setTitle("Next", for: .normal)
+        }
     }
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if self.pageControl.currentPage == 3 {
+            nextButton.setTitle("Finish", for: .normal)
+        }
         let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
         pageControl.currentPage = pageNumber
         //we are on the last page
@@ -130,33 +144,40 @@ class LoginController: UIViewController, UICollectionViewDataSource, UICollectio
         }, completion: nil)
     }
     fileprivate func moveControlConstraintsOffScreen() {
+        if self.pageControl.currentPage == 3 {
+            nextButton.setTitle("Finish", for: .normal)
+        }
         pageControlBottomAnchor?.constant = 80
         skipButtonTopAnchor?.constant = -80
         nextButtonTopAnchor?.constant = -80
     }
     fileprivate func registerCells() {
         collectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.register(LoginCell.self, forCellWithReuseIdentifier: loginCellId)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pages.count + 1
+        return pages.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // we're rendering our last login cell
-        if indexPath.item == pages.count {
-            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath) as! LoginCell
-            loginCell.delegate = self
-            return loginCell
-        }
+       
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
         let page = pages[(indexPath as NSIndexPath).item]
+        
         cell.page = page
         return cell
     }
+    
+    var timer: Timer?
+    
     func finishLoggingIn() {
         UserDefaults.standard.setIsLoggedIn(value: true)
         UIApplication.shared.keyWindow?.rootViewController = CustomTabBarController()
-        dismiss(animated: true, completion: nil)
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
+            self.dismiss(animated: true, completion: nil)
+        })
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)

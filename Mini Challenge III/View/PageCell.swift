@@ -28,6 +28,7 @@ class PageCell: UICollectionViewCell {
             
             let attributedText = NSMutableAttributedString(string: page.title, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): color]))
             
+            
             attributedText.append(NSAttributedString(string: "\n\n\(page.message)", attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: 14), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): color])))
             
             let paragraphStyle = NSMutableParagraphStyle()
@@ -58,6 +59,7 @@ class PageCell: UICollectionViewCell {
     let textView: UITextView = {
         let tv = UITextView()
         tv.text = "SAMPLE TEXT FOR NOW"
+        tv.font = UIFont.appFont(with: 20, and: .extraBold)
         tv.isEditable = false
         tv.contentInset = UIEdgeInsets(top: 24, left: 0, bottom: 0, right: 0)
         return tv
