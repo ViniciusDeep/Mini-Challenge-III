@@ -53,15 +53,15 @@ class ResumeViewController: UIViewController {
     }
     
     @objc fileprivate func createFinishGoal() {
-        let alertController = UIAlertController(title: "Deseja iniciar a meta?", message: "Sua meta ainda não foi iniciada, você deseja iniciá-la?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Are you sure that you will start the goal?", message: "You Goal it's not started, start now?", preferredStyle: .alert)
         
-        let startGoalAction = UIAlertAction(title: "Sim", style: .default) { (_) in
+        let startGoalAction = UIAlertAction(title: "Yes", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
             self.createGoal(isStarted: true)
             print("That's ok here")
         }
         
-        let createGoalAction = UIAlertAction(title: "Não", style: .cancel)
+        let createGoalAction = UIAlertAction(title: "No", style: .cancel)
         {  (_) in
             self.createGoal(isStarted: false)
             self.dismiss(animated: true, completion: nil)

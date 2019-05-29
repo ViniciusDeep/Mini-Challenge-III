@@ -8,13 +8,13 @@
 import UIKit
 
 class ResumeView: UIView, ConfigurableView {
-    fileprivate let goalLabel = UILabel(text: "A minha meta é:", sizeFont: 20)
+    fileprivate let goalLabel = UILabel(text: "My goal is:", sizeFont: 20)
     public lazy var goalDescription = UILabel(text: "Tornar meu perfil da rede social Y famoso")
-    fileprivate lazy var howLabel = UILabel(text: "Com ela eu vou:", sizeFont: 20)
+    fileprivate lazy var howLabel = UILabel(text: "With her I go:", sizeFont: 20)
     public lazy var goalHow = UILabel (text: "Atingir X seguidores na minha rede social Y")
-    fileprivate lazy var whatINeed = UILabel(text: "Para concluí-la eu preciso:", sizeFont: 20)
+    fileprivate lazy var whatINeed = UILabel(text: "To conclude it I need:", sizeFont: 20)
     public lazy var goalNeeds = UILabel(text: "Postar diariamente conteúdos mais atrativos da atualidade.")
-    fileprivate lazy var when = UILabel(text: "E isso levará:", sizeFont: 20)
+    fileprivate lazy var when = UILabel(text: "And it will take:", sizeFont: 20)
     public lazy var goalWhen = UILabel(text: "2 Meses.")
     public lazy var createButton = UIButton(title: "Create")
     
@@ -23,6 +23,7 @@ class ResumeView: UIView, ConfigurableView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .white
         buildViewHierarchy()
+        setupFonts()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -40,6 +41,20 @@ class ResumeView: UIView, ConfigurableView {
         addSubview(createButton)
         setupConstraints()
     }
+    
+    
+    fileprivate func setupFonts () {
+        goalLabel.font = UIFont.appFont(with: 18, and: .extraBold)
+        goalDescription.font = UIFont.appFont(with: 18, and: .extraBold)
+        howLabel.font = UIFont.appFont(with: 18, and: .extraBold)
+        goalHow.font = UIFont.appFont(with: 18, and: .extraBold)
+        when.font = UIFont.appFont(with: 18, and: .extraBold)
+        goalWhen.font = UIFont.appFont(with: 18, and: .extraBold)
+        whatINeed.font = UIFont.appFont(with: 18, and: .extraBold)
+        goalNeeds.font = UIFont.appFont(with: 18, and: .extraBold)
+    }
+    
+    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             goalLabel.topAnchor.constraint(equalTo: self.topAnchor),

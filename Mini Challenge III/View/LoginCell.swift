@@ -11,7 +11,7 @@ import UIKit
 class LoginCell: UICollectionViewCell {
     
     let logoImageView: UIImageView = {
-        let image = UIImage(named: "logo")
+        let image = UIImage(named: "11")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         return imageView

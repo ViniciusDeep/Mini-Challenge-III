@@ -204,14 +204,20 @@ extension DetailGoalViewController: StepsViewDelegate {
 
 extension DetailGoalViewController: CreateStepDelegate {
 	func stepCreated(_ name: String?, _ description: String?) {
-		let stepDao = CoreDataDAO<StepCore>()
-		let step = stepDao.new()
-		step.name = name
-		step.about = description
-		step.isCompleted = false
-
-		goal?.addToSteps(step)
-		stepDao.insert(object: step)
+        if name != "" && description != "" {
+            let stepDao = CoreDataDAO<StepCore>()
+            let step = stepDao.new()
+            step.name = name
+            step.about = description
+            step.isCompleted = false
+            
+            goal?.addToSteps(step)
+            stepDao.insert(object: step)
+        } else {
+            let alert = UIAlertController(title: "Name and description was empty", message: "Set the right form to achieve your goal", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
 		
 		if let state = currentState {
 			if state == .withoutSteps {
